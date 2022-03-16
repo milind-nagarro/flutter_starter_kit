@@ -5,15 +5,17 @@ import 'package:flutter_starter_kit/ui/screen/article_detail_screen.dart';
 import 'package:flutter_starter_kit/ui/screen/article_list_screen.dart';
 import 'package:flutter_starter_kit/ui/screen/dashboard_screen.dart';
 import 'package:flutter_starter_kit/ui/screen/post_list_screen.dart';
+import 'package:flutter_starter_kit/ui/module/welcome/welcome_screen.dart';
 
 // Routes name and mapping to their corresponding screens
 const String dashboard = 'dashboard';
 const String articleList = 'articleList';
 const String articleDetails = 'articleDetails';
 const String posts = 'posts';
+const String welcome = 'welcome';
 
 // define initial route
-String get initialRoute => dashboard;
+String get initialRoute => welcome;
 
 // configuration for routing with parameters
 Route<dynamic> generateRoute(RouteSettings settings) {
@@ -28,6 +30,8 @@ Route<dynamic> generateRoute(RouteSettings settings) {
               ArticleDetailScreen(settings.arguments as ArticleEntity));
     case posts:
       return MaterialPageRoute(builder: (context) => const PostListScreen());
+    case welcome:
+      return MaterialPageRoute(builder: (context) => const WelcomeScreen());
     default:
       return MaterialPageRoute(
         builder: (context) => Scaffold(

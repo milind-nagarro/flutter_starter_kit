@@ -1,10 +1,7 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'colors.dart';
-
-
 
 class FABStyles {
   // Style for buttons throughout the app
@@ -190,8 +187,6 @@ class FABWidget {
       ),
     ],
   );
-
-
 
   static Widget smallTextButton(String title, {Function()? onPressed}) {
     return TextButton(onPressed: onPressed, child: Text(title));
