@@ -49,6 +49,9 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
 
+  # for matching UI on different resolution
+  flutter_screenutil: ^5.3.1
+
   flutter_localizations:
     sdk: flutter
   intl: ^0.17.0
