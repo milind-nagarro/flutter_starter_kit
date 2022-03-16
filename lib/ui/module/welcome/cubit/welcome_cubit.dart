@@ -1,5 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_starter_kit/app/resources/app_constants.dart';
+import 'package:flutter_starter_kit/app/app_constant.dart';
 
 import 'welcome_state.dart';
 

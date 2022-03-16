@@ -5,7 +5,6 @@ import 'dart:ui';
 const Color primaryColor = Color(0xff249f87);
 const Color primaryLightColor = Color(0xff0fd49a);
 
-
 const Color header = Color(0XFF051D4C);
 const Color subHeader = Color(0XFF4E5F74);
 const Color hintLabel = Color(0XFF1967FD);

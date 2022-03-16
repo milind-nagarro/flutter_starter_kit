@@ -22,7 +22,7 @@ class DashboardScreen extends StatelessWidget {
         children: [
           ElevatedButton(
               onPressed: () => locator<AppRouter>().showArticleListScreen(),
-              child: Text(AppLocalizations.of(context).articles)),
+              child: Text(AppLocalizations.of(context).register)),
           ElevatedButton(
               onPressed: () => locator<AppRouter>().showPostListScreen(),
               child: Text(AppLocalizations.of(context).posts)),

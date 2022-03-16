@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_starter_kit/app/resources/app_constants.dart';
 import 'package:flutter_starter_kit/app/resources/assets.dart';
 import 'package:flutter_starter_kit/app/resources/colors.dart';
 import 'package:flutter_starter_kit/app/resources/style.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+import '../../../app/app_constant.dart';
 import 'bloc/login_bloc.dart';
 import 'cubit/remember_me_cubit.dart';
 
