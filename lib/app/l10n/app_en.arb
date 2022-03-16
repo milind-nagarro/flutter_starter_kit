@@ -1,0 +1,9 @@
+{
+    "appName": "Flutter Starter Kit",
+    "dashboard" : "Dashboard",
+    "articles" : "Articles",
+    "articleDetail" : "Article Detail",
+    "posts" : "Posts",
+    "genericNetworkError" : "Something went wrong, please try again!",
+    "publishedOn" : "Published on"
+}

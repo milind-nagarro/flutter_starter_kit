@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "173584203119",
+    "project_id": "flutterstarterkit",
+    "storage_bucket": "flutterstarterkit.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:173584203119:android:00cc74428d93331f92bc9a",
+        "android_client_info": {
+          "package_name": "com.nagarro.flutter.flutter_starter_kit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "173584203119-ufv078e7qbvpquhdk318pp0tu55foc93.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBBDuglEShh9xEF22OKKRG5E7SA_GNODio"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "173584203119-ufv078e7qbvpquhdk318pp0tu55foc93.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

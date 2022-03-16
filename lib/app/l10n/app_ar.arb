@@ -1,0 +1,9 @@
+{
+    "appName": "طقم Flutter Starter Kit",
+        "dashboard" : "لوحة القيادة",
+        "articles" : "مقالات",
+        "articleDetail" : "تفاصيل المادة",
+        "posts" : "المشاركات",
+        "genericNetworkError" : "حدث خطأ ما. أعد المحاولة من فضلك!",
+        "publishedOn" : "نشرت في"
+}
