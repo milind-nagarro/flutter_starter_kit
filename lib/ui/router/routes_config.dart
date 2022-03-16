@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_starter_kit/domain/entity/article_entity.dart';
+import 'package:flutter_starter_kit/ui/module/login/login_screen.dart';
 import 'package:flutter_starter_kit/ui/screen/article_detail_screen.dart';
 import 'package:flutter_starter_kit/ui/screen/article_list_screen.dart';
 import 'package:flutter_starter_kit/ui/screen/dashboard_screen.dart';
@@ -13,6 +13,7 @@ const String articleList = 'articleList';
 const String articleDetails = 'articleDetails';
 const String posts = 'posts';
 const String welcome = 'welcome';
+const String loginScreen = 'login';
 
 // define initial route
 String get initialRoute => welcome;
@@ -32,6 +33,8 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => const PostListScreen());
     case welcome:
       return MaterialPageRoute(builder: (context) => const WelcomeScreen());
+    case loginScreen:
+      return MaterialPageRoute(builder: (context) => const LoginScreen());
     default:
       return MaterialPageRoute(
         builder: (context) => Scaffold(

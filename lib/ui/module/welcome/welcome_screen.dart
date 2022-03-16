@@ -6,8 +6,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_starter_kit/app/app_config.dart';
 import 'package:flutter_starter_kit/app/di/locator.dart';
 import 'package:flutter_starter_kit/app/resources/app_constants.dart';
+import 'package:flutter_starter_kit/app/resources/assets.dart';
 import 'package:flutter_starter_kit/app/resources/colors.dart';
 import 'package:flutter_starter_kit/app/resources/style.dart';
+import 'package:flutter_starter_kit/ui/router/app_router.dart';
 import 'package:flutter_starter_kit/ui/screen/common_widget/page_indicator.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -34,7 +36,7 @@ class WelcomeScreen extends StatelessWidget {
       children: [
         FABWidget.appButton(
           AppLocalizations.of(context).login,
-          onPressed: () => {}, //controller.navigateToLogin()},
+          onPressed: () => {locator<AppRouter>().showLoginScreen()},
           bgColor: Colors.white,
           minSize: const Size(btnWidth, btnHeight),
           textColor: primaryLabelColor,
@@ -62,7 +64,7 @@ class WelcomeScreen extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Image.asset('assets/images/topLogo.png'),
+                Image.asset(topLogo),
                 TextButton(
                     style: ElevatedButton.styleFrom(
                       primary: Colors.transparent,
@@ -110,7 +112,7 @@ class WelcomeScreen extends StatelessWidget {
           height: constraints.maxHeight,
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage('assets/images/bg$i.jpg'),
+              image: AssetImage(welcomeImage(i)),
               fit: BoxFit.cover,
             ),
           ),
