@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_starter_kit/app/app_config.dart';
-import 'package:flutter_starter_kit/app/resources/app_constants.dart';
+import 'package:flutter_starter_kit/app/app_constant.dart';
 import 'package:flutter_starter_kit/app/resources/theme.dart' as themes;
 import 'package:flutter_starter_kit/ui/module/welcome/cubit/welcome_cubit.dart';
 import 'package:flutter_starter_kit/ui/router/routes_config.dart' as routes;

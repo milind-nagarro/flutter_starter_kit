@@ -2,16 +2,16 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_starter_kit/app/app_config.dart';
+import 'package:flutter_starter_kit/app/app_constant.dart';
 import 'package:flutter_starter_kit/app/di/locator.dart';
-import 'package:flutter_starter_kit/app/resources/app_constants.dart';
 import 'package:flutter_starter_kit/app/resources/assets.dart';
 import 'package:flutter_starter_kit/app/resources/colors.dart';
 import 'package:flutter_starter_kit/app/resources/style.dart';
 import 'package:flutter_starter_kit/ui/router/app_router.dart';
 import 'package:flutter_starter_kit/ui/screen/common_widget/page_indicator.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'cubit/welcome_cubit.dart';
 import 'cubit/welcome_state.dart';
@@ -46,7 +46,8 @@ class WelcomeScreen extends StatelessWidget {
           child: BackdropFilter(
             filter: ImageFilter.blur(sigmaX: 0.0, sigmaY: 0.0),
             child: FABWidget.appButton(AppLocalizations.of(context).register,
-                onPressed: () => {}, //controller.navigateToRegister()},
+                onPressed: () =>
+                    {locator<AppRouter>().showRegisterMobileScreen()},
                 bgColor: Colors.white.withOpacity(0.15)),
           ),
         ),

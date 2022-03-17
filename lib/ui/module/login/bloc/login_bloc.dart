@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:flutter_starter_kit/app/resources/app_constants.dart';
+import 'package:flutter_starter_kit/app/app_constant.dart';
 import 'package:meta/meta.dart';
 
 part 'login_event.dart';
