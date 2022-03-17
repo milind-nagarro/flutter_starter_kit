@@ -35,10 +35,6 @@ class DashboardScreen extends StatelessWidget {
 
   void _swapLocale() {
     final appConfigHandler = locator<AppConfigHandler>();
-    final newLocale =
-        appConfigHandler.configuration.currentLocale.languageCode == 'en'
-            ? const Locale('ar')
-            : const Locale('en');
-    appConfigHandler.setLocale(newLocale);
+    appConfigHandler.swapLocale();
   }
 }

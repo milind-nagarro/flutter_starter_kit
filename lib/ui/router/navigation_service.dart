@@ -19,6 +19,12 @@ class NavigationService<T, U> {
         routeName,
         arguments: args,
       );
+  Future<T?> pushReplacementNoAnimation(Widget nextScreen) async =>
+      navigatorKey.currentState?.pushReplacement<T, U>(PageRouteBuilder(
+        pageBuilder: (context, animation1, animation2) => nextScreen,
+        transitionDuration: Duration.zero,
+        reverseTransitionDuration: Duration.zero,
+      ));
 
   Future<T?> pushNamedAndRemoveUntil(
     String routeName, {

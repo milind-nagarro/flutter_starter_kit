@@ -4,10 +4,11 @@ const welcomeScreenTitles = <String>[
   'welcome_msg_3'
 ];
 enum AppLanguage {
-  arabic,
   english,
+  arabic,
 }
-
+const localeEn = 'en';
+const localeAr = 'ar';
 const uaeCode = '+971 ';
 const arabic_label = 'ةيبرعلا';
 const english_label = 'English';

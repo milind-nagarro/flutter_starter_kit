@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_starter_kit/domain/entity/article_entity.dart';
 import 'package:flutter_starter_kit/ui/module/login/login_screen.dart';
+import 'package:flutter_starter_kit/ui/module/splash/splash.dart';
 import 'package:flutter_starter_kit/ui/module/welcome/welcome_screen.dart';
 import 'package:flutter_starter_kit/ui/screen/article_detail_screen.dart';
 import 'package:flutter_starter_kit/ui/screen/article_list_screen.dart';
@@ -15,14 +16,14 @@ const String dashboard = 'dashboard';
 const String articleList = 'articleList';
 const String articleDetails = 'articleDetails';
 const String posts = 'posts';
-const String welcome = 'welcome';
 const String loginScreen = 'login';
 const String registerMobile = 'register_mobile';
 const String registerEmail = 'register_email';
 const String setupConfirmPin = 'setupConfirmPin';
+const String splash = 'splash';
 
 // define initial route
-String get initialRoute => welcome;
+String get initialRoute => splash;
 
 // configuration for routing with parameters
 Route<dynamic> generateRoute(RouteSettings settings) {
@@ -39,15 +40,17 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => const PostListScreen());
     case setupConfirmPin:
       return MaterialPageRoute(
-          builder: (context) => SetupConfirmPinPage(isConfirmation: false,));
-    case welcome:
-      return MaterialPageRoute(builder: (context) => const WelcomeScreen());
+          builder: (context) => SetupConfirmPinPage(
+                isConfirmation: false,
+              ));
     case loginScreen:
       return MaterialPageRoute(builder: (context) => const LoginScreen());
     case registerMobile:
       return MaterialPageRoute(builder: (context) => const Register(true));
     case registerEmail:
       return MaterialPageRoute(builder: (context) => const Register(false));
+    case splash:
+      return MaterialPageRoute(builder: (context) => const SplashScreen());
     default:
       return MaterialPageRoute(
         builder: (context) => Scaffold(

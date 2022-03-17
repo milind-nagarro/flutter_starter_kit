@@ -1,5 +1,7 @@
 import 'package:flutter/widgets.dart';
+import 'package:flutter_starter_kit/app/app_constant.dart';
 import 'package:flutter_starter_kit/domain/entity/article_entity.dart';
+import 'package:flutter_starter_kit/ui/module/welcome/welcome_screen.dart';
 import 'package:flutter_starter_kit/ui/router/navigation_service.dart';
 import 'package:flutter_starter_kit/ui/router/routes_config.dart' as routes;
 import 'package:injectable/injectable.dart';
@@ -34,5 +36,11 @@ class AppRouter {
 
   void showRegisterEmailScreen() {
     _navService.pushNamed(routes.registerEmail);
+  }
+
+  void showWelcomeAfterSplash({required AppLanguage language}) {
+    _navService.pushReplacementNoAnimation(WelcomeScreen(
+      lang: language,
+    ));
   }
 }
