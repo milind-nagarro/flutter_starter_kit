@@ -1,11 +1,8 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../ui/screen/common_widget/pinput/pinput.dart';
 import 'colors.dart';
-
-
 
 class FABStyles {
   // Style for buttons throughout the app

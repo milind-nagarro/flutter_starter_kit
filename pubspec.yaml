@@ -55,6 +55,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   intl: ^0.17.0
+  equatable: ^2.0.3
 
 dev_dependencies:
   flutter_test:
@@ -86,8 +87,32 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/
-
+    - assets/images/bg1.jpg
+    - assets/images/2.0x/bg1.jpg
+    - assets/images/3.0x/bg1.jpg
+    - assets/images/bg2.jpg
+    - assets/images/2.0x/bg2.jpg
+    - assets/images/3.0x/bg2.jpg
+    - assets/images/bg3.jpg
+    - assets/images/2.0x/bg3.jpg
+    - assets/images/3.0x/bg3.jpg
+    - assets/images/login.png
+    - assets/images/2.0x/login.png
+    - assets/images/3.0x/login.png
+    - assets/images/register.png
+    - assets/images/2.0x/register.png
+    - assets/images/3.0x/register.png
+    - assets/images/topLogo.png
+    - assets/images/2.0x/topLogo.png
+    - assets/images/3.0x/topLogo.png
+    - assets/images/face_id.png
+    - assets/images/2.0x/face_id.png
+    - assets/images/3.0x/face_id.png
+    - assets/images/error.png
+    - assets/images/2.0x/error.png
+    - assets/images/3.0x/error.png
+    - assets/images/error_red.png
+    - assets/images/black_cross.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 
@@ -113,3 +138,12 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+  fonts:
+    - family: SF Pro
+      fonts:
+        - asset: assets/fonts/SF-Pro.ttf
+        - asset: assets/fonts/SFProText-Regular.ttf
+    - family: Graphik
+      fonts:
+        - asset: assets/fonts/GraphikRegular.otf
+        - asset: assets/fonts/GraphikSemibold.otf

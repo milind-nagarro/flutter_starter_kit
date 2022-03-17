@@ -23,4 +23,16 @@ class AppRouter {
   void showPostListScreen() {
     _navService.pushNamed(routes.posts);
   }
+
+  void showLoginScreen() {
+    _navService.pushNamed(routes.loginScreen);
+  }
+
+  void showRegisterMobileScreen() {
+    _navService.pushNamed(routes.registerMobile);
+  }
+
+  void showRegisterEmailScreen() {
+    _navService.pushNamed(routes.registerEmail);
+  }
 }
