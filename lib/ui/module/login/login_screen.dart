@@ -7,6 +7,8 @@ import 'package:flutter_starter_kit/app/resources/colors.dart';
 import 'package:flutter_starter_kit/app/resources/style.dart';
 
 import '../../../app/app_constant.dart';
+import '../../../app/di/locator.dart';
+import '../../router/app_router.dart';
 import 'bloc/login_bloc.dart';
 import 'cubit/remember_me_cubit.dart';
 
@@ -147,7 +149,6 @@ class LoginScreen extends StatelessWidget {
   }
 
   void nextScreen() {
-    // final LoginScreenController controller = Get.find();
-    // controller.nextScreen();
+    locator<AppRouter>().showSetupPin();
   }
 }

@@ -42,6 +42,7 @@ class StarterKitApp extends StatelessWidget {
           ),
         ),
       ),
+      designSize: const Size(375, 812),
     );
   }
 }

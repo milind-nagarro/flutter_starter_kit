@@ -43,4 +43,12 @@ class AppRouter {
       lang: language,
     ));
   }
+
+  void showSetupPin() {
+    _navService.pushNamed(routes.setupPin);
+  }
+
+  void showConfirmPin(String pinData) {
+    _navService.pushNamed(routes.confirmPin, args: pinData);
+  }
 }
