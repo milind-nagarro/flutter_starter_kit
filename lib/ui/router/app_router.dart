@@ -35,4 +35,12 @@ class AppRouter {
   void showRegisterEmailScreen() {
     _navService.pushNamed(routes.registerEmail);
   }
+
+  void showSetupPin() {
+    _navService.pushNamed(routes.setupPin);
+  }
+
+  void showConfirmPin(String pinData) {
+    _navService.pushNamed(routes.confirmPin, args: pinData);
+  }
 }

@@ -6,9 +6,9 @@ import 'package:flutter_starter_kit/ui/screen/article_detail_screen.dart';
 import 'package:flutter_starter_kit/ui/screen/article_list_screen.dart';
 import 'package:flutter_starter_kit/ui/screen/dashboard_screen.dart';
 import 'package:flutter_starter_kit/ui/screen/post_list_screen.dart';
-import 'package:flutter_starter_kit/ui/screen/setup_confirm_pin/setup_confirm_pin_screen.dart';
 
 import '../module/registration/register.dart';
+import '../module/setup_confirm_pin/setup_confirm_pin_screen.dart';
 
 // Routes name and mapping to their corresponding screens
 const String dashboard = 'dashboard';
@@ -19,7 +19,8 @@ const String welcome = 'welcome';
 const String loginScreen = 'login';
 const String registerMobile = 'register_mobile';
 const String registerEmail = 'register_email';
-const String setupConfirmPin = 'setupConfirmPin';
+const String setupPin = 'setupPin';
+const String confirmPin = 'confirmPin';
 
 // define initial route
 String get initialRoute => welcome;
@@ -37,9 +38,13 @@ Route<dynamic> generateRoute(RouteSettings settings) {
               ArticleDetailScreen(settings.arguments as ArticleEntity));
     case posts:
       return MaterialPageRoute(builder: (context) => const PostListScreen());
-    case setupConfirmPin:
+    case setupPin:
       return MaterialPageRoute(
           builder: (context) => SetupConfirmPinPage(isConfirmation: false,));
+    case confirmPin:
+      return MaterialPageRoute(
+        builder: (context) => SetupConfirmPinPage(isConfirmation: true, pinData: settings.arguments as String)
+      );
     case welcome:
       return MaterialPageRoute(builder: (context) => const WelcomeScreen());
     case loginScreen:

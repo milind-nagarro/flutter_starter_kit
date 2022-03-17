@@ -22,35 +22,33 @@ class StarterKitApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-        builder: () => MultiBlocProvider(
-                providers: [
-                  BlocProvider<WelcomeCubit>(
-                    create: (BuildContext context) => WelcomeCubit(),
-                  ),
-                  BlocProvider<LanguageCubit>(
-                    create: (BuildContext context) =>
-                        LanguageCubit(AppLanguage.english),
-                  ),
-                ],
-                child: ValueListenableBuilder<AppConfig>(
-                    valueListenable:
-                        locator<AppConfigHandler>().appConfigChangeNotifier,
-                    builder: (_, config, __) => MaterialApp(
-                          title: 'Flutter Starter Kit',
-                          localizationsDelegates:
-                              AppLocalizations.localizationsDelegates,
-                          supportedLocales: AppLocalizations.supportedLocales,
-                          locale: config.currentLocale,
-                          theme: config.currentTheme,
-                          darkTheme: themes.dark,
-                          navigatorKey: locator<AppRouter>().navigatorKey,
-                          onGenerateRoute: routes.generateRoute,
-                          initialRoute: routes.initialRoute,
-                        ))));
-
-    //////////
-
-    //////////
-    ;
+      builder: () => MultiBlocProvider(
+          providers: [
+            BlocProvider<WelcomeCubit>(
+              create: (BuildContext context) => WelcomeCubit(),
+            ),
+            BlocProvider<LanguageCubit>(
+              create: (BuildContext context) =>
+                  LanguageCubit(AppLanguage.english),
+            ),
+          ],
+          child: ValueListenableBuilder<AppConfig>(
+              valueListenable:
+                  locator<AppConfigHandler>().appConfigChangeNotifier,
+              builder: (_, config, __) => MaterialApp(
+                    title: 'Flutter Starter Kit',
+                    localizationsDelegates:
+                        AppLocalizations.localizationsDelegates,
+                    supportedLocales: AppLocalizations.supportedLocales,
+                    locale: config.currentLocale,
+                    theme: config.currentTheme,
+                    /*darkTheme: themes.dark,*/
+                    navigatorKey: locator<AppRouter>().navigatorKey,
+                    onGenerateRoute: routes.generateRoute,
+                    initialRoute: routes.initialRoute,
+                    debugShowCheckedModeBanner: false,
+                  ))),
+      designSize: const Size(375, 812),
+    );
   }
 }
