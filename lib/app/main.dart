@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_starter_kit/app/app_config.dart';
 import 'package:flutter_starter_kit/app/resources/theme.dart' as themes;
 import 'package:flutter_starter_kit/ui/router/routes_config.dart' as routes;
@@ -17,18 +18,21 @@ class StarterKitApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ValueListenableBuilder<AppConfig>(
+    return ScreenUtilInit(
+        builder: () => ValueListenableBuilder<AppConfig>(
         valueListenable: locator<AppConfigHandler>().appConfigChangeNotifier,
         builder: (_, config, __) => MaterialApp(
-              title: 'Flutter Starter Kit',
-              localizationsDelegates: AppLocalizations.localizationsDelegates,
-              supportedLocales: AppLocalizations.supportedLocales,
-              locale: config.currentLocale,
-              theme: config.currentTheme,
-              darkTheme: themes.dark,
-              navigatorKey: locator<AppRouter>().navigatorKey,
-              onGenerateRoute: routes.generateRoute,
-              initialRoute: routes.initialRoute,
-            ));
+                title: 'Flutter Starter Kit',
+                localizationsDelegates: AppLocalizations.localizationsDelegates,
+                supportedLocales: AppLocalizations.supportedLocales,
+                locale: config.currentLocale,
+                theme: config.currentTheme,
+                navigatorKey: locator<AppRouter>().navigatorKey,
+                onGenerateRoute: routes.generateRoute,
+                initialRoute: routes.initialRoute,
+              ),
+        ),
+      designSize: const Size(375, 812),
+    );
   }
 }

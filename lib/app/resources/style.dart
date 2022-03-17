@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../ui/screen/common_widget/pinput/pinput.dart';
 import 'colors.dart';
 
 
@@ -124,24 +125,15 @@ class FABWidget {
     );
   }
 
-  /*
   static PinTheme defaultPinTheme = PinTheme(
     width: 44.w,
     height: 56.h,
-    textStyle: GoogleFonts.poppins(
-      fontSize: 22.sp,
-      color: Colors.black,
-    ),
     decoration: const BoxDecoration(),
   );
 
   static PinTheme submittedPinTheme = PinTheme(
     width: 44.w,
     height: 56.h,
-    textStyle: GoogleFonts.poppins(
-      fontSize: 22.sp,
-      color: Colors.black,
-    ),
     decoration: const BoxDecoration(
         border: Border(bottom: BorderSide(width: 3, color: Colors.black26))),
   );
@@ -149,10 +141,6 @@ class FABWidget {
   static PinTheme focusedPinTheme = PinTheme(
     width: 44.w,
     height: 56.h,
-    textStyle: GoogleFonts.poppins(
-      fontSize: 22.sp,
-      color: borderColor,
-    ),
     decoration: BoxDecoration(
       color: cursorColor,
       shape: BoxShape.rectangle,
@@ -169,14 +157,9 @@ class FABWidget {
   static PinTheme errorPinTheme = PinTheme(
     width: 44.w,
     height: 56.h,
-    textStyle: GoogleFonts.poppins(
-      fontSize: 22.sp,
-      color: Colors.red,
-    ),
     decoration: const BoxDecoration(
         border: Border(bottom: BorderSide(width: 3, color: errorColor))),
   );
-  */
 
   static Column preFilledWidget = Column(
     mainAxisAlignment: MainAxisAlignment.end,
@@ -190,8 +173,6 @@ class FABWidget {
       ),
     ],
   );
-
-
 
   static Widget smallTextButton(String title, {Function()? onPressed}) {
     return TextButton(onPressed: onPressed, child: Text(title));

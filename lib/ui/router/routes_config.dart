@@ -5,15 +5,17 @@ import 'package:flutter_starter_kit/ui/screen/article_detail_screen.dart';
 import 'package:flutter_starter_kit/ui/screen/article_list_screen.dart';
 import 'package:flutter_starter_kit/ui/screen/dashboard_screen.dart';
 import 'package:flutter_starter_kit/ui/screen/post_list_screen.dart';
+import 'package:flutter_starter_kit/ui/screen/setup_confirm_pin/setup_confirm_pin_screen.dart';
 
 // Routes name and mapping to their corresponding screens
 const String dashboard = 'dashboard';
 const String articleList = 'articleList';
 const String articleDetails = 'articleDetails';
 const String posts = 'posts';
+const String setupConfirmPin = 'setupConfirmPin';
 
 // define initial route
-String get initialRoute => dashboard;
+String get initialRoute => setupConfirmPin;
 
 // configuration for routing with parameters
 Route<dynamic> generateRoute(RouteSettings settings) {
@@ -28,6 +30,9 @@ Route<dynamic> generateRoute(RouteSettings settings) {
               ArticleDetailScreen(settings.arguments as ArticleEntity));
     case posts:
       return MaterialPageRoute(builder: (context) => const PostListScreen());
+    case setupConfirmPin:
+      return MaterialPageRoute(
+          builder: (context) => SetupConfirmPinPage(isConfirmation: false,));
     default:
       return MaterialPageRoute(
         builder: (context) => Scaffold(
