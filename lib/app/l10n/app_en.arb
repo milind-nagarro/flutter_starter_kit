@@ -36,6 +36,7 @@
       "otp_expire_msg": "Your code will expire in ",
       "resend_code": "Resend code",
       "your_otp": "Your OTP",
+      "otp_expired":"Code is invalid or expired",
 
 
       "set_pin": "Set PIN",

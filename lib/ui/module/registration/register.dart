@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_starter_kit/app/di/locator.dart';
+import 'package:flutter_starter_kit/ui/router/app_router.dart';
+import 'package:flutter_starter_kit/ui/router/routes_config.dart' as routes;
 
 import '../../../app/app_constant.dart';
 import '../../../app/resources/assets.dart';
@@ -17,7 +20,7 @@ class Register extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    RegistrationBloc registrationBloc = RegistrationBloc();
+    RegistrationBloc registrationBloc = RegistrationBloc(isMobile);
 
     return Scaffold(
         appBar: FABWidget.appTopBar(AppLocalizations.of(context).register),

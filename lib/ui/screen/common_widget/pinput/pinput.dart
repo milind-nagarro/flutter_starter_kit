@@ -1,28 +1,21 @@
 import 'dart:ui';
+
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/gestures.dart';
-
-part 'pinput_state.dart';
-
-part 'utils/enums.dart';
-
-part 'utils/constants.dart';
-
-part 'widgets/widgets.dart';
 
 part 'models/pin_theme.dart';
-
+part 'pinput_state.dart';
+part 'utils/constants.dart';
+part 'utils/enums.dart';
 part 'utils/extensions.dart';
-
-part 'widgets/_pin_item.dart';
-
 part 'utils/pinput_utils_mixin.dart';
-
+part 'widgets/_pin_item.dart';
 part 'widgets/_pinput_selection_gesture_detector_builder.dart';
+part 'widgets/widgets.dart';
 
 class Pinput extends StatefulWidget {
   const Pinput({

@@ -60,11 +60,10 @@ class FABStyles {
       fontFamily: 'SF Pro');
 
   static final TextStyle errorLabelStyle = TextStyle(
-    fontSize: 15.sp,
-    fontWeight: FontWeight.w400,
-    color: alertRed,
-    fontFamily: 'SF Pro'
-  );
+      fontSize: 15.sp,
+      fontWeight: FontWeight.w400,
+      color: alertRed,
+      fontFamily: 'SF Pro');
 
   static final appThemeData = ThemeData(
     // primarySwatch: Colors.green,

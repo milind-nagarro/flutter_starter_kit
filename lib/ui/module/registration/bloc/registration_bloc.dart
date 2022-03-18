@@ -13,13 +13,13 @@ part 'registration_state.dart';
 
 /// responsible for reacting to user interactions in login screen & handling validation and login action
 class RegistrationBloc extends Bloc<RegistrationEvent, RegistrationState> {
-  RegistrationBloc() : super(const RegistrationState()) {
-    on<ValueUpdated>(_onPhoneNumberChanged);
-    on<NextPressed>(_onLoginSubmitted);
+  final bool isMobile;
+  RegistrationBloc(this.isMobile) : super(const RegistrationState()) {
+    on<ValueUpdated>(_onValueChanged);
+    on<NextPressed>(_onNextPressed);
   }
 
-  void _onPhoneNumberChanged(
-      ValueUpdated event, Emitter<RegistrationState> emit) {
+  void _onValueChanged(ValueUpdated event, Emitter<RegistrationState> emit) {
     final value = event.value;
     if (value.isEmpty) {
       emit(RegistrationState(
@@ -30,14 +30,14 @@ class RegistrationBloc extends Bloc<RegistrationEvent, RegistrationState> {
     }
   }
 
-  void _onLoginSubmitted(NextPressed event, Emitter<RegistrationState> emit) {
+  void _onNextPressed(NextPressed event, Emitter<RegistrationState> emit) {
     emit(RegistrationState(
         value: state.value, validationStatus: state.validationStatus));
     final value = state.value;
     emit(RegistrationState(
         value: state.value,
         validationStatus: state.validationStatus,
-        registrationStatus: value == '555555555'
+        registrationStatus: value == (isMobile ? '555555555' : 'test@test.com')
             ? ValidationState.valid
             : ValidationState.invalid));
   }
@@ -60,6 +60,9 @@ class RegistrationBloc extends Bloc<RegistrationEvent, RegistrationState> {
   }
 
   navigateToNextScreen() {
-    locator<AppRouter>().showRegisterEmailScreen();
+    locator<AppRouter>().showVerificationScreen([
+      isMobile,
+      isMobile ? uaeCode + " " + state.value.toString() : state.value
+    ]);
   }
 }

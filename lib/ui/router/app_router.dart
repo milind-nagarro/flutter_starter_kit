@@ -34,8 +34,10 @@ class AppRouter {
     _navService.pushNamed(routes.registerMobile);
   }
 
-  void showRegisterEmailScreen() {
-    _navService.pushNamed(routes.registerEmail);
+  void showRegisterEmailScreen({bool isReplace = false}) {
+    isReplace
+        ? _navService.pushReplacementNamed(routes.registerEmail)
+        : _navService.pushNamed(routes.registerEmail);
   }
 
   void showWelcomeAfterSplash({required AppLanguage language}) {
@@ -54,5 +56,13 @@ class AppRouter {
 
   void showVerifyPin() {
     _navService.pushNamed(routes.verifyPin);
+  }
+
+  void showVerificationScreen(List<dynamic> args) {
+    _navService.pushNamed(routes.verification, args: args);
+  }
+
+  void goBack() {
+    _navService.goBack();
   }
 }
