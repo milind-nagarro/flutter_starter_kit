@@ -71,6 +71,7 @@
       "type_pin_number": "Type your PIN Number",
       "forgot_your_pin": "Forgot your PIN?",
       "invalid_pin_number": "Invalid PIN number",
+      "pin_does_not_match": "The PIN does not match. Please enter the same PIN as before.",
 
 
       "error_message": "Error Message",

@@ -59,6 +59,13 @@ class FABStyles {
       color: hintLabel,
       fontFamily: 'SF Pro');
 
+  static final TextStyle errorLabelStyle = TextStyle(
+    fontSize: 15.sp,
+    fontWeight: FontWeight.w400,
+    color: alertRed,
+    fontFamily: 'SF Pro'
+  );
+
   static final appThemeData = ThemeData(
     // primarySwatch: Colors.green,
     colorScheme: ColorScheme.fromSwatch()
@@ -125,12 +132,14 @@ class FABWidget {
   static PinTheme defaultPinTheme = PinTheme(
     width: 44.w,
     height: 56.h,
+    textStyle: TextStyle(color: Colors.black, fontSize: 32.sp),
     decoration: const BoxDecoration(),
   );
 
   static PinTheme submittedPinTheme = PinTheme(
     width: 44.w,
     height: 56.h,
+    textStyle: TextStyle(color: Colors.black, fontSize: 32.sp),
     decoration: const BoxDecoration(
         border: Border(bottom: BorderSide(width: 3, color: Colors.black26))),
   );
@@ -138,6 +147,7 @@ class FABWidget {
   static PinTheme focusedPinTheme = PinTheme(
     width: 44.w,
     height: 56.h,
+    textStyle: TextStyle(color: Colors.black, fontSize: 32.sp),
     decoration: BoxDecoration(
       color: cursorColor,
       shape: BoxShape.rectangle,
@@ -154,6 +164,7 @@ class FABWidget {
   static PinTheme errorPinTheme = PinTheme(
     width: 44.w,
     height: 56.h,
+    textStyle: TextStyle(color: alertRed, fontSize: 32.sp),
     decoration: const BoxDecoration(
         border: Border(bottom: BorderSide(width: 3, color: errorColor))),
   );

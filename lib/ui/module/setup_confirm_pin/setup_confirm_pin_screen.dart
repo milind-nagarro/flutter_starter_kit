@@ -59,7 +59,6 @@ class SetupConfirmPinPage extends StatelessWidget {
                     child: Pinput(
                   length: 4,
                   pinAnimationType: PinAnimationType.slide,
-                  pinputAutovalidateMode: PinputAutovalidateMode.onSubmit,
                   controller: textController,
                   focusNode: focusNode,
                   obscureText: true,
@@ -79,14 +78,9 @@ class SetupConfirmPinPage extends StatelessWidget {
                       : state.validationState == ValidationState.invalid
                           ? true
                           : false,
-                  errorText: isConfirmation &&
-                          state.validationState == ValidationState.invalid
-                      ? AppLocalizations.of(context).invalid_pin_number
-                      : state.validationState == ValidationState.invalid
-                          ? AppLocalizations.of(context).invalid_pin_number
-                          : null,
                   obscuringCharacter: '*',
                   errorPinTheme: FABWidget.errorPinTheme,
+                  errorTextStyle: const TextStyle(color: alertRed),
                   defaultPinTheme: FABWidget.defaultPinTheme,
                   showCursor: false,
                   focusedPinTheme: FABWidget.focusedPinTheme,
@@ -96,6 +90,20 @@ class SetupConfirmPinPage extends StatelessWidget {
                           : FABWidget.preFilledWidget,
                   submittedPinTheme: FABWidget.submittedPinTheme,
                 )),
+                SizedBox(
+                  height: 19.h,
+                ),
+                Visibility(
+                    visible: isConfirmation &&
+                        state.validationState == ValidationState.invalid,
+                    child: Text(AppLocalizations.of(context).pin_does_not_match,
+                        style: FABStyles.errorLabelStyle)),
+                Visibility(
+                    visible: state.validationState == ValidationState.invalid,
+                    child: Text(
+                      AppLocalizations.of(context).invalid_pin_number,
+                      style: FABStyles.errorLabelStyle,
+                    )),
                 const Spacer(),
                 FABWidget.appButton(
                     isConfirmation
