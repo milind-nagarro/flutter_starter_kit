@@ -51,4 +51,8 @@ class AppRouter {
   void showConfirmPin(String pinData) {
     _navService.pushNamed(routes.confirmPin, args: pinData);
   }
+
+  void showVerifyPin() {
+    _navService.pushNamed(routes.verifyPin);
+  }
 }

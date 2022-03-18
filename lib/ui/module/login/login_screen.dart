@@ -149,7 +149,6 @@ class LoginScreen extends StatelessWidget {
   }
 
   void nextScreen() {
-    // TODO: Add redirection to Verify PIN
-    // locator<AppRouter>().showSetupPin();
+    locator<AppRouter>().showVerifyPin();
   }
 }

@@ -113,9 +113,6 @@ flutter:
     - assets/images/3.0x/error.png
     - assets/images/error_red.png
     - assets/images/black_cross.png
-    - assets/images/splash.jpg
-    - assets/images/2.0x/splash.jpg
-    - assets/images/3.0x/splash.jpg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 
