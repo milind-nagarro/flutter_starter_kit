@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_starter_kit/app/app_config.dart';
-import 'package:flutter_starter_kit/app/app_constant.dart';
 import 'package:flutter_starter_kit/app/resources/theme.dart' as themes;
 import 'package:flutter_starter_kit/ui/module/welcome/cubit/welcome_cubit.dart';
 import 'package:flutter_starter_kit/ui/router/routes_config.dart' as routes;
@@ -23,31 +22,26 @@ class StarterKitApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenUtilInit(
       builder: () => MultiBlocProvider(
-          providers: [
-            BlocProvider<WelcomeCubit>(
-              create: (BuildContext context) => WelcomeCubit(),
-            ),
-            BlocProvider<LanguageCubit>(
-              create: (BuildContext context) =>
-                  LanguageCubit(AppLanguage.english),
-            ),
-          ],
-          child: ValueListenableBuilder<AppConfig>(
-              valueListenable:
-                  locator<AppConfigHandler>().appConfigChangeNotifier,
-              builder: (_, config, __) => MaterialApp(
-                    title: 'Flutter Starter Kit',
-                    localizationsDelegates:
-                        AppLocalizations.localizationsDelegates,
-                    supportedLocales: AppLocalizations.supportedLocales,
-                    locale: config.currentLocale,
-                    theme: config.currentTheme,
-                    /*darkTheme: themes.dark,*/
-                    navigatorKey: locator<AppRouter>().navigatorKey,
-                    onGenerateRoute: routes.generateRoute,
-                    initialRoute: routes.initialRoute,
-                    debugShowCheckedModeBanner: false,
-                  ))),
+        providers: [
+          BlocProvider<WelcomeCubit>(
+            create: (BuildContext context) => WelcomeCubit(),
+          ),
+        ],
+        child: ValueListenableBuilder<AppConfig>(
+          valueListenable: locator<AppConfigHandler>().appConfigChangeNotifier,
+          builder: (_, config, __) => MaterialApp(
+            title: 'FAB NHL',
+            localizationsDelegates: AppLocalizations.localizationsDelegates,
+            supportedLocales: AppLocalizations.supportedLocales,
+            locale: config.currentLocale,
+            theme: config.currentTheme,
+            darkTheme: themes.dark,
+            navigatorKey: locator<AppRouter>().navigatorKey,
+            onGenerateRoute: routes.generateRoute,
+            initialRoute: routes.initialRoute,
+          ),
+        ),
+      ),
       designSize: const Size(375, 812),
     );
   }

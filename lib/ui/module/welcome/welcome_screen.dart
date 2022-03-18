@@ -20,8 +20,8 @@ import 'cubit/welcome_state.dart';
 /// Displays images and title according to pages
 /// Observes controller to handle UI on swipe
 class WelcomeScreen extends StatelessWidget {
-  const WelcomeScreen({Key? key}) : super(key: key);
-
+  const WelcomeScreen({required this.lang, Key? key}) : super(key: key);
+  final AppLanguage lang;
   @override
   Widget build(BuildContext context) {
     const btnWidth = 312.0;
@@ -151,20 +151,9 @@ class WelcomeScreen extends StatelessWidget {
       ],
     );
 
-    return (BlocListener<LanguageCubit, LanguageState>(
-      listener: (context, state) {
-        _swapLocale();
-      },
+    return BlocProvider(
+      create: (context) => LanguageCubit(lang),
       child: Scaffold(body: stack),
-    ));
-  }
-
-  void _swapLocale() {
-    final appConfigHandler = locator<AppConfigHandler>();
-    final newLocale =
-        appConfigHandler.configuration.currentLocale.languageCode == 'en'
-            ? const Locale('ar')
-            : const Locale('en');
-    appConfigHandler.setLocale(newLocale);
+    );
   }
 }
