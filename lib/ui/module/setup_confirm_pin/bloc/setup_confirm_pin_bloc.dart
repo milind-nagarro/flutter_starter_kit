@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
@@ -7,7 +5,6 @@ import 'package:meta/meta.dart';
 import '../../../../app/app_constant.dart';
 
 part 'setup_confirm_pin_event.dart';
-
 part 'setup_confirm_pin_state.dart';
 
 /// Handles states for Setup and Confirm PIN screens

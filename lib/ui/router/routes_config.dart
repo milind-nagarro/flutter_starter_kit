@@ -3,6 +3,7 @@ import 'package:flutter_starter_kit/domain/entity/article_entity.dart';
 import 'package:flutter_starter_kit/ui/module/login/login_screen.dart';
 import 'package:flutter_starter_kit/ui/module/login/verify_pin/verify_pin_screen.dart';
 import 'package:flutter_starter_kit/ui/module/splash/splash.dart';
+import 'package:flutter_starter_kit/ui/module/verification/verification.dart';
 import 'package:flutter_starter_kit/ui/screen/article_detail_screen.dart';
 import 'package:flutter_starter_kit/ui/screen/article_list_screen.dart';
 import 'package:flutter_starter_kit/ui/screen/dashboard_screen.dart';
@@ -23,6 +24,7 @@ const String splash = 'splash';
 const String setupPin = 'setupPin';
 const String confirmPin = 'confirmPin';
 const String verifyPin = 'verifyPin';
+const String verification = 'verification';
 
 // define initial route
 String get initialRoute => splash;
@@ -55,6 +57,10 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => const Register(true));
     case registerEmail:
       return MaterialPageRoute(builder: (context) => const Register(false));
+    case verification:
+      return MaterialPageRoute(
+          builder: (context) =>
+              Verification(settings.arguments as List<dynamic>));
     case splash:
       return MaterialPageRoute(builder: (context) => const SplashScreen());
     case verifyPin:

@@ -52,6 +52,9 @@ dependencies:
   # for matching UI on different resolution
   flutter_screenutil: ^5.3.1
 
+  # for showing validation expire time
+  timer_count_down: ^2.2.1
+
   flutter_localizations:
     sdk: flutter
   intl: ^0.17.0
@@ -113,6 +116,10 @@ flutter:
     - assets/images/3.0x/error.png
     - assets/images/error_red.png
     - assets/images/black_cross.png
+    - assets/images/splash.jpg
+    - assets/images/2.0x/splash.jpg
+    - assets/images/3.0x/splash.jpg
+    
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 

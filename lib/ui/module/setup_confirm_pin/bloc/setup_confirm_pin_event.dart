@@ -18,7 +18,8 @@ class SetupPinSubmit extends SetupConfirmPinEvent {
 
 /// On Submitting Confirm PIN value
 class ConfirmPinSubmit extends SetupConfirmPinEvent {
-  const ConfirmPinSubmit({required this.verifyPinData, required this.existingPinData});
+  const ConfirmPinSubmit(
+      {required this.verifyPinData, required this.existingPinData});
   final String verifyPinData;
   final String? existingPinData;
 
