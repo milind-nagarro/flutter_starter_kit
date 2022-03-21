@@ -68,6 +68,11 @@ class VerifyPinScreen extends StatelessWidget {
   }
 
   Future<void> showBottomSheet(context) async {
+    /*final faceTec = FaceTec();
+
+    bool isPhotoIDMatchInitiated = false;
+    bool isPhotoIDMatchSuccessful = false;*/
+
     showModalBottomSheet(
         context: context,
         builder: (context) {
@@ -144,7 +149,12 @@ class VerifyPinScreen extends StatelessWidget {
                   height: 8.h,
                 ),
                 FABWidget.appButton(AppLocalizations.of(context).reset_my_pin,
-                    minSize: Size(179.w, 44.h), onPressed: () {}),
+                    minSize: Size(179.w, 44.h), onPressed: () {
+                  /*isPhotoIDMatchInitiated = true;
+                  faceTec.photoIDMatch().then((value) {
+                    isPhotoIDMatchSuccessful = value;
+                  });*/
+                }),
                 SizedBox(
                   height: 12.h,
                 ),
