@@ -10,9 +10,11 @@
 
       "login": "Login",
       "register": "Register",
-      "welcome_msg_1": "Welcome to the FAB National Housing Loan (NHL) mobile app!",
-      "welcome_msg_2": "Open your FAB NHL account for your grant in a few minutes.",
-      "welcome_msg_3": "Helping you manage your loan and track your project.",
+      "welcome_msg_1": "Welcome to the FAB National Housing Loan (NHL) mobile app!\n\n",
+      "welcome_msg_2": "Open your FAB NHL account for your grant in a few minutes.\n\n",
+      "welcome_msg_3": "Helping you manage your loan and track your project.\n\n",
+      "first_time" : "First time here",
+      "already_user" : "Already a customer",
 
 
       "enter_mobile": "Enter your mobile number",

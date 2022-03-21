@@ -35,7 +35,7 @@ class WelcomeScreen extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         FABWidget.appButton(
-          AppLocalizations.of(context).login,
+          AppLocalizations.of(context).already_user,
           onPressed: () => {locator<AppRouter>().showLoginScreen()},
           bgColor: Colors.white,
           minSize: const Size(btnWidth, btnHeight),
@@ -45,7 +45,7 @@ class WelcomeScreen extends StatelessWidget {
           padding: EdgeInsets.only(top: 15.h),
           child: BackdropFilter(
             filter: ImageFilter.blur(sigmaX: 0.0, sigmaY: 0.0),
-            child: FABWidget.appButton(AppLocalizations.of(context).register,
+            child: FABWidget.appButton(AppLocalizations.of(context).first_time,
                 onPressed: () =>
                     {locator<AppRouter>().showRegisterMobileScreen()},
                 bgColor: Colors.white.withOpacity(0.15)),
@@ -93,6 +93,7 @@ class WelcomeScreen extends StatelessWidget {
                     ? AppLocalizations.of(context).welcome_msg_2
                     : AppLocalizations.of(context).welcome_msg_3)),
             style: FABStyles.appStyleHeaderText(Colors.white),
+            maxLines: 3,
           ),
           Padding(
             padding: EdgeInsets.only(top: 15.h),

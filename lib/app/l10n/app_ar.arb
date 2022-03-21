@@ -14,6 +14,8 @@
       "welcome_msg_1": "مرحبًا بك في تطبيق الهاتف المحمول من بنك أبوظبي الأول (NHL)",
       "welcome_msg_2": "افتح حساب FAB NHL الخاص بك للحصول على المنحة الخاصة بك في بضع دقائق",
       "welcome_msg_3": "مساعدتك في إدارة قرضك وتتبع مشروعك",
+      "first_time" : "First time here",
+      "already_user" : "Already a customer",
 
 
       "enter_mobile": "Enter your mobile number",

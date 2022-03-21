@@ -13,8 +13,12 @@ class FABStyles {
         onPrimary: highlightColor ?? Colors.white,
         shadowColor: Colors.grey,
         elevation: 3,
-        shape:
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(28.r)),
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+                topRight: Radius.circular(4.r.toDouble()),
+                bottomRight: Radius.circular(12.r.toDouble()),
+                topLeft: Radius.circular(12.r.toDouble()),
+                bottomLeft: Radius.circular(4.r.toDouble()))),
         minimumSize:
             Size(minSize?.width.w ?? 300.w, minSize?.height.h ?? 56.h));
   }
@@ -183,5 +187,52 @@ class FABWidget {
 
   static Widget smallTextButton(String title, {Function()? onPressed}) {
     return TextButton(onPressed: onPressed, child: Text(title));
+  }
+
+  static Widget textField(
+      {TextInputType? keyboardType,
+      Function(String text)? onChange,
+      String? prefixText,
+      String? labelText,
+      String? hintText,
+      String? errorText,
+      Widget? suffixIcon}) {
+    return TextField(
+      keyboardType: keyboardType,
+      onChanged: onChange,
+      style: FABStyles.appStyleInputText,
+      decoration: InputDecoration(
+          border: const OutlineInputBorder(),
+          filled: true,
+          prefix: Padding(
+            padding: EdgeInsets.only(right: 10.w),
+            child: Wrap(
+              direction: Axis.horizontal,
+              children: [
+                Text(prefixText ?? ""),
+                10.horizontalSpace,
+                Text("|"),
+              ],
+            ),
+          ),
+          // prefixText: prefixText,
+          labelText: labelText,
+          hintText: hintText,
+          errorText: errorText,
+          suffixIcon: suffixIcon,
+          labelStyle: TextStyle(
+              color: textFieldLabelColor,
+              fontWeight: FontWeight.w500,
+              fontSize: 13.sp),
+          prefixStyle: TextStyle(
+              color: textFieldPrefixColor,
+              fontWeight: FontWeight.w500,
+              fontSize: 16.sp),
+          hintStyle: TextStyle(
+              color: textFieldHintText,
+              fontWeight: FontWeight.w500,
+              fontSize: 16.sp),
+          errorMaxLines: 2),
+    );
   }
 }

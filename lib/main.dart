@@ -3,11 +3,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_starter_kit/app/app_config.dart';
+import 'package:flutter_starter_kit/app/di/locator.dart';
 import 'package:flutter_starter_kit/ui/module/welcome/cubit/welcome_cubit.dart';
 import 'package:flutter_starter_kit/ui/router/routes_config.dart' as routes;
 
 import '../ui/router/app_router.dart';
-import 'di/locator.dart';
 
 void main() async {
   setupLocator();
@@ -29,6 +29,13 @@ class StarterKitApp extends StatelessWidget {
         child: ValueListenableBuilder<AppConfig>(
           valueListenable: locator<AppConfigHandler>().appConfigChangeNotifier,
           builder: (_, config, __) => MaterialApp(
+            builder: (context, widget) {
+              ScreenUtil.setContext(context);
+              return MediaQuery(
+                data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
+                child: widget!,
+              );
+            },
             title: 'FAB NHL',
             localizationsDelegates: AppLocalizations.localizationsDelegates,
             supportedLocales: AppLocalizations.supportedLocales,
