@@ -19,8 +19,8 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import com.example.facetec_poc.MainActivity;
 import com.facetec.sdk.*;
+import com.nagarro.flutter.flutter_starter_kit.MainActivity;
 
 // This is an example self-contained class to perform Enrollment with the FaceTec SDK.
 // You may choose to further componentize parts of this in your own Apps based on your specific requirements.

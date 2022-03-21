@@ -11,12 +11,12 @@ import android.content.Context;
 import android.util.Log;
 
 //import com.facetec.sampleapp.SampleAppActivity;
-import com.example.facetec_poc.MainActivity;
 import com.facetec.sdk.FaceTecFaceScanProcessor;
 import com.facetec.sdk.FaceTecFaceScanResultCallback;
 import com.facetec.sdk.FaceTecSessionActivity;
 import com.facetec.sdk.FaceTecSessionResult;
 import com.facetec.sdk.FaceTecSessionStatus;
+import com.nagarro.flutter.flutter_starter_kit.MainActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;

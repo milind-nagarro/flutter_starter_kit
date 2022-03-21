@@ -6,7 +6,6 @@ import 'package:flutter_starter_kit/ui/screen/common_widget/pinput/pinput.dart';
 
 import '../../../../app/resources/colors.dart';
 import '../../../../app/resources/style.dart';
-import '../../../../crosscutting/facetec/facetec.dart';
 
 class VerifyPinScreen extends StatelessWidget {
   const VerifyPinScreen({Key? key}) : super(key: key);
@@ -69,10 +68,10 @@ class VerifyPinScreen extends StatelessWidget {
   }
 
   Future<void> showBottomSheet(context) async {
-    final faceTec = FaceTec();
+    /*final faceTec = FaceTec();
 
     bool isPhotoIDMatchInitiated = false;
-    bool isPhotoIDMatchSuccessful = false;
+    bool isPhotoIDMatchSuccessful = false;*/
 
     showModalBottomSheet(
         context: context,
@@ -151,10 +150,10 @@ class VerifyPinScreen extends StatelessWidget {
                 ),
                 FABWidget.appButton(AppLocalizations.of(context).reset_my_pin,
                     minSize: Size(179.w, 44.h), onPressed: () {
-                  isPhotoIDMatchInitiated = true;
+                  /*isPhotoIDMatchInitiated = true;
                   faceTec.photoIDMatch().then((value) {
                     isPhotoIDMatchSuccessful = value;
-                  });
+                  });*/
                 }),
                 SizedBox(
                   height: 12.h,
