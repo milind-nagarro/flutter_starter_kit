@@ -119,6 +119,9 @@ flutter:
     - assets/images/splash.jpg
     - assets/images/2.0x/splash.jpg
     - assets/images/3.0x/splash.jpg
+    - assets/images/valid.png
+    - assets/images/2.0x/valid.png
+    - assets/images/3.0x/valid.png
     
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

@@ -25,7 +25,7 @@ class SetupConfirmPinBloc
       SetupPinSubmit event, Emitter<SetupConfirmPinState> emit) {
     final pinData = event.pinData;
 
-    if (pinData.isEmpty && pinData.length != 4) {
+    if (pinData.isEmpty && pinData.length != 6) {
       emit(SetupConfirmPinState(
           pinData: pinData,
           validationState: ValidationState.invalid,

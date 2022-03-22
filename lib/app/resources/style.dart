@@ -123,7 +123,7 @@ class FABWidget {
     Function()? backAction,
   }) {
     return AppBar(
-      backgroundColor: Colors.transparent,
+      backgroundColor: Colors.white,
       elevation: 0,
       centerTitle: true,
       iconTheme: hasCancel
@@ -204,6 +204,7 @@ class FABWidget {
       Color? borderColor}) {
     return TextField(
       keyboardType: keyboardType,
+      maxLength: (keyboardType == TextInputType.phone) ? 9 : null,
       onChanged: onChange,
       style: FABStyles.textFieldTextStyle(Colors.black),
       decoration: InputDecoration(
@@ -212,6 +213,7 @@ class FABWidget {
                   BorderSide(color: borderColor ?? textFieldBorderColor)),
           border: const OutlineInputBorder(),
           filled: true,
+          counterText: "",
           fillColor: Colors.white,
           prefix: (prefixText == null)
               ? null
@@ -220,7 +222,7 @@ class FABWidget {
                   child: Wrap(
                     direction: Axis.horizontal,
                     children: [
-                      Text(prefixText ?? ""),
+                      Text(prefixText.isEmpty ? "" : prefixText),
                       10.horizontalSpace,
                       Text("|"),
                     ],

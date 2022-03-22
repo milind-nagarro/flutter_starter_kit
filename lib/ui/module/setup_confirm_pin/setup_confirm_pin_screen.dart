@@ -28,6 +28,7 @@ class SetupConfirmPinPage extends StatelessWidget {
         BlocProvider(create: (BuildContext context) => SetupConfirmPinBloc())
       ],
       child: Scaffold(
+        backgroundColor: appBGColor,
         appBar: FABWidget.appTopBar(
             isConfirmation
                 ? AppLocalizations.of(context).confirm_pin
@@ -104,7 +105,7 @@ class SetupConfirmPinPage extends StatelessWidget {
                     isConfirmation
                         ? AppLocalizations.of(context).confirm
                         : AppLocalizations.of(context).next,
-                    minSize: Size(100.w, 50.h),
+                    // minSize: Size(100.w, 50.h),
                     onPressed: state.buttonState == ValidationState.valid
                         ? () => _handleOnSubmit(context)
                         : null),

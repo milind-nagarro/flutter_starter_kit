@@ -21,6 +21,7 @@ class Register extends StatelessWidget {
 
     return Scaffold(
         appBar: FABWidget.appTopBar(AppLocalizations.of(context).register),
+        backgroundColor: appBGColor,
         body: SafeArea(
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 32.w, vertical: 32.h),
@@ -50,6 +51,10 @@ class Register extends StatelessWidget {
                           keyboardType: isMobile
                               ? TextInputType.phone
                               : TextInputType.emailAddress,
+                          borderColor:
+                              (state.validationStatus == ValidationState.valid)
+                                  ? textFieldBorderValidColor
+                                  : textFieldBorderColor,
                           onChange: (text) {
                             registrationBloc.add(ValueUpdated(text));
                           },
@@ -62,9 +67,11 @@ class Register extends StatelessWidget {
                                   ValidationState.invalid)
                               ? AppLocalizations.of(context).not_registered
                               : null,
-                          suffixIcon: (state.registrationStatus ==
-                                  ValidationState.invalid)
-                              ? Image.asset(errorIconTextField)
+                          suffixIcon: (state.validationStatus ==
+                                      ValidationState.valid &&
+                                  state.registrationStatus !=
+                                      ValidationState.invalid)
+                              ? Image.asset(validIconTextField)
                               : null),
                     ],
                   ),

@@ -31,6 +31,7 @@ class LoginScreen extends StatelessWidget {
         ),
       ],
       child: Scaffold(
+        backgroundColor: appBGColor,
         appBar: FABWidget.appTopBar(AppLocalizations.of(context).already_user),
         // bloc consumer for listening to login state for navigation and validation based UI
         body: BlocConsumer<LoginBloc, LoginState>(builder: (context, state) {

@@ -25,6 +25,7 @@ class Verification extends StatelessWidget {
 
     return Scaffold(
         appBar: FABWidget.appTopBar(AppLocalizations.of(context).your_otp),
+        backgroundColor: appBGColor,
         body: SafeArea(
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 32.w, vertical: 32.h),
@@ -67,7 +68,6 @@ class Verification extends StatelessWidget {
                               verificationBloc.add(ValueUpdated(value));
                             },
                             obscureText: true,
-                            obscuringCharacter: '*',
                             errorPinTheme: FABWidget.errorPinTheme,
                             defaultPinTheme: FABWidget.defaultPinTheme,
                             showCursor: false,

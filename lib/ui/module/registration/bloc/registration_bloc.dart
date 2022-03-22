@@ -2,6 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_starter_kit/app/validator.dart';
 import 'package:meta/meta.dart';
 
 import '../../../../app/app_constant.dart';
@@ -23,10 +24,16 @@ class RegistrationBloc extends Bloc<RegistrationEvent, RegistrationState> {
     final value = event.value;
     if (value.isEmpty) {
       emit(RegistrationState(
-          value: value, validationStatus: ValidationState.invalid));
-    } else {
+          value: value, validationStatus: ValidationState.notChecked));
+    } else if (isMobile && Validator.isValidMobile(value)) {
       emit(RegistrationState(
           value: value, validationStatus: ValidationState.valid));
+    } else if (!isMobile && Validator.isValidEmail(value)) {
+      emit(RegistrationState(
+          value: value, validationStatus: ValidationState.valid));
+    } else {
+      emit(RegistrationState(
+          value: value, validationStatus: ValidationState.invalid));
     }
   }
 
@@ -47,6 +54,7 @@ class RegistrationBloc extends Bloc<RegistrationEvent, RegistrationState> {
       return null;
     }
     switch (state.validationStatus) {
+      case ValidationState.notChecked:
       case ValidationState.invalid:
         return null;
       case ValidationState.valid:
@@ -54,8 +62,6 @@ class RegistrationBloc extends Bloc<RegistrationEvent, RegistrationState> {
           FocusManager.instance.primaryFocus?.unfocus();
           add(const NextPressed());
         };
-      case ValidationState.notChecked:
-        return null;
     }
   }
 
