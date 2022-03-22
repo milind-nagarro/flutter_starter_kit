@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
-import 'package:flutter_starter_kit/crosscutting/analytics/iapp_analytics.dart';
-import 'package:flutter_starter_kit/crosscutting/analytics/provider/ianalytics_provider.dart';
+import 'package:fab_nhl/crosscutting/analytics/iapp_analytics.dart';
+import 'package:fab_nhl/crosscutting/analytics/provider/ianalytics_provider.dart';
 
 class AppAnalytics implements IAppAnalytics {
   final providers = <IAnalyticsProvider>[];

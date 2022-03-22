@@ -1,9 +1,9 @@
 import 'package:flutter/widgets.dart';
-import 'package:flutter_starter_kit/app/app_constant.dart';
-import 'package:flutter_starter_kit/domain/entity/article_entity.dart';
-import 'package:flutter_starter_kit/ui/module/welcome/welcome_screen.dart';
-import 'package:flutter_starter_kit/ui/router/navigation_service.dart';
-import 'package:flutter_starter_kit/ui/router/routes_config.dart' as routes;
+import 'package:fab_nhl/app/app_constant.dart';
+import 'package:fab_nhl/domain/entity/article_entity.dart';
+import 'package:fab_nhl/ui/module/welcome/welcome_screen.dart';
+import 'package:fab_nhl/ui/router/navigation_service.dart';
+import 'package:fab_nhl/ui/router/routes_config.dart' as routes;
 import 'package:injectable/injectable.dart';
 
 @injectable

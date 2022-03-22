@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_starter_kit/ui/screen/common_widget/pinput/pinput.dart';
+import 'package:fab_nhl/ui/screen/common_widget/pinput/pinput.dart';
 
 import '../../../../app/resources/colors.dart';
 import '../../../../app/resources/style.dart';

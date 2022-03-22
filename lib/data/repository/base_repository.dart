@@ -1,5 +1,5 @@
 import 'package:chopper/chopper.dart';
-import 'package:flutter_starter_kit/common/dataclass/result.dart';
+import 'package:fab_nhl/common/dataclass/result.dart';
 
 typedef NetworkEntityToDomainEntityMap<NetworkEntity, DomainEntity>
     = DomainEntity? Function(NetworkEntity? dto);

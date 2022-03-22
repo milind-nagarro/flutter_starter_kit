@@ -1,7 +1,7 @@
-import 'package:flutter_starter_kit/app/di/network_module.dart';
-import 'package:flutter_starter_kit/crosscutting/analytics/app_analytics.dart';
-import 'package:flutter_starter_kit/crosscutting/analytics/iapp_analytics.dart';
-import 'package:flutter_starter_kit/crosscutting/analytics/provider/firebase_analytics_provider.dart';
+import 'package:fab_nhl/app/di/network_module.dart';
+import 'package:fab_nhl/crosscutting/analytics/app_analytics.dart';
+import 'package:fab_nhl/crosscutting/analytics/iapp_analytics.dart';
+import 'package:fab_nhl/crosscutting/analytics/provider/firebase_analytics_provider.dart';
 import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
 

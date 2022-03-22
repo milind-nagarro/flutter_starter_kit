@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_starter_kit/app/di/locator.dart';
-import 'package:flutter_starter_kit/app/resources/dimen.dart' as dimen;
-import 'package:flutter_starter_kit/crosscutting/analytics/iapp_analytics.dart';
-import 'package:flutter_starter_kit/domain/entity/article_entity.dart';
-import 'package:flutter_starter_kit/ui/bloc/article/article_bloc.dart';
-import 'package:flutter_starter_kit/ui/bloc/article/article_event.dart';
-import 'package:flutter_starter_kit/ui/bloc/article/article_state.dart';
-import 'package:flutter_starter_kit/ui/router/app_router.dart';
-import 'package:flutter_starter_kit/ui/screen/common_widget/circle_image.dart';
-import 'package:flutter_starter_kit/ui/screen/common_widget/progress_bar.dart';
+import 'package:fab_nhl/app/di/locator.dart';
+import 'package:fab_nhl/app/resources/dimen.dart' as dimen;
+import 'package:fab_nhl/crosscutting/analytics/iapp_analytics.dart';
+import 'package:fab_nhl/domain/entity/article_entity.dart';
+import 'package:fab_nhl/ui/bloc/article/article_bloc.dart';
+import 'package:fab_nhl/ui/bloc/article/article_event.dart';
+import 'package:fab_nhl/ui/bloc/article/article_state.dart';
+import 'package:fab_nhl/ui/router/app_router.dart';
+import 'package:fab_nhl/ui/screen/common_widget/circle_image.dart';
+import 'package:fab_nhl/ui/screen/common_widget/progress_bar.dart';
 
 class ArticleListScreen extends StatelessWidget {
   const ArticleListScreen({Key? key}) : super(key: key);

@@ -20,7 +20,7 @@ import com.facetec.sdk.FaceTecIDScanStatus;
 import com.facetec.sdk.FaceTecSessionActivity;
 import com.facetec.sdk.FaceTecSessionResult;
 import com.facetec.sdk.FaceTecSessionStatus;
-import com.nagarro.flutter.flutter_starter_kit.MainActivity;
+import com.bankfab.nhl.MainActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;

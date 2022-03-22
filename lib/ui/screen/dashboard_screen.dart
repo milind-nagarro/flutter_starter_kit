@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_starter_kit/app/app_config.dart';
-import 'package:flutter_starter_kit/app/di/locator.dart';
-import 'package:flutter_starter_kit/crosscutting/analytics/iapp_analytics.dart';
+import 'package:fab_nhl/app/app_config.dart';
+import 'package:fab_nhl/app/di/locator.dart';
+import 'package:fab_nhl/crosscutting/analytics/iapp_analytics.dart';
 
 import '../router/app_router.dart';
 

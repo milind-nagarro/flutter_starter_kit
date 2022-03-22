@@ -1,4 +1,4 @@
-import 'package:flutter_starter_kit/common/dataclass/status.dart';
+import 'package:fab_nhl/common/dataclass/status.dart';
 
 class Result<T> {
   final Status status;

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_starter_kit/app/app_constant.dart';
-import 'package:flutter_starter_kit/app/resources/theme.dart' as theme;
+import 'package:fab_nhl/app/app_constant.dart';
+import 'package:fab_nhl/app/resources/theme.dart' as theme;
 import 'package:injectable/injectable.dart';
 
 const String _defaultLocaleCountryCode = 'en';

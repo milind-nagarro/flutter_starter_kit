@@ -1,4 +1,4 @@
-import 'package:flutter_starter_kit/domain/entity/article_entity.dart';
+import 'package:fab_nhl/domain/entity/article_entity.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'article_response.g.dart';

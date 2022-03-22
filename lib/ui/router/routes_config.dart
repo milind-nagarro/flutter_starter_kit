@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_starter_kit/domain/entity/article_entity.dart';
-import 'package:flutter_starter_kit/ui/module/login/login_screen.dart';
-import 'package:flutter_starter_kit/ui/module/login/verify_pin/verify_pin_screen.dart';
-import 'package:flutter_starter_kit/ui/module/splash/splash.dart';
-import 'package:flutter_starter_kit/ui/module/verification/verification.dart';
-import 'package:flutter_starter_kit/ui/screen/article_detail_screen.dart';
-import 'package:flutter_starter_kit/ui/screen/article_list_screen.dart';
-import 'package:flutter_starter_kit/ui/screen/dashboard_screen.dart';
-import 'package:flutter_starter_kit/ui/screen/post_list_screen.dart';
+import 'package:fab_nhl/domain/entity/article_entity.dart';
+import 'package:fab_nhl/ui/module/login/login_screen.dart';
+import 'package:fab_nhl/ui/module/login/verify_pin/verify_pin_screen.dart';
+import 'package:fab_nhl/ui/module/splash/splash.dart';
+import 'package:fab_nhl/ui/module/verification/verification.dart';
+import 'package:fab_nhl/ui/screen/article_detail_screen.dart';
+import 'package:fab_nhl/ui/screen/article_list_screen.dart';
+import 'package:fab_nhl/ui/screen/dashboard_screen.dart';
+import 'package:fab_nhl/ui/screen/post_list_screen.dart';
 
 import '../module/registration/register.dart';
 import '../module/setup_confirm_pin/setup_confirm_pin_screen.dart';

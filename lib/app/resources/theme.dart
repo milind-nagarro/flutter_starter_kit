@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_starter_kit/app/resources/colors.dart' as colors;
+import 'package:fab_nhl/app/resources/colors.dart' as colors;
 
 // configure application theme
 ThemeData get light => ThemeData(

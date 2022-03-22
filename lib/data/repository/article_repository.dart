@@ -1,9 +1,9 @@
-import 'package:flutter_starter_kit/common/dataclass/result.dart';
-import 'package:flutter_starter_kit/data/remote/response/article_response.dart';
-import 'package:flutter_starter_kit/data/remote/service/article_service.dart';
-import 'package:flutter_starter_kit/data/repository/base_repository.dart';
-import 'package:flutter_starter_kit/domain/entity/article_entity.dart';
-import 'package:flutter_starter_kit/domain/repository/iarticle_repository.dart';
+import 'package:fab_nhl/common/dataclass/result.dart';
+import 'package:fab_nhl/data/remote/response/article_response.dart';
+import 'package:fab_nhl/data/remote/service/article_service.dart';
+import 'package:fab_nhl/data/repository/base_repository.dart';
+import 'package:fab_nhl/domain/entity/article_entity.dart';
+import 'package:fab_nhl/domain/repository/iarticle_repository.dart';
 import 'package:injectable/injectable.dart';
 
 @Injectable(as: IArticleRepository)

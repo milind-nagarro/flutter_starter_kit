@@ -1,4 +1,4 @@
-import 'package:flutter_starter_kit/crosscutting/analytics/provider/ianalytics_provider.dart';
+import 'package:fab_nhl/crosscutting/analytics/provider/ianalytics_provider.dart';
 
 abstract class IAppAnalytics {
   bool get isTrackingEnabled;

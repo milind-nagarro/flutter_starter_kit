@@ -1,4 +1,4 @@
-package com.nagarro.flutter.flutter_starter_kit
+package com.bankfab.nhl
 
 import android.content.Context
 import androidx.multidex.MultiDex

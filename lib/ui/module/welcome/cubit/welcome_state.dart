@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:flutter_starter_kit/app/app_constant.dart';
+import 'package:fab_nhl/app/app_constant.dart';
 
 class WelcomeState extends Equatable {
   const WelcomeState({required this.pageNumber, required this.message});

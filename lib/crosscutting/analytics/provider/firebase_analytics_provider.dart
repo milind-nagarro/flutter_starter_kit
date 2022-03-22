@@ -1,6 +1,6 @@
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter_starter_kit/crosscutting/analytics/provider/ianalytics_provider.dart';
+import 'package:fab_nhl/crosscutting/analytics/provider/ianalytics_provider.dart';
 
 class FirebaseAnalyticsProvider implements IAnalyticsProvider {
   Future<void> _ensureInitialized() async {

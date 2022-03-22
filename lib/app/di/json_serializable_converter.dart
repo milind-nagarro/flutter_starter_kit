@@ -1,6 +1,6 @@
 // Json serializable
 import 'package:chopper/chopper.dart';
-import 'package:flutter_starter_kit/app/di/network_module.dart';
+import 'package:fab_nhl/app/di/network_module.dart';
 
 class JsonSerializableConverter extends JsonConverter {
   final Map<Type, JsonFactory> factories;
