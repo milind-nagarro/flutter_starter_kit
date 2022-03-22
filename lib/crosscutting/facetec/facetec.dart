@@ -44,4 +44,15 @@ class FaceTec {
       return false;
     }
   }
+
+  Future<String> getTextFromImage() async {
+    try {
+      final result = await platform.invokeMethod('BlinkOCR');
+      print("Result is : $result");
+      return result as String;
+    } on PlatformException catch (e) {
+      print(e);
+      return "";
+    }
+  }
 }
