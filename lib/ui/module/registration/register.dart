@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_starter_kit/app/di/locator.dart';
-import 'package:flutter_starter_kit/ui/router/app_router.dart';
-import 'package:flutter_starter_kit/ui/router/routes_config.dart' as routes;
 
 import '../../../app/app_constant.dart';
 import '../../../app/resources/assets.dart';
@@ -48,7 +45,7 @@ class Register extends StatelessWidget {
                               ? AppLocalizations.of(context).enter_mobile_adha
                               : AppLocalizations.of(context).enter_email_valid,
                           style: FABStyles.subHeaderLabelStyle),
-                      SizedBox(height: 23.h),
+                      SizedBox(height: 56.h),
                       FABWidget.textField(
                           keyboardType: isMobile
                               ? TextInputType.phone
@@ -75,7 +72,9 @@ class Register extends StatelessWidget {
                       child: Align(
                     alignment: FractionalOffset.bottomCenter,
                     child: FABWidget.appButton(
-                      AppLocalizations.of(context).next,
+                      isMobile
+                          ? AppLocalizations.of(context).register
+                          : AppLocalizations.of(context).continue_text,
                       onPressed: registrationBloc.nextStep(context, state),
                     ),
                   )),

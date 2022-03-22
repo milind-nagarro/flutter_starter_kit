@@ -54,7 +54,7 @@ class Verification extends StatelessWidget {
                                       " " +
                                       inputToVerify,
                               style: FABStyles.subHeaderLabelStyle),
-                          SizedBox(height: 16.h),
+                          SizedBox(height: 60.h),
                           Center(
                               child: Pinput(
                             length: 6,
@@ -111,14 +111,10 @@ class Verification extends StatelessWidget {
                       Positioned(
                           child: Align(
                         alignment: FractionalOffset.bottomCenter,
-                        child: SizedBox(
-                          width: 116.w,
-                          height: 56.h,
-                          child: FABWidget.appButton(
-                              AppLocalizations.of(context).next,
-                              onPressed:
-                                  verificationBloc.nextStep(context, state)),
-                        ),
+                        child: FABWidget.appButton(
+                            AppLocalizations.of(context).next,
+                            onPressed:
+                                verificationBloc.nextStep(context, state)),
                       )),
                     ]);
                   },

@@ -1,4 +1,6 @@
 {
+    "continue_text" : "Continue",
+
     "appName": "طقم Flutter Starter Kit",
         "dashboard" : "لوحة القيادة",
         "articles" : "مقالات",
