@@ -1,4 +1,6 @@
 {
+    "continue_text" : "Continue",
+
     "appName": "Flutter Starter Kit",
     "dashboard" : "Dashboard",
     "articles" : "Articles",
@@ -10,14 +12,16 @@
 
       "login": "Login",
       "register": "Register",
-      "welcome_msg_1": "Welcome to the FAB National Housing Loan (NHL) mobile app!",
-      "welcome_msg_2": "Open your FAB NHL account for your grant in a few minutes.",
-      "welcome_msg_3": "Helping you manage your loan and track your project.",
+      "welcome_msg_1": "Welcome to FAB National Housing Loan\n\n",
+      "welcome_msg_2": "Open your FAB NHL account for your grant in a few mintues\n\n",
+      "welcome_msg_3": "Helping you manage your loan and track your project\n\n",
+      "first_time" : "First time here",
+      "already_user" : "Already a customer",
 
 
       "enter_mobile": "Enter your mobile number",
-      "enter_mobile_adha": "Please enter the mobile number registered with ADHA",
-      "mobile_number": "Mobile Number",
+      "enter_mobile_adha": "Please share your mobile number registered with ADHA. This will allow us to send you the verification codes.",
+      "mobile_number": "Phone Number",
       "next": "Next",
       "invalid_mobile_number":
       "Invalid mobile number, please visit any FAB NHL branch to update your contact details.",
@@ -28,14 +32,14 @@
       "email": "Email",
 
 
-      "enter_verification": "Enter the verification code",
+      "enter_verification": "Verification code",
       "verification_sent_msg_mobile":
-          "The verification code is sent to your registered mobile number",
+          "Enter the verification code sent to your mobile ",
       "verification_sent_msg_email":
-          "The verification code is sent to your registered email",
+          "Enter the verification code sent to your email ",
       "otp_expire_msg": "Your code will expire in ",
       "resend_code": "Resend code",
-      "your_otp": "Your OTP",
+      "your_otp": "OTP",
       "otp_expired":"Code is invalid or expired",
 
 

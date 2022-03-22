@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_starter_kit/app/app_config.dart';
 import 'package:flutter_starter_kit/app/app_constant.dart';
 import 'package:flutter_starter_kit/app/di/locator.dart';
 import 'package:flutter_starter_kit/app/resources/assets.dart';
@@ -35,20 +34,20 @@ class WelcomeScreen extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         FABWidget.appButton(
-          AppLocalizations.of(context).login,
-          onPressed: () => {locator<AppRouter>().showLoginScreen()},
-          bgColor: Colors.white,
+          AppLocalizations.of(context).first_time,
+          onPressed: () => {locator<AppRouter>().showRegisterMobileScreen()},
+          bgColor: buttonGradientEnd,
           minSize: const Size(btnWidth, btnHeight),
-          textColor: primaryLabelColor,
+          textColor: Colors.white,
         ),
         Padding(
           padding: EdgeInsets.only(top: 15.h),
-          child: BackdropFilter(
-            filter: ImageFilter.blur(sigmaX: 0.0, sigmaY: 0.0),
-            child: FABWidget.appButton(AppLocalizations.of(context).register,
-                onPressed: () =>
-                    {locator<AppRouter>().showRegisterMobileScreen()},
-                bgColor: Colors.white.withOpacity(0.15)),
+          child: FABWidget.appButton(
+            AppLocalizations.of(context).already_user,
+            onPressed: () => {locator<AppRouter>().showLoginScreen()},
+            bgColor: Colors.white,
+            minSize: const Size(btnWidth, btnHeight),
+            textColor: primaryLabelColor,
           ),
         ),
       ],
@@ -92,7 +91,8 @@ class WelcomeScreen extends StatelessWidget {
                 : ((state.pageNumber == 1)
                     ? AppLocalizations.of(context).welcome_msg_2
                     : AppLocalizations.of(context).welcome_msg_3)),
-            style: FABStyles.appStyleHeaderText(Colors.white),
+            style: FABStyles.welcomeHeaderText(Colors.white),
+            maxLines: 3,
           ),
           Padding(
             padding: EdgeInsets.only(top: 15.h),

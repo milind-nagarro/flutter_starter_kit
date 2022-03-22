@@ -1,7 +1,7 @@
 import 'package:flutter/services.dart';
 
 class FaceTec {
-  static const platform = MethodChannel('com.example.facetec.poc');
+  static const platform = MethodChannel('com.bankfab.nhl');
 
   // Future<void> livenessCheck() async {
   //   try {
@@ -42,6 +42,17 @@ class FaceTec {
     } on PlatformException catch (e) {
       print(e);
       return false;
+    }
+  }
+
+  Future<String> getTextFromImage() async {
+    try {
+      final result = await platform.invokeMethod('BlinkOCR');
+      print("Result is : $result");
+      return result as String;
+    } on PlatformException catch (e) {
+      print(e);
+      return "";
     }
   }
 }

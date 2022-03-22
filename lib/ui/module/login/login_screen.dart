@@ -31,7 +31,7 @@ class LoginScreen extends StatelessWidget {
         ),
       ],
       child: Scaffold(
-        appBar: FABWidget.appTopBar(AppLocalizations.of(context).login),
+        appBar: FABWidget.appTopBar(AppLocalizations.of(context).already_user),
         // bloc consumer for listening to login state for navigation and validation based UI
         body: BlocConsumer<LoginBloc, LoginState>(builder: (context, state) {
           return SafeArea(
@@ -39,41 +39,34 @@ class LoginScreen extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 40.h),
               child: Stack(children: [
                 Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(AppLocalizations.of(context).welcome_back,
-                        style: FABStyles.subHeaderLabelStyle),
+                        style: FABStyles.appStyleHeaderText(header)),
                     SizedBox(height: 8.h),
                     Text(
                       AppLocalizations.of(context).login_header,
-                      style: FABStyles.appStyleHeaderText(header),
+                      style: FABStyles.subHeaderLabelStyle,
                     ),
                     SizedBox(height: 40.h),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 12),
-                      child: TextField(
-                        keyboardType: TextInputType.phone,
-                        onChanged: (text) {
-                          BlocProvider.of<LoginBloc>(context, listen: false)
-                              // context.read<LoginBloc>() // context.read should not be used inside build, but in callbacks
-                              .add(LoginPhoneNumberChanged(text));
-                        },
-                        style: FABStyles.appStyleInputText,
-                        decoration: InputDecoration(
-                            filled: false,
-                            prefixText: uaeCode,
-                            labelText:
-                                AppLocalizations.of(context).mobile_number,
-                            errorText: (state.loginStatus ==
-                                    LoginStates.unauthenticated)
-                                ? AppLocalizations.of(context).not_registered
-                                : null,
-                            suffixIcon: (state.loginStatus ==
-                                    LoginStates.unauthenticated)
-                                ? Image.asset(errorIconTextField)
-                                : null,
-                            errorMaxLines: 2),
-                      ),
+                    FABWidget.textField(
+                      keyboardType: TextInputType.phone,
+                      onChange: (text) {
+                        BlocProvider.of<LoginBloc>(context, listen: false)
+                            // context.read<LoginBloc>() // context.read should not be used inside build, but in callbacks
+                            .add(LoginPhoneNumberChanged(text));
+                      },
+                      prefixText: uaeCode,
+                      labelText: AppLocalizations.of(context).mobile_number,
+                      hintText: '5x xxx xxxx',
+                      errorText:
+                          (state.loginStatus == LoginStates.unauthenticated)
+                              ? AppLocalizations.of(context).not_registered
+                              : null,
+                      suffixIcon:
+                          (state.loginStatus == LoginStates.unauthenticated)
+                              ? Image.asset(errorIconTextField)
+                              : null,
                     ),
                     Row(children: [
                       BlocBuilder<RememberMeCubit, RememberMeValue>(
@@ -104,16 +97,10 @@ class LoginScreen extends StatelessWidget {
                 ),
                 Positioned(
                   child: Align(
-                    alignment: FractionalOffset.bottomCenter,
-                    child: SizedBox(
-                      width: 116.w,
-                      height: 56.h,
+                      alignment: FractionalOffset.bottomCenter,
                       child: FABWidget.appButton(
-                        AppLocalizations.of(context).next,
-                        onPressed: nextStep(context, state),
-                      ),
-                    ),
-                  ),
+                          AppLocalizations.of(context).next,
+                          onPressed: nextStep(context, state))),
                 ),
               ]),
             ),

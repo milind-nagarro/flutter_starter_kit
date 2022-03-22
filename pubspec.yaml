@@ -154,3 +154,6 @@ flutter:
       fonts:
         - asset: assets/fonts/GraphikRegular.otf
         - asset: assets/fonts/GraphikSemibold.otf
+    - family: Circular Std
+      fonts:
+        - asset: assets/fonts/CircularStd.otf

@@ -13,8 +13,12 @@ class FABStyles {
         onPrimary: highlightColor ?? Colors.white,
         shadowColor: Colors.grey,
         elevation: 3,
-        shape:
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(28.r)),
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+                topRight: Radius.circular(4.r.toDouble()),
+                bottomRight: Radius.circular(12.r.toDouble()),
+                topLeft: Radius.circular(12.r.toDouble()),
+                bottomLeft: Radius.circular(4.r.toDouble()))),
         minimumSize:
             Size(minSize?.width.w ?? 300.w, minSize?.height.h ?? 56.h));
   }
@@ -23,18 +27,17 @@ class FABStyles {
   static TextStyle appStyleButtonText(Color color) {
     return TextStyle(
       color: color,
-      fontFamily: 'SF Pro',
-      fontWeight: FontWeight.w600,
+      fontFamily: 'Circular Std',
+      fontWeight: FontWeight.w500,
       fontSize: 16.sp,
     );
   }
 
-// Style for header labels throughout the app
-  static TextStyle appStyleHeaderText(Color color) {
+  static TextStyle welcomeHeaderText(Color color) {
     return TextStyle(
-      fontSize: 21.sp,
-      fontFamily: "Graphik",
-      fontWeight: FontWeight.w600,
+      fontSize: 28.sp,
+      fontFamily: 'Circular Std',
+      fontWeight: FontWeight.w900,
       height: 1.25,
       color: color,
     );
@@ -42,28 +45,47 @@ class FABStyles {
 
 // Style for input text
   static final TextStyle appStyleInputText = TextStyle(
-      fontSize: 19.sp,
+      fontSize: 16.sp,
       fontWeight: FontWeight.w500,
       color: inputTextColor,
-      fontFamily: 'SF Pro');
+      fontFamily: 'Circular Std');
+
+  static TextStyle textFieldTextStyle(Color color) {
+    return TextStyle(
+        fontFamily: 'Circular Std',
+        color: color,
+        fontWeight: FontWeight.w500,
+        fontSize: 16.sp);
+  }
+
+// Style for header labels throughout the app
+  static TextStyle appStyleHeaderText(Color color) {
+    return TextStyle(
+      fontSize: 28.sp,
+      fontFamily: "Circular Std",
+      fontWeight: FontWeight.bold,
+      height: 1.25,
+      color: color,
+    );
+  }
 
   static final TextStyle subHeaderLabelStyle = TextStyle(
       fontSize: 15.sp,
       fontWeight: FontWeight.w400,
       color: subHeader,
-      fontFamily: 'SF Pro');
+      fontFamily: 'Circular Std');
 
   static final TextStyle redirectLabelStyle = TextStyle(
       fontSize: 14.sp,
       fontWeight: FontWeight.w500,
       color: hintLabel,
-      fontFamily: 'SF Pro');
+      fontFamily: 'Circular Std');
 
   static final TextStyle errorLabelStyle = TextStyle(
       fontSize: 15.sp,
       fontWeight: FontWeight.w400,
       color: alertRed,
-      fontFamily: 'SF Pro');
+      fontFamily: 'Circular Std');
 
   static final appThemeData = ThemeData(
     // primarySwatch: Colors.green,
@@ -169,5 +191,50 @@ class FABWidget {
 
   static Widget smallTextButton(String title, {Function()? onPressed}) {
     return TextButton(onPressed: onPressed, child: Text(title));
+  }
+
+  static Widget textField(
+      {TextInputType? keyboardType,
+      Function(String text)? onChange,
+      String? prefixText,
+      String? labelText,
+      String? hintText,
+      String? errorText,
+      Widget? suffixIcon,
+      Color? borderColor}) {
+    return TextField(
+      keyboardType: keyboardType,
+      onChanged: onChange,
+      style: FABStyles.textFieldTextStyle(Colors.black),
+      decoration: InputDecoration(
+          focusedBorder: OutlineInputBorder(
+              borderSide:
+                  BorderSide(color: borderColor ?? textFieldBorderColor)),
+          border: const OutlineInputBorder(),
+          filled: true,
+          fillColor: Colors.white,
+          prefix: (prefixText == null)
+              ? null
+              : Padding(
+                  padding: EdgeInsets.only(right: 10.w),
+                  child: Wrap(
+                    direction: Axis.horizontal,
+                    children: [
+                      Text(prefixText ?? ""),
+                      10.horizontalSpace,
+                      Text("|"),
+                    ],
+                  ),
+                ),
+          // prefixText: prefixText,
+          labelText: labelText,
+          hintText: hintText,
+          errorText: errorText,
+          suffixIcon: suffixIcon,
+          labelStyle: FABStyles.textFieldTextStyle(textFieldLabelColor),
+          prefixStyle: FABStyles.textFieldTextStyle(textFieldPrefixColor),
+          hintStyle: FABStyles.textFieldTextStyle(textFieldHintText),
+          errorMaxLines: 2),
+    );
   }
 }
