@@ -1,7 +1,7 @@
 import 'package:flutter/services.dart';
 
 class FaceTec {
-  static const platform = MethodChannel('com.example.facetec.poc');
+  static const platform = MethodChannel('com.bankfab.nhl');
 
   // Future<void> livenessCheck() async {
   //   try {
