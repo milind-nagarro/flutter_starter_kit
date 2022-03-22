@@ -12,19 +12,25 @@ import Flutter
             let facetecChannel = FlutterMethodChannel(name:"com.bankfab.nhl", binaryMessenger: controller.binaryMessenger)
             facetecChannel.setMethodCallHandler({
                 (call: FlutterMethodCall, result: @escaping FlutterResult) -> Void in
-                debugPrint("livenessCheck \(call.method)")
-                if let viewcontroller = controller.storyboard?.instantiateViewController(withIdentifier: "FacetecBaseViewController") as? FacetecBaseViewController {
-                    viewcontroller.result = result
-                    controller.present(viewcontroller, animated: true) {
-                        print("presented")
+                debugPrint("channel method \(call.method)")
+                if call.method == "LivenessCheck" {
+                    if let viewcontroller = controller.storyboard?.instantiateViewController(withIdentifier: "FacetecBaseViewController") as? FacetecBaseViewController {
+                        viewcontroller.result = result
+                        controller.present(viewcontroller, animated: true) {
+                            debugPrint("presented facetec screen")
+                        }
+                    } else {
+                        result(false)
                     }
-                } else {
-                    result(false)
+                } else if call.method == "BlinkOCR" {
+                    if let viewcontroller = controller.storyboard?.instantiateViewController(withIdentifier: "OCRViewController") as? OCRViewController {
+                        viewcontroller.result = result
+                        controller.present(viewcontroller, animated: false) {
+                            debugPrint("presented microblink screen")
+                        }
+                    }
                 }
                 
-                // show the screen here
-                      // Note: this method is invoked on the UI thread.
-                      // Handle battery messages.
             })
       
       
