@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_starter_kit/crosscutting/facetec/facetec.dart';
 import 'package:flutter_starter_kit/ui/screen/common_widget/pinput/pinput.dart';
 
 import '../../../../app/resources/colors.dart';
@@ -69,10 +68,10 @@ class VerifyPinScreen extends StatelessWidget {
   }
 
   Future<void> showBottomSheet(context) async {
-    final faceTec = FaceTec();
+    /*final faceTec = FaceTec();
 
     bool isPhotoIDMatchInitiated = false;
-    bool isPhotoIDMatchSuccessful = false;
+    bool isPhotoIDMatchSuccessful = false;*/
 
     showModalBottomSheet(
         context: context,
@@ -120,21 +119,21 @@ class VerifyPinScreen extends StatelessWidget {
                   width: double.infinity,
                   height: 0.5.h,
                 ),
-                // SizedBox(
-                //   height: 15.h,
-                // ),
+                SizedBox(
+                  height: 15.h,
+                ),
                 Container(
-                  padding: const EdgeInsets.only(top: 1),
+                  padding: const EdgeInsets.only(top: 16),
                   color: Colors.white,
                   child: Center(
                     child: Image.asset('assets/images/error_red.png'),
                   ),
                 ),
-                // SizedBox(
-                //   height: 8.h,
-                // ),
+                SizedBox(
+                  height: 8.h,
+                ),
                 Container(
-                  padding: const EdgeInsets.all(1),
+                  padding: const EdgeInsets.all(16),
                   color: Colors.white,
                   child: Center(
                       child: Text(
@@ -146,22 +145,19 @@ class VerifyPinScreen extends StatelessWidget {
                     ),
                   )),
                 ),
-                // SizedBox(
-                //   height: 8.h,
-                // ),
+                SizedBox(
+                  height: 8.h,
+                ),
                 FABWidget.appButton(AppLocalizations.of(context).reset_my_pin,
-                    minSize: Size(179.w, 30.h), onPressed: () {
-                  isPhotoIDMatchInitiated = true;
-                  faceTec.getTextFromImage().then((value) {
-                    print('value from microblink $value');
-                  });
-                  // faceTec.photoIDMatch().then((value) {
-                  //   isPhotoIDMatchSuccessful = value;
-                  // });
+                    minSize: Size(179.w, 44.h), onPressed: () {
+                  /*isPhotoIDMatchInitiated = true;
+                  faceTec.photoIDMatch().then((value) {
+                    isPhotoIDMatchSuccessful = value;
+                  });*/
                 }),
-                // SizedBox(
-                //   height: 12.h,
-                // ),
+                SizedBox(
+                  height: 12.h,
+                ),
               ],
             ),
           );

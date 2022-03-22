@@ -27,7 +27,7 @@ const String verifyPin = 'verifyPin';
 const String verification = 'verification';
 
 // define initial route
-String get initialRoute => verifyPin;
+String get initialRoute => splash;
 
 // configuration for routing with parameters
 Route<dynamic> generateRoute(RouteSettings settings) {
