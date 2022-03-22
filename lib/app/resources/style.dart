@@ -129,57 +129,43 @@ class FABWidget {
   }
 
   static PinTheme defaultPinTheme = PinTheme(
-    width: 44.w,
-    height: 56.h,
-    textStyle: TextStyle(color: Colors.black, fontSize: 32.sp),
-    decoration: const BoxDecoration(),
-  );
-
-  static PinTheme submittedPinTheme = PinTheme(
-    width: 44.w,
-    height: 56.h,
-    textStyle: TextStyle(color: Colors.black, fontSize: 32.sp),
-    decoration: const BoxDecoration(
-        border: Border(bottom: BorderSide(width: 3, color: Colors.black26))),
-  );
-
-  static PinTheme focusedPinTheme = PinTheme(
-    width: 44.w,
+    width: 52.w,
     height: 56.h,
     textStyle: TextStyle(color: Colors.black, fontSize: 32.sp),
     decoration: BoxDecoration(
-      color: cursorColor,
-      shape: BoxShape.rectangle,
-      boxShadow: const [
-        BoxShadow(color: cursorColor, spreadRadius: 0),
-      ],
-      borderRadius: BorderRadius.only(
-        topLeft: Radius.circular(4.r),
-        topRight: Radius.circular(4.r),
-      ),
+      color: Colors.white,
+      borderRadius: BorderRadius.all(Radius.circular(4.r)),
+    ),
+  );
+
+  static PinTheme submittedPinTheme = PinTheme(
+    width: 52.w,
+    height: 56.h,
+    textStyle: TextStyle(color: Colors.black, fontSize: 32.sp),
+    decoration: BoxDecoration(
+      color: Colors.white,
+      borderRadius: BorderRadius.all(Radius.circular(4.r)),
+    ),
+  );
+
+  static PinTheme focusedPinTheme = PinTheme(
+    width: 52.w,
+    height: 56.h,
+    textStyle: TextStyle(color: Colors.black, fontSize: 32.sp),
+    decoration: BoxDecoration(
+      color: Colors.white,
+      border: Border.all(
+          color: Colors.blue, // set border color
+          width: 2.0), // set border width
+      borderRadius:
+          BorderRadius.all(Radius.circular(4.r)), // set rounded corner radius
     ),
   );
 
   static PinTheme errorPinTheme = PinTheme(
-    width: 44.w,
-    height: 56.h,
-    textStyle: TextStyle(color: alertRed, fontSize: 32.sp),
-    decoration: const BoxDecoration(
-        border: Border(bottom: BorderSide(width: 3, color: errorColor))),
-  );
-
-  static Column preFilledWidget = Column(
-    mainAxisAlignment: MainAxisAlignment.end,
-    children: [
-      Container(
-        width: 44.w,
-        height: 2.h,
-        decoration: const BoxDecoration(
-          color: Colors.black26,
-        ),
-      ),
-    ],
-  );
+      width: 52.w,
+      height: 56.h,
+      textStyle: TextStyle(color: alertRed, fontSize: 32.sp));
 
   static Widget smallTextButton(String title, {Function()? onPressed}) {
     return TextButton(onPressed: onPressed, child: Text(title));

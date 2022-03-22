@@ -57,7 +57,7 @@ class SetupConfirmPinPage extends StatelessWidget {
                 SizedBox(height: 33.h),
                 Center(
                     child: Pinput(
-                  length: 4,
+                  length: 6,
                   pinAnimationType: PinAnimationType.slide,
                   controller: textController,
                   focusNode: focusNode,
@@ -78,16 +78,11 @@ class SetupConfirmPinPage extends StatelessWidget {
                       : state.validationState == ValidationState.invalid
                           ? true
                           : false,
-                  obscuringCharacter: '*',
                   errorPinTheme: FABWidget.errorPinTheme,
                   errorTextStyle: const TextStyle(color: alertRed),
                   defaultPinTheme: FABWidget.defaultPinTheme,
                   showCursor: false,
                   focusedPinTheme: FABWidget.focusedPinTheme,
-                  preFilledWidget:
-                      state.validationState == ValidationState.invalid
-                          ? null
-                          : FABWidget.preFilledWidget,
                   submittedPinTheme: FABWidget.submittedPinTheme,
                 )),
                 SizedBox(

@@ -72,7 +72,6 @@ class Verification extends StatelessWidget {
                             defaultPinTheme: FABWidget.defaultPinTheme,
                             showCursor: false,
                             focusedPinTheme: FABWidget.focusedPinTheme,
-                            preFilledWidget: FABWidget.preFilledWidget,
                             submittedPinTheme: FABWidget.submittedPinTheme,
                             forceErrorState: state.serverValidationStatus ==
                                 ValidationState.invalid,
