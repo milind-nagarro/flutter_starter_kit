@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:fab_nhl/app/app_constant.dart';
+import 'package:fab_nhl/app/validator.dart';
 import 'package:meta/meta.dart';
 
 part 'login_event.dart';
@@ -19,9 +20,12 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     if (value.isEmpty) {
       emit(LoginState(
           phoneNumber: value, validationStatus: ValidationState.invalid));
-    } else {
+    } else if (Validator.isValidMobile(value)) {
       emit(LoginState(
           phoneNumber: value, validationStatus: ValidationState.valid));
+    } else {
+      emit(LoginState(
+          phoneNumber: value, validationStatus: ValidationState.invalid));
     }
   }
 

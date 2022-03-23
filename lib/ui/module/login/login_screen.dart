@@ -51,24 +51,24 @@ class LoginScreen extends StatelessWidget {
                     ),
                     SizedBox(height: 40.h),
                     FABWidget.textField(
-                      keyboardType: TextInputType.phone,
-                      onChange: (text) {
-                        BlocProvider.of<LoginBloc>(context, listen: false)
-                            // context.read<LoginBloc>() // context.read should not be used inside build, but in callbacks
-                            .add(LoginPhoneNumberChanged(text));
-                      },
-                      prefixText: uaeCode,
-                      labelText: AppLocalizations.of(context).mobile_number,
-                      hintText: '5x xxx xxxx',
-                      errorText:
-                          (state.loginStatus == LoginStates.unauthenticated)
-                              ? AppLocalizations.of(context).not_registered
-                              : null,
-                      suffixIcon:
-                          (state.loginStatus == LoginStates.unauthenticated)
-                              ? Image.asset(errorIconTextField)
-                              : null,
-                    ),
+                        keyboardType: TextInputType.phone,
+                        onChange: (text) {
+                          BlocProvider.of<LoginBloc>(context, listen: false)
+                              // context.read<LoginBloc>() // context.read should not be used inside build, but in callbacks
+                              .add(LoginPhoneNumberChanged(text));
+                        },
+                        prefixText: uaeCode,
+                        labelText: AppLocalizations.of(context).mobile_number,
+                        hintText: '5x xxx xxxx',
+                        errorText:
+                            (state.loginStatus == LoginStates.unauthenticated)
+                                ? AppLocalizations.of(context).not_registered
+                                : null,
+                        suffixIcon:
+                            (state.validationStatus == ValidationState.valid &&
+                                    state.loginStatus == LoginStates.notChecked)
+                                ? Image.asset(validIconTextField)
+                                : null),
                     /* Row(children: [
                       BlocBuilder<RememberMeCubit, RememberMeValue>(
                           builder: (context, state) {
@@ -109,7 +109,10 @@ class LoginScreen extends StatelessWidget {
         }, // listener for navigation to next screen when login succeeds
             listener: (context, state) {
           if (state.loginStatus == LoginStates.authenticated) {
-            nextScreen();
+            var number = context.read<LoginBloc>().state.phoneNumber;
+            if (number != null) {
+              nextScreen(number);
+            }
           }
         }),
       ),
@@ -129,15 +132,13 @@ class LoginScreen extends StatelessWidget {
         return () {
           FocusManager.instance.primaryFocus?.unfocus();
           BlocProvider.of<LoginBloc>(context, listen: false)
-              .
-              // context.read<LoginBloc>().
-              add(const LoginSubmitted());
+              .add(const LoginSubmitted());
         };
     }
   }
 
-  void nextScreen() {
-    // locator<AppRouter>().showVerificationScreen([true]);
-    locator<AppRouter>().showVerifyPin();
+  void nextScreen(String phNumber) {
+    locator<AppRouter>().showVerificationScreen([true, phNumber, true]);
+    // locator<AppRouter>().showVerifyPin();
   }
 }

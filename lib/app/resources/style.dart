@@ -140,7 +140,7 @@ class FABWidget {
             ? TextButton(
                 onPressed: backAction,
                 child: Text(
-                  'cancel',
+                  'Cancel',
                   style: TextStyle(
                       color: primaryLabelColor,
                       fontFamily: themeFont,

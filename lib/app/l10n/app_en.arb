@@ -53,7 +53,7 @@
 
     "welcome_back": "Welcome back!",
     "login_header": "Enter your mobile number to login",
-    "not_registered": "Mobile number not registered",
+    "not_registered": "It seems your mobile number isn't registered. Please visit any FAB NHL branch to update your contact details.",
     "remember_me": "Remember me",
     "not_yet_registered": "Not yet registered?",
 
@@ -72,8 +72,8 @@
 
 
     "pin": "PIN",
-    "type_pin_number": "Type your PIN Number",
-    "forgot_your_pin": "Forgot your PIN?",
+    "type_pin_number": "Enter your PIN",
+    "forgot_your_pin": "Forgot PIN?",
     "invalid_pin_number": "Invalid PIN number",
     "pin_does_not_match": "The PIN does not match. Please enter the same PIN as before.",
 
@@ -93,5 +93,7 @@
     "faceid_title" : "Activate Face ID",
     "later" : "Later",
     "settings" : "Settings",
-    "location_denied_msg" : "Location permissions are denied. Do you want to enable them now?"
+    "location_denied_msg" : "Location permissions are denied. Do you want to enable them now?",
+
+    "not_you" : "Not you?"
 }

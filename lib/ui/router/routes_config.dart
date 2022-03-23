@@ -1,8 +1,8 @@
+import 'package:fab_nhl/ui/module/verify_pin/verify_pin_screen.dart';
 import 'package:fab_nhl/ui/screen/common_widget/permission_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:fab_nhl/domain/entity/article_entity.dart';
 import 'package:fab_nhl/ui/module/login/login_screen.dart';
-import 'package:fab_nhl/ui/module/login/verify_pin/verify_pin_screen.dart';
 import 'package:fab_nhl/ui/module/splash/splash.dart';
 import 'package:fab_nhl/ui/module/verification/verification.dart';
 import 'package:fab_nhl/ui/screen/article_detail_screen.dart';

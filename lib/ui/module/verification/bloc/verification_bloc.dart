@@ -19,8 +19,9 @@ class VerificationBloc extends Bloc<VerificationEvent, VerificationState> {
   TextEditingController textController = TextEditingController();
 
   final bool isMobile;
-
-  VerificationBloc(this.isMobile) : super(const VerificationState()) {
+  final bool isLogin;
+  VerificationBloc(this.isMobile, {this.isLogin = false})
+      : super(const VerificationState()) {
     on<ValueUpdated>(_onValueChanged);
     on<NextPressed>(_onNextPressed);
     on<TimeExpireEvent>(_onTimeExpire);
@@ -95,7 +96,11 @@ class VerificationBloc extends Bloc<VerificationEvent, VerificationState> {
 
   navigateToNextScreen() {
     if (isMobile) {
-      locator<AppRouter>().showRegisterEmailScreen(isReplace: true);
+      if (isLogin) {
+        locator<AppRouter>().showVerifyPin();
+      } else {
+        locator<AppRouter>().showRegisterEmailScreen(isReplace: true);
+      }
     } else {
       locator<AppRouter>().showSetupPin();
     }

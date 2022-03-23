@@ -21,7 +21,9 @@ class Verification extends StatelessWidget {
   Widget build(BuildContext context) {
     final bool isMobile = argument[0];
     final String inputToVerify = argument[1];
-    VerificationBloc verificationBloc = VerificationBloc(isMobile);
+
+    VerificationBloc verificationBloc =
+        VerificationBloc(isMobile, isLogin: (argument.length == 3));
 
     return Scaffold(
         appBar: FABWidget.appTopBar(AppLocalizations.of(context).your_otp),
@@ -47,9 +49,8 @@ class Verification extends StatelessWidget {
                               isMobile
                                   ? AppLocalizations.of(context)
                                           .verification_sent_msg_mobile +
-                                      " (" +
-                                      inputToVerify +
-                                      ")"
+                                      " +971 " +
+                                      inputToVerify
                                   : AppLocalizations.of(context)
                                           .verification_sent_msg_email +
                                       " " +
