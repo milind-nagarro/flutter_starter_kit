@@ -1,9 +1,9 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:fab_nhl/app/resources/assets.dart' as assets;
 import 'package:fab_nhl/app/resources/colors.dart' as colors;
 import 'package:fab_nhl/app/resources/dimen.dart' as dimens;
 import 'package:fab_nhl/domain/entity/article_entity.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ArticleDetailScreen extends StatelessWidget {
   final ArticleEntity _articleEntity;

@@ -1,8 +1,8 @@
+import 'package:fab_nhl/app/resources/dimen.dart' as dimen;
+import 'package:fab_nhl/ui/screen/common_widget/progress_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:fab_nhl/app/resources/dimen.dart' as dimen;
-import 'package:fab_nhl/ui/screen/common_widget/progress_bar.dart';
 
 typedef SuccessWidgetBuilder<T> = Widget Function(BuildContext context, T item);
 typedef ErrorWidgetBuilder = Widget Function(

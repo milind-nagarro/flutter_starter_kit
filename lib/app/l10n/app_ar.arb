@@ -1,5 +1,6 @@
 {
     "continue_text" : "Continue",
+    "ok" : "Ok",
 
     "appName": "طقم Flutter Starter Kit",
         "dashboard" : "لوحة القيادة",
@@ -82,4 +83,5 @@
       "error_message": "Error Message",
       "exceeded_number_retries":"You have exceeded the number of maximum tries, Please reset your PIN",
       "reset_my_pin": "Reset my PIN"
+
 }

@@ -1,11 +1,17 @@
+import 'package:app_settings/app_settings.dart';
+import 'package:fab_nhl/app/di/locator.dart';
 import 'package:fab_nhl/app/resources/assets.dart';
 import 'package:fab_nhl/app/resources/colors.dart';
 import 'package:fab_nhl/app/resources/style.dart';
+import 'package:fab_nhl/ui/router/app_router.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:local_auth/error_codes.dart' as auth_error;
 import 'package:location/location.dart';
-import 'package:app_settings/app_settings.dart';
+
+import '../../../app/biometric_authenticator.dart';
 
 enum PermissionType {
   location,
@@ -76,12 +82,7 @@ class _PermissionScreenState extends State<PermissionScreen>
                       child: FABWidget.appButton(
                         AppLocalizations.of(context).allow_access_btn,
                         bgColor: primaryLabelColor,
-                        onPressed: () {
-                          if (widget.type == PermissionType.location) {
-                            _askForLocationPermission(context);
-                          }
-                          //TODO: action based on type
-                        },
+                        onPressed: _onAllowAccess,
                       ),
                     )
                   ])),
@@ -93,16 +94,38 @@ class _PermissionScreenState extends State<PermissionScreen>
       backgroundColor: appBGColor,
       appBar: FABWidget.appTopBar(headerTitle,
           rightBtnTitle: AppLocalizations.of(context).later,
-          rightBtnAction: () => {_nextScreen()}),
+          rightBtnAction: _onLaterClicked),
       body: column,
     );
+  }
+
+  _onAllowAccess(){
+    switch(widget.type){
+      case PermissionType.location :
+        _askForLocationPermission(context);
+        break;
+      case PermissionType.faceid :
+        _nextScreenFaceid();
+        break;
+    }
+  }
+
+  _onLaterClicked(){
+    switch(widget.type){
+      case PermissionType.location :
+        _nextScreenLocation();
+        break;
+      case PermissionType.faceid :
+        locator<AppRouter>().showDashboard();
+        break;
+    }
   }
 
   _checkLocationPermissionOnResume() async {
     Location location = Location();
     PermissionStatus permission = await location.hasPermission();
     if (permission == PermissionStatus.granted) {
-      _nextScreen();
+      _nextScreenLocation();
     }
   }
 
@@ -139,15 +162,40 @@ class _PermissionScreenState extends State<PermissionScreen>
         // return;
       } else {
         debugPrint('location permission granted');
-        _nextScreen();
+        _nextScreenLocation();
       }
     } else {
-      _nextScreen();
+      _nextScreenLocation();
     }
   }
 
-  _nextScreen() {
+  _nextScreenLocation() async {
     debugPrint("next screen");
+    if(await BioMetricAuthentication.isBiometricAvailable()){
+      locator<AppRouter>().showPermissionScreen(PermissionType.faceid);
+    }else{
+      locator<AppRouter>().showDashboard();
+    }
+  }
+
+  _nextScreenFaceid() async {
+
+    try{
+      bool isAuthenticated =
+      await BioMetricAuthentication.authenticateWithBiometrics();
+      if(isAuthenticated){
+        locator<AppRouter>().showDashboard();
+      }else{
+        debugPrint("isAuthenticated failed");
+      }
+    }on PlatformException catch (e) {
+      FABWidget.showAlertDialog(
+        context,
+        e.message.toString(),
+        AppLocalizations.of(context).ok,
+      );
+    }
+
   }
 
   //// app state observer to check if user went to settings and granted location permission
@@ -157,7 +205,7 @@ class _PermissionScreenState extends State<PermissionScreen>
       case AppLifecycleState.resumed:
         debugPrint("app in resumed");
         if (widget.type == PermissionType.location) {
-          _checkLocationPermissionOnResume();
+          // _checkLocationPermissionOnResume();
         }
 
         break;

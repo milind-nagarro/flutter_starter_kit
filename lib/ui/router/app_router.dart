@@ -1,10 +1,10 @@
-import 'package:fab_nhl/ui/screen/common_widget/permission_screen.dart';
-import 'package:flutter/widgets.dart';
 import 'package:fab_nhl/app/app_constant.dart';
 import 'package:fab_nhl/domain/entity/article_entity.dart';
 import 'package:fab_nhl/ui/module/welcome/welcome_screen.dart';
 import 'package:fab_nhl/ui/router/navigation_service.dart';
 import 'package:fab_nhl/ui/router/routes_config.dart' as routes;
+import 'package:fab_nhl/ui/screen/common_widget/permission_screen.dart';
+import 'package:flutter/widgets.dart';
 import 'package:injectable/injectable.dart';
 
 @injectable
@@ -68,8 +68,16 @@ class AppRouter {
   }
 
   void showPermissionScreen(PermissionType type) {
-    _navService.pushNamed((type == PermissionType.location)
-        ? routes.permissionLocation
-        : routes.permissionFaceid);
+    switch(type){
+      case PermissionType.location :
+        _navService.pushNamed(routes.permissionLocation);
+        break;
+      case PermissionType.faceid :
+        _navService.pushNamed(routes.permissionFaceid);
+        break;
+    }
+  }
+  void showDashboard() {
+    _navService.pushNamed(routes.dashboard);
   }
 }

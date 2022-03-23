@@ -1,8 +1,8 @@
 import 'package:chopper/chopper.dart';
-import 'package:flutter/foundation.dart';
 import 'package:fab_nhl/app/di/json_serializable_converter.dart';
 import 'package:fab_nhl/data/remote/response/article_response.dart';
 import 'package:fab_nhl/data/remote/service/article_service.dart';
+import 'package:flutter/foundation.dart';
 import 'package:get_it/get_it.dart';
 
 typedef JsonFactory<T> = T Function(Map<String, dynamic> json);

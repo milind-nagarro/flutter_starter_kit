@@ -1,12 +1,12 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fab_nhl/app/app_constant.dart';
 import 'package:fab_nhl/app/resources/colors.dart';
 import 'package:fab_nhl/app/resources/style.dart';
 import 'package:fab_nhl/ui/module/verification/bloc/verification_bloc.dart';
 import 'package:fab_nhl/ui/screen/common_widget/pinput/pinput.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:timer_count_down/timer_count_down.dart';
 
 /// widget to create verification screen
@@ -49,7 +49,6 @@ class Verification extends StatelessWidget {
                               isMobile
                                   ? AppLocalizations.of(context)
                                           .verification_sent_msg_mobile +
-                                      " +971 " +
                                       inputToVerify
                                   : AppLocalizations.of(context)
                                           .verification_sent_msg_email +

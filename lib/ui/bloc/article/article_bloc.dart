@@ -1,8 +1,8 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fab_nhl/common/dataclass/status.dart';
 import 'package:fab_nhl/domain/repository/iarticle_repository.dart';
 import 'package:fab_nhl/ui/bloc/article/article_event.dart';
 import 'package:fab_nhl/ui/bloc/article/article_state.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 
 @injectable

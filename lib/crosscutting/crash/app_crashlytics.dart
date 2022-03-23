@@ -1,7 +1,7 @@
+import 'package:fab_nhl/crosscutting/crash/iapp_crashlytics.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/widgets.dart';
-import 'package:fab_nhl/crosscutting/crash/iapp_crashlytics.dart';
 import 'package:injectable/injectable.dart';
 
 @Injectable(as: IAppCrashlytics)

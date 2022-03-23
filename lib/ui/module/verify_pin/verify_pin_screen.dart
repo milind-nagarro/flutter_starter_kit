@@ -1,12 +1,12 @@
 import 'package:fab_nhl/app/resources/colors.dart';
 import 'package:fab_nhl/app/resources/style.dart';
 import 'package:fab_nhl/ui/module/verify_pin/cubit/verifypin_cubit.dart';
+import 'package:fab_nhl/ui/screen/common_widget/pinput/pinput.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:fab_nhl/ui/screen/common_widget/pinput/pinput.dart';
 
 class VerifyPinScreen extends StatelessWidget {
   const VerifyPinScreen({Key? key}) : super(key: key);

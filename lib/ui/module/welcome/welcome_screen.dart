@@ -1,9 +1,5 @@
 import 'dart:ui';
 
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fab_nhl/app/app_constant.dart';
 import 'package:fab_nhl/app/di/locator.dart';
 import 'package:fab_nhl/app/resources/assets.dart';
@@ -11,6 +7,10 @@ import 'package:fab_nhl/app/resources/colors.dart';
 import 'package:fab_nhl/app/resources/style.dart';
 import 'package:fab_nhl/ui/router/app_router.dart';
 import 'package:fab_nhl/ui/screen/common_widget/page_indicator.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'cubit/welcome_cubit.dart';
 import 'cubit/welcome_state.dart';

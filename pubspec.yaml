@@ -55,6 +55,9 @@ dependencies:
   # for showing validation expire time
   timer_count_down: ^2.2.1
 
+  # for biometrics check
+  local_auth: ^1.1.11
+
   flutter_localizations:
     sdk: flutter
   intl: ^0.17.0

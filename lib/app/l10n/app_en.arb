@@ -1,5 +1,6 @@
 {
     "continue_text" : "Continue",
+    "ok" : "Ok",
 
     "appName": "Flutter Starter Kit",
     "dashboard" : "Dashboard",
@@ -25,6 +26,9 @@
     "next": "Next",
     "invalid_mobile_number":
     "Invalid mobile number, please visit any FAB NHL branch to update your contact details.",
+    "mobile_hint":"5x xxx xxxx",
+    "email_hint":"Enter email id",
+
 
 
     "enter_email": "Register your email",
@@ -95,5 +99,7 @@
     "settings" : "Settings",
     "location_denied_msg" : "Location permissions are denied. Do you want to enable them now?",
 
-    "not_you" : "Not you?"
+    "not_you" : "Not you?",
+
+    "dashboard" : "Dashboard"
 }

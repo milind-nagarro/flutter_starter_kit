@@ -1,14 +1,14 @@
-import 'package:fab_nhl/ui/module/verify_pin/verify_pin_screen.dart';
-import 'package:fab_nhl/ui/screen/common_widget/permission_screen.dart';
-import 'package:flutter/material.dart';
 import 'package:fab_nhl/domain/entity/article_entity.dart';
+import 'package:fab_nhl/ui/module/dashboard/dashboard.dart';
 import 'package:fab_nhl/ui/module/login/login_screen.dart';
 import 'package:fab_nhl/ui/module/splash/splash.dart';
 import 'package:fab_nhl/ui/module/verification/verification.dart';
+import 'package:fab_nhl/ui/module/verify_pin/verify_pin_screen.dart';
 import 'package:fab_nhl/ui/screen/article_detail_screen.dart';
 import 'package:fab_nhl/ui/screen/article_list_screen.dart';
-import 'package:fab_nhl/ui/screen/dashboard_screen.dart';
+import 'package:fab_nhl/ui/screen/common_widget/permission_screen.dart';
 import 'package:fab_nhl/ui/screen/post_list_screen.dart';
+import 'package:flutter/material.dart';
 
 import '../module/registration/register.dart';
 import '../module/setup_confirm_pin/setup_confirm_pin_screen.dart';
@@ -36,7 +36,7 @@ String get initialRoute => splash;
 Route<dynamic> generateRoute(RouteSettings settings) {
   switch (settings.name) {
     case dashboard:
-      return MaterialPageRoute(builder: (context) => const DashboardScreen());
+      return MaterialPageRoute(builder: (context) => const Dashboard());
     case articleList:
       return MaterialPageRoute(builder: (context) => const ArticleListScreen());
     case articleDetails:

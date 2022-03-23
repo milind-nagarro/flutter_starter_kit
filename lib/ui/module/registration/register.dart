@@ -62,7 +62,9 @@ class Register extends StatelessWidget {
                           labelText: isMobile
                               ? AppLocalizations.of(context).mobile_number
                               : AppLocalizations.of(context).email,
-                          hintText: '5x xxx xxxx',
+                          hintText: isMobile
+                              ? AppLocalizations.of(context).mobile_hint
+                              : AppLocalizations.of(context).email_hint,
                           errorText: (state.registrationStatus ==
                                   ValidationState.invalid)
                               ? AppLocalizations.of(context).not_registered

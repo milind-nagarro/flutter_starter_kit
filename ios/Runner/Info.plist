@@ -45,5 +45,8 @@
 	<false/>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Allow FAB to access your location to better help you.</string>
+	<key>NSFaceIDUsageDescription</key>
+    <string>Biometric authentication for accessing secrets</string>
+    Testing the app on Simulator
 </dict>
 </plist>

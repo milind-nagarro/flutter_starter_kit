@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:fab_nhl/app/validator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fab_nhl/app/validator.dart';
 import 'package:meta/meta.dart';
 
 import '../../../../app/app_constant.dart';

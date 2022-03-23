@@ -1,8 +1,8 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fab_nhl/app/app_config.dart';
 import 'package:fab_nhl/app/app_constant.dart';
 import 'package:fab_nhl/app/di/locator.dart';
 import 'package:fab_nhl/app/prefs/local_storage.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'welcome_state.dart';
 

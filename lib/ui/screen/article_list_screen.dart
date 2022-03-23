@@ -1,6 +1,3 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:fab_nhl/app/di/locator.dart';
 import 'package:fab_nhl/app/resources/dimen.dart' as dimen;
 import 'package:fab_nhl/crosscutting/analytics/iapp_analytics.dart';
@@ -11,6 +8,9 @@ import 'package:fab_nhl/ui/bloc/article/article_state.dart';
 import 'package:fab_nhl/ui/router/app_router.dart';
 import 'package:fab_nhl/ui/screen/common_widget/circle_image.dart';
 import 'package:fab_nhl/ui/screen/common_widget/progress_bar.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ArticleListScreen extends StatelessWidget {
   const ArticleListScreen({Key? key}) : super(key: key);

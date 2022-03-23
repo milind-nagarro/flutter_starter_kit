@@ -1,10 +1,10 @@
-import 'package:flutter/material.dart';
 import 'package:fab_nhl/app/app_config.dart';
 import 'package:fab_nhl/app/app_constant.dart';
 import 'package:fab_nhl/app/di/locator.dart';
 import 'package:fab_nhl/app/prefs/local_storage.dart';
 import 'package:fab_nhl/app/resources/assets.dart';
 import 'package:fab_nhl/ui/router/app_router.dart';
+import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);

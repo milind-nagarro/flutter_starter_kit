@@ -1,10 +1,10 @@
+import 'package:fab_nhl/app/resources/assets.dart';
+import 'package:fab_nhl/app/resources/colors.dart';
+import 'package:fab_nhl/app/resources/style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:fab_nhl/app/resources/assets.dart';
-import 'package:fab_nhl/app/resources/colors.dart';
-import 'package:fab_nhl/app/resources/style.dart';
 
 import '../../../app/app_constant.dart';
 import '../../../app/di/locator.dart';
@@ -59,7 +59,7 @@ class LoginScreen extends StatelessWidget {
                         },
                         prefixText: uaeCode,
                         labelText: AppLocalizations.of(context).mobile_number,
-                        hintText: '5x xxx xxxx',
+                        hintText: AppLocalizations.of(context).mobile_hint,
                         errorText:
                             (state.loginStatus == LoginStates.unauthenticated)
                                 ? AppLocalizations.of(context).not_registered
@@ -138,7 +138,7 @@ class LoginScreen extends StatelessWidget {
   }
 
   void nextScreen(String phNumber) {
-    locator<AppRouter>().showVerificationScreen([true, phNumber, true]);
+    locator<AppRouter>().showVerificationScreen([true, uaeCode + " " +phNumber, true]);
     // locator<AppRouter>().showVerifyPin();
   }
 }
