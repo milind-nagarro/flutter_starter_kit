@@ -15,7 +15,9 @@ class OCRViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        MBMicroblinkSDK.shared().setLicenseKey("sRwAAAETY29tLmJhbmtmYWIubmhsLmFwcDgolUqBLFFdyTMdLXqvt7J5Ig39GVss6vDLMvzWjfOGOyQF/Y8PDiiP1oVdptja7bwKONsBAuDX024uuMbcZkvIYkNK08hoY6Okdan9ZfKD4VKdCxraNtWla/nK3XTBAwm88Qh6npRiq2nhX95tQkUi0Q7Q7Iuutx/Xc6U95lAgRxXW90wunmFQyLv86R9c2vqdTpHbRhy9v5JHEChDavVLiKKksn/2hl0bClo26RUa") { err in
+        MBMicroblinkSDK.shared().setLicenseKey("sRwAAAETY29tLmJhbmtmYWIubmhsLmFwcDgolUqBLFFdyTMdLXqvt7J5Ig39GVss6vDLMvzWjfOGOyQF/Y8PDiiP1oVdptja7bwKONsBAuDX024uuMbcZkvIYkNK08hoY6Okdan9ZfKD4VKdCxraNtWla/nK3XTBAwm88Qh6npRiq2nhX95tQkUi0Q7Q7Iuutx/Xc6U95lAgRxXW90wunmFQyLv86R9c2vqdTpHbRhy9v5JHEChDavVLiKKksn/2hl0bClo26RUa") { [weak self] err in
+            self?.result?(nil)
+            self?.dismissScreen()
             debugPrint("error in microblink \(err)")
         }
     }
@@ -94,16 +96,34 @@ extension OCRViewController: MBBlinkIdOverlayViewControllerDelegate {
 
         var message: String = ""
 
-        if self.blinkIdRecognizer?.result.resultState == MBRecognizerResultState.valid {
+        if blinkIdRecognizer?.result.resultState == MBRecognizerResultState.valid {
 
             // Save the string representation of the code
-            message = self.blinkIdRecognizer!.result.description
+            message = blinkIdRecognizer!.result.description
+            var dict = [String: String]()
+            if let fullName = blinkIdRecognizer!.result.fullName {
+                dict["Name"] = fullName
+            }
+            if let gender = blinkIdRecognizer!.result.sex {
+                dict["Gender"] = gender
+            }
+            if let dob = blinkIdRecognizer!.result.dateOfBirth {
+                dict["Date of birth"] = "\(dob.day)/\(dob.month)/\(dob.year)"
+            }
+            if let doexp = blinkIdRecognizer!.result.dateOfExpiry {
+                dict["ID expiry date"] = "\(doexp.day)/\(doexp.month)/\(doexp.year)"
+            }
+            if let mrzRes = blinkIdRecognizer!.result.mrzResult {
+                dict["Nationality"] = mrzRes.nationalityName
+            }
+            
             
             /** Needs to be called on main thread beacuse everything prior is on background thread */
             DispatchQueue.main.async { [weak self] in
                 // present the alert view with scanned results
-                self?.result?(message)
-                self?.presentingViewController?.dismiss(animated: false)
+                self?.result?("\(dict as AnyObject)")
+//                self?.result?(message)
+                self?.dismissScreen()
                 
             }
         }
@@ -111,6 +131,10 @@ extension OCRViewController: MBBlinkIdOverlayViewControllerDelegate {
 
     func blinkIdOverlayViewControllerDidTapClose(_ blinkIdOverlayViewController: MBBlinkIdOverlayViewController) {
         result?(nil)
+        dismissScreen()
+    }
+    
+    func dismissScreen() {
         presentingViewController?.dismiss(animated: false)
     }
 }
