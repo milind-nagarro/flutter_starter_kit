@@ -69,7 +69,7 @@ class LoginScreen extends StatelessWidget {
                               ? Image.asset(errorIconTextField)
                               : null,
                     ),
-                    Row(children: [
+                    /* Row(children: [
                       BlocBuilder<RememberMeCubit, RememberMeValue>(
                           builder: (context, state) {
                         return Checkbox(
@@ -93,7 +93,7 @@ class LoginScreen extends StatelessWidget {
                           AppLocalizations.of(context).not_yet_registered,
                           onPressed: () =>
                               {}), //controller.navigateToRegisterScreen()}),
-                    ]),
+                    ]), */
                   ],
                 ),
                 Positioned(
@@ -137,6 +137,7 @@ class LoginScreen extends StatelessWidget {
   }
 
   void nextScreen() {
+    // locator<AppRouter>().showVerificationScreen([true]);
     locator<AppRouter>().showVerifyPin();
   }
 }

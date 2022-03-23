@@ -1,3 +1,4 @@
+import 'package:fab_nhl/ui/screen/common_widget/permission_screen.dart';
 import 'package:flutter/widgets.dart';
 import 'package:fab_nhl/app/app_constant.dart';
 import 'package:fab_nhl/domain/entity/article_entity.dart';
@@ -64,5 +65,11 @@ class AppRouter {
 
   void goBack() {
     _navService.goBack();
+  }
+
+  void showPermissionScreen(PermissionType type) {
+    _navService.pushNamed((type == PermissionType.location)
+        ? routes.permissionLocation
+        : routes.permissionFaceid);
   }
 }

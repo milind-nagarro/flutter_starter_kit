@@ -1,3 +1,5 @@
+import 'package:fab_nhl/app/resources/assets.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -27,7 +29,7 @@ class FABStyles {
   static TextStyle appStyleButtonText(Color color) {
     return TextStyle(
       color: color,
-      fontFamily: 'Circular Std',
+      fontFamily: themeFont,
       fontWeight: FontWeight.w500,
       fontSize: 16.sp,
     );
@@ -36,7 +38,7 @@ class FABStyles {
   static TextStyle welcomeHeaderText(Color color) {
     return TextStyle(
       fontSize: 28.sp,
-      fontFamily: 'Circular Std',
+      fontFamily: themeFont,
       fontWeight: FontWeight.w900,
       height: 1.25,
       color: color,
@@ -48,11 +50,11 @@ class FABStyles {
       fontSize: 16.sp,
       fontWeight: FontWeight.w500,
       color: inputTextColor,
-      fontFamily: 'Circular Std');
+      fontFamily: themeFont);
 
   static TextStyle textFieldTextStyle(Color color) {
     return TextStyle(
-        fontFamily: 'Circular Std',
+        fontFamily: themeFont,
         color: color,
         fontWeight: FontWeight.w500,
         fontSize: 16.sp);
@@ -61,10 +63,11 @@ class FABStyles {
 // Style for header labels throughout the app
   static TextStyle appStyleHeaderText(Color color) {
     return TextStyle(
-      fontSize: 28.sp,
-      fontFamily: "Circular Std",
+      fontSize: 24.sp,
+      fontFamily: themeFont,
       fontWeight: FontWeight.bold,
-      height: 1.25,
+      height: 1.25.h,
+      letterSpacing: 0.33.sp,
       color: color,
     );
   }
@@ -73,19 +76,20 @@ class FABStyles {
       fontSize: 15.sp,
       fontWeight: FontWeight.w400,
       color: subHeader,
-      fontFamily: 'Circular Std');
+      letterSpacing: 0.33.sp,
+      fontFamily: themeFont);
 
   static final TextStyle redirectLabelStyle = TextStyle(
       fontSize: 14.sp,
       fontWeight: FontWeight.w500,
       color: hintLabel,
-      fontFamily: 'Circular Std');
+      fontFamily: themeFont);
 
   static final TextStyle errorLabelStyle = TextStyle(
       fontSize: 15.sp,
       fontWeight: FontWeight.w400,
       color: alertRed,
-      fontFamily: 'Circular Std');
+      fontFamily: themeFont);
 
   static final appThemeData = ThemeData(
     // primarySwatch: Colors.green,
@@ -121,33 +125,46 @@ class FABWidget {
     String title, {
     bool hasCancel = false,
     Function()? backAction,
+    String? rightBtnTitle,
+    Function()? rightBtnAction,
   }) {
     return AppBar(
-      backgroundColor: Colors.white,
-      elevation: 0,
-      centerTitle: true,
-      iconTheme: hasCancel
-          ? null
-          : IconThemeData(color: primaryLabelColor, size: 25.r),
-      leadingWidth: hasCancel ? 80.w : null,
-      leading: hasCancel
-          ? TextButton(
-              onPressed: backAction,
-              child: Text(
-                'cancel',
-                style: TextStyle(
-                    color: primaryLabelColor,
-                    fontFamily: 'SF Pro',
-                    fontSize: 15.sp),
-              ),
-            )
-          : BackButton(onPressed: backAction),
-      title: Text(
-        title,
-        style: TextStyle(
-            color: headerTextColor, fontFamily: 'SF Pro', fontSize: 16.sp),
-      ),
-    );
+        backgroundColor: Colors.white,
+        elevation: 0,
+        centerTitle: true,
+        iconTheme: hasCancel
+            ? null
+            : IconThemeData(color: primaryLabelColor, size: 25.r),
+        leadingWidth: hasCancel ? 80.w : null,
+        leading: hasCancel
+            ? TextButton(
+                onPressed: backAction,
+                child: Text(
+                  'cancel',
+                  style: TextStyle(
+                      color: primaryLabelColor,
+                      fontFamily: themeFont,
+                      fontSize: 15.sp),
+                ),
+              )
+            : BackButton(onPressed: backAction),
+        title: Text(
+          title,
+          textAlign: TextAlign.center,
+          style: TextStyle(
+              color: headerTextColor,
+              fontFamily: themeFont,
+              fontWeight: FontWeight.w500,
+              fontSize: 16.sp),
+        ),
+        actions: (rightBtnTitle == null)
+            ? null
+            : <Widget>[
+                TextButton(
+                  child: Text(rightBtnTitle),
+                  onPressed: rightBtnAction,
+                ),
+              ]);
   }
 
   static PinTheme defaultPinTheme = PinTheme(
@@ -238,5 +255,45 @@ class FABWidget {
           hintStyle: FABStyles.textFieldTextStyle(textFieldHintText),
           errorMaxLines: 2),
     );
+  }
+
+  static showAlertDialog(BuildContext context, String title, String okBtnTitle,
+      {String? contentStr,
+      Function()? okAction,
+      String? cancelTitle,
+      Function()? cancelAction,
+      bool dismissableFromOutside = true}) {
+    var actions = [
+      TextButton(
+          onPressed: () {
+            Navigator.pop(context);
+            if (okAction != null) {
+              okAction();
+            }
+          },
+          child: Text(okBtnTitle))
+    ];
+    if (cancelTitle != null) {
+      actions.insert(
+          0,
+          TextButton(
+              onPressed: cancelAction ?? () => {Navigator.pop(context)},
+              child: Text(cancelTitle)));
+    }
+    showDialog(
+        context: context,
+        barrierDismissible: dismissableFromOutside,
+        builder: (BuildContext context) =>
+            (Theme.of(context).platform == TargetPlatform.iOS)
+                ? CupertinoAlertDialog(
+                    title: Text(title),
+                    content: (contentStr == null) ? null : Text(contentStr),
+                    actions: actions,
+                  )
+                : AlertDialog(
+                    title: Text(title),
+                    content: (contentStr == null) ? null : Text(contentStr),
+                    actions: actions,
+                  ));
   }
 }

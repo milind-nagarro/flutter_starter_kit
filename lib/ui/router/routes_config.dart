@@ -1,3 +1,4 @@
+import 'package:fab_nhl/ui/screen/common_widget/permission_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:fab_nhl/domain/entity/article_entity.dart';
 import 'package:fab_nhl/ui/module/login/login_screen.dart';
@@ -25,6 +26,8 @@ const String setupPin = 'setupPin';
 const String confirmPin = 'confirmPin';
 const String verifyPin = 'verifyPin';
 const String verification = 'verification';
+const String permissionLocation = 'permissionLocation';
+const String permissionFaceid = 'permissionFaceid';
 
 // define initial route
 String get initialRoute => splash;
@@ -65,6 +68,14 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => const SplashScreen());
     case verifyPin:
       return MaterialPageRoute(builder: (context) => const VerifyPinScreen());
+    case permissionFaceid:
+      return MaterialPageRoute(
+          builder: (context) =>
+              const PermissionScreen(type: PermissionType.faceid));
+    case permissionLocation:
+      return MaterialPageRoute(
+          builder: (context) =>
+              const PermissionScreen(type: PermissionType.location));
     default:
       return MaterialPageRoute(
         builder: (context) => Scaffold(

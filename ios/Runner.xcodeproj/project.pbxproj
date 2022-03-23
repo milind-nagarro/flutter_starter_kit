@@ -9,14 +9,14 @@
 /* Begin PBXBuildFile section */
 		1498D2341E8E89220040F4C2 /* GeneratedPluginRegistrant.m in Sources */ = {isa = PBXBuildFile; fileRef = 1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */; };
 		3B3967161E833CAA004F5970 /* AppFrameworkInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */; };
+		5F1D1E1B27EAFCA20039221F /* OCRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF5E6F227E9EBE000ED055A /* OCRViewController.swift */; };
+		5F1D1E1E27EB00240039221F /* FaceTecSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F1D1E1C27EB00170039221F /* FaceTecSDK.framework */; };
+		5F1D1E1F27EB00240039221F /* FaceTecSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5F1D1E1C27EB00170039221F /* FaceTecSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5FF5E6D327E98DAA00ED055A /* FacetecBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF5E6D227E98DAA00ED055A /* FacetecBaseViewController.swift */; };
 		5FF5E6D927E98DDD00ED055A /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF5E6D527E98DDD00ED055A /* Config.swift */; };
 		5FF5E6DA27E98DDD00ED055A /* LivenessCheckProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF5E6D727E98DDD00ED055A /* LivenessCheckProcessor.swift */; };
 		5FF5E6DB27E98DDD00ED055A /* ProcesingDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF5E6D827E98DDD00ED055A /* ProcesingDelegate.swift */; };
-		5FF5E6DF27E9972900ED055A /* FaceTecSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FF5E6DC27E9937D00ED055A /* FaceTecSDK.framework */; };
-		5FF5E6E027E9972900ED055A /* FaceTecSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5FF5E6DC27E9937D00ED055A /* FaceTecSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5FF5E6F327E9EBE000ED055A /* CustomOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF5E6F127E9EBE000ED055A /* CustomOverlay.swift */; };
-		5FF5E6F427E9EBE000ED055A /* OCRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF5E6F227E9EBE000ED055A /* OCRViewController.swift */; };
 		5FF5E6F727E9EC1F00ED055A /* Microblink.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FF5E6F527E9EC1200ED055A /* Microblink.xcframework */; };
 		5FF5E6F827E9EC1F00ED055A /* Microblink.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5FF5E6F527E9EC1200ED055A /* Microblink.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		74858FAF1ED2DC5600515810 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74858FAE1ED2DC5600515810 /* AppDelegate.swift */; };
@@ -34,8 +34,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				5FF5E6E027E9972900ED055A /* FaceTecSDK.framework in Embed Frameworks */,
 				5FF5E6F827E9EC1F00ED055A /* Microblink.xcframework in Embed Frameworks */,
+				5F1D1E1F27EB00240039221F /* FaceTecSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -47,11 +47,11 @@
 		1498D2321E8E86230040F4C2 /* GeneratedPluginRegistrant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GeneratedPluginRegistrant.h; sourceTree = "<group>"; };
 		1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneratedPluginRegistrant.m; sourceTree = "<group>"; };
 		3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = AppFrameworkInfo.plist; path = Flutter/AppFrameworkInfo.plist; sourceTree = "<group>"; };
+		5F1D1E1C27EB00170039221F /* FaceTecSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FaceTecSDK.framework; path = ../../../../../../Desktop/FTDemo/FaceTecSDK.framework; sourceTree = "<group>"; };
 		5FF5E6D227E98DAA00ED055A /* FacetecBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacetecBaseViewController.swift; sourceTree = "<group>"; };
 		5FF5E6D527E98DDD00ED055A /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		5FF5E6D727E98DDD00ED055A /* LivenessCheckProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LivenessCheckProcessor.swift; sourceTree = "<group>"; };
 		5FF5E6D827E98DDD00ED055A /* ProcesingDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcesingDelegate.swift; sourceTree = "<group>"; };
-		5FF5E6DC27E9937D00ED055A /* FaceTecSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FaceTecSDK.framework; sourceTree = "<group>"; };
 		5FF5E6F127E9EBE000ED055A /* CustomOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomOverlay.swift; sourceTree = "<group>"; };
 		5FF5E6F227E9EBE000ED055A /* OCRViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OCRViewController.swift; sourceTree = "<group>"; };
 		5FF5E6F527E9EC1200ED055A /* Microblink.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = Microblink.xcframework; sourceTree = "<group>"; };
@@ -76,8 +76,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F1D1E1E27EB00240039221F /* FaceTecSDK.framework in Frameworks */,
 				D73E58A27384460A66E65226 /* Pods_Runner.framework in Frameworks */,
-				5FF5E6DF27E9972900ED055A /* FaceTecSDK.framework in Frameworks */,
 				5FF5E6F727E9EC1F00ED055A /* Microblink.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -88,8 +88,8 @@
 		2BA244B1865BF22D37965A7C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5F1D1E1C27EB00170039221F /* FaceTecSDK.framework */,
 				5FF5E6F527E9EC1200ED055A /* Microblink.xcframework */,
-				5FF5E6DC27E9937D00ED055A /* FaceTecSDK.framework */,
 				C30E7E263F73EEA7A100970E /* Pods_Runner.framework */,
 			);
 			name = Frameworks;
@@ -352,8 +352,8 @@
 				5FF5E6F327E9EBE000ED055A /* CustomOverlay.swift in Sources */,
 				5FF5E6D927E98DDD00ED055A /* Config.swift in Sources */,
 				74858FAF1ED2DC5600515810 /* AppDelegate.swift in Sources */,
+				5F1D1E1B27EAFCA20039221F /* OCRViewController.swift in Sources */,
 				1498D2341E8E89220040F4C2 /* GeneratedPluginRegistrant.m in Sources */,
-				5FF5E6F427E9EBE000ED055A /* OCRViewController.swift in Sources */,
 				5FF5E6DB27E98DDD00ED055A /* ProcesingDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -574,6 +574,7 @@
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = HF6L5L9N4Y;
 				ENABLE_BITCODE = NO;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "i386 arm64";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
