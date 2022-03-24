@@ -50,10 +50,10 @@ class VerifyPinScreen extends StatelessWidget {
                         controller: textController,
                         focusNode: focusNode,
                         obscureText: true,
-                        onChanged: (value) {},
-                        forceErrorState:
-                            state.isValid == ValidationState.invalid ||
-                                state.maxRetriesAttempted,
+                        onChanged: (value) =>
+                            {context.read<VerifypinCubit>().pinUpdated(value)},
+                        forceErrorState: state.isVerified == false ||
+                            state.maxRetriesAttempted,
                         errorPinTheme: FABWidget.errorPinTheme,
                         errorTextStyle: const TextStyle(color: alertRed),
                         defaultPinTheme: FABWidget.defaultPinTheme,
@@ -96,20 +96,13 @@ class VerifyPinScreen extends StatelessWidget {
                             ))),
                     const Spacer(),
                     Align(
-                      child:
-                          FABWidget.appButton(AppLocalizations.of(context).next,
-                              // bgColor: Colors.blue,
-                              // minSize: Size(300.w, 50.h),
-                              onPressed: state.maxRetriesAttempted
-                                  ? null
-                                  : () => {
-                                        if (!state.maxRetriesAttempted)
-                                          {
-                                            context
-                                                .read<VerifypinCubit>()
-                                                .verifyPin()
-                                          }
-                                      }),
+                      child: FABWidget.appButton(
+                          AppLocalizations.of(context).next,
+                          // bgColor: Colors.blue,
+                          // minSize: Size(300.w, 50.h),
+                          onPressed: state.maxRetriesAttempted
+                              ? null
+                              : context.read<VerifypinCubit>().nextStep()),
                     ),
                   ],
                 ),

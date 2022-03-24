@@ -1,5 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:fab_nhl/app/di/locator.dart';
+import 'package:fab_nhl/ui/router/app_router.dart';
+import 'package:fab_nhl/ui/screen/common_widget/permission_screen.dart';
 
 import '../../../../app/app_constant.dart';
 
@@ -40,5 +43,20 @@ class VerifypinCubit extends Cubit<VerifypinInitial> {
     }
   }
 
-  nextScreen() {}
+  nextScreen() {
+    locator<AppRouter>().showPermissionScreen(PermissionType.location);
+  }
+
+  Function()? nextStep() {
+    print("state ${state.isValid}");
+    if (state.isValid == ValidationState.valid) {
+      if (state.isVerified == false) {
+        return null;
+      } else {
+        return () => {verifyPin()};
+      }
+    } else {
+      return null;
+    }
+  }
 }
