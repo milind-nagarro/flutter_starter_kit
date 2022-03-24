@@ -86,9 +86,9 @@ class FABStyles {
       fontFamily: themeFont);
 
   static final TextStyle errorLabelStyle = TextStyle(
-      fontSize: 15.sp,
+      fontSize: 14.sp,
       fontWeight: FontWeight.w400,
-      color: alertRed,
+      color: errorRed,
       fontFamily: themeFont);
 
   static final appThemeData = ThemeData(
@@ -204,7 +204,10 @@ class FABWidget {
   static PinTheme errorPinTheme = PinTheme(
       width: 52.w,
       height: 56.h,
-      textStyle: TextStyle(color: alertRed, fontSize: 32.sp));
+      textStyle: TextStyle(color: errorRed, fontSize: 32.sp),
+      decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.all(Radius.circular(4.r))));
 
   static Widget smallTextButton(String title, {Function()? onPressed}) {
     return TextButton(onPressed: onPressed, child: Text(title));

@@ -44,7 +44,7 @@
       "your_otp": "Your OTP",
       "otp_expired":"Code is invalid or expired",
 
-
+      "pin_code": "PIN code",
       "set_pin": "Set PIN",
       "create_memorable_pin": "Create a memorable PIN",
       "error_pin_match": "PIN does not match",
@@ -60,15 +60,17 @@
       "not_yet_registered": "Not yet registered?",
 
 
+      "confirm_pin_code": "Confirm PIN code",
       "confirm_pin": "Confirm PIN",
-      "enter_pin_again": "Enter your PIN again",
+      "enter_pin_again": "Re-enter your PIN",
       "confirm": "Confirm",
       "enter_pin": "Enter a valid PIN",
       "successful": "Successful",
       "error_title": "Error",
       "success_message": "PIN setup successful",
+      "pin_cancel_title": "PIN not set yet!",
       "pin_cancel_message":
-      "Are you sure you want to cancel? If you cancel you will lose the information you have entered so far",
+              "Do you want to cancel? If you do, you'll have to enter your information again?",
       "yes_cancel": "Yes, Cancel",
       "no_stay_here": "No, Stay here",
 
@@ -78,6 +80,7 @@
       "forgot_your_pin": "Forgot your PIN?",
       "invalid_pin_number": "Invalid PIN number",
       "pin_does_not_match": "The PIN does not match. Please enter the same PIN as before.",
+      "enter_correct_pin": "Enter your correct PIN",
 
 
       "error_message": "Error Message",

@@ -11,6 +11,7 @@ import '../../../app/di/locator.dart';
 import '../../../app/resources/colors.dart';
 import '../../../app/resources/style.dart';
 import '../../router/app_router.dart';
+import '../../screen/common_widget/permission_screen.dart';
 
 class SetupConfirmPinPage extends StatelessWidget {
   SetupConfirmPinPage({Key? key, required this.isConfirmation, this.pinData})
@@ -31,8 +32,8 @@ class SetupConfirmPinPage extends StatelessWidget {
         backgroundColor: appBGColor,
         appBar: FABWidget.appTopBar(
             isConfirmation
-                ? AppLocalizations.of(context).confirm_pin
-                : AppLocalizations.of(context).set_pin,
+                ? AppLocalizations.of(context).confirm_pin_code
+                : AppLocalizations.of(context).pin_code,
             hasCancel: isConfirmation ? false : true, backAction: () {
           if (!isConfirmation) {
             handleBackPress(context);
@@ -47,11 +48,15 @@ class SetupConfirmPinPage extends StatelessWidget {
                 _moveToConfirmPinScreen(context, textController.text);
               }
             } else {
-              _moveToDashboard();
+              if (state.validationState == ValidationState.valid) {
+                locator<AppRouter>()
+                    .showPermissionScreen(PermissionType.location);
+              }
             }
           },
           builder: (context, state) {
             return Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const Padding(padding: EdgeInsets.fromLTRB(12, 50, 0, 0)),
                 SetupConfirmPin(forConfirmation: isConfirmation),
@@ -92,23 +97,26 @@ class SetupConfirmPinPage extends StatelessWidget {
                 Visibility(
                     visible: isConfirmation &&
                         state.validationState == ValidationState.invalid,
-                    child: Text(AppLocalizations.of(context).pin_does_not_match,
-                        style: FABStyles.errorLabelStyle)),
-                Visibility(
-                    visible: state.validationState == ValidationState.invalid,
-                    child: Text(
-                      AppLocalizations.of(context).invalid_pin_number,
-                      style: FABStyles.errorLabelStyle,
+                    child: Center(
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+                        child: Text(
+                            AppLocalizations.of(context).pin_does_not_match,
+                            textAlign: TextAlign.center,
+                            style: FABStyles.errorLabelStyle),
+                      ),
                     )),
                 const Spacer(),
-                FABWidget.appButton(
-                    isConfirmation
-                        ? AppLocalizations.of(context).confirm
-                        : AppLocalizations.of(context).next,
-                    // minSize: Size(100.w, 50.h),
-                    onPressed: state.buttonState == ValidationState.valid
-                        ? () => _handleOnSubmit(context)
-                        : null),
+                Center(
+                  child: FABWidget.appButton(
+                      isConfirmation
+                          ? AppLocalizations.of(context).confirm
+                          : AppLocalizations.of(context).next,
+                      // minSize: Size(100.w, 50.h),
+                      onPressed: state.buttonState == ValidationState.valid
+                          ? () => _handleOnSubmit(context)
+                          : null),
+                ),
                 SizedBox(height: 33.h),
               ],
             );
@@ -138,6 +146,7 @@ class SetupConfirmPinPage extends StatelessWidget {
         context: context,
         builder: (context) {
           return CupertinoAlertDialog(
+            title: Text(AppLocalizations.of(context).pin_cancel_title),
             content: Text(AppLocalizations.of(context).pin_cancel_message),
             actions: [
               CupertinoDialogAction(
@@ -168,24 +177,30 @@ class SetupConfirmPin extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          forConfirmation
-              ? AppLocalizations.of(context).confirm_pin
-              : AppLocalizations.of(context).set_pin,
-          style: TextStyle(
-              fontStyle: FontStyle.normal,
-              fontWeight: FontWeight.bold,
-              fontSize: 21.sp),
+        Padding(
+          padding: const EdgeInsets.only(left: 16.0),
+          child: Text(
+            forConfirmation
+                ? AppLocalizations.of(context).confirm_pin
+                : AppLocalizations.of(context).set_pin,
+            style: TextStyle(
+                fontStyle: FontStyle.normal,
+                fontWeight: FontWeight.bold,
+                fontSize: 21.sp),
+          ),
         ),
         SizedBox(height: 8.h),
-        Text(
-          forConfirmation
-              ? AppLocalizations.of(context).enter_pin_again
-              : AppLocalizations.of(context).create_memorable_pin,
-          style: TextStyle(
-              fontStyle: FontStyle.normal, fontSize: 14.sp, color: lightGrey),
+        Padding(
+          padding: const EdgeInsets.only(left: 16.0),
+          child: Text(
+            forConfirmation
+                ? AppLocalizations.of(context).enter_pin_again
+                : AppLocalizations.of(context).create_memorable_pin,
+            style: TextStyle(
+                fontStyle: FontStyle.normal, fontSize: 14.sp, color: lightGrey),
+          ),
         ),
       ],
     );

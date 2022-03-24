@@ -21,6 +21,7 @@ const headerTextColor = Color(0XFF222325);
 const separatorColor = Color.fromRGBO(213, 216, 219, 1);
 const greyBackground = Color.fromRGBO(34, 35, 37, 0.1);
 const alertRed = Color.fromRGBO(255, 30, 40, 1);
+const errorRed = Color.fromRGBO(211, 18, 32, 1);
 const buttonGradientStart = Color.fromRGBO(64, 169, 250, 1);
 const buttonGradientEnd = Color.fromRGBO(12, 77, 188, 1);
 const textFieldLabelColor = Color.fromRGBO(69, 72, 79, 1);

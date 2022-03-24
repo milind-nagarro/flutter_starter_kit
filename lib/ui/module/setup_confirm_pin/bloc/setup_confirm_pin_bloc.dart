@@ -61,7 +61,7 @@ class SetupConfirmPinBloc
   void _onPinEntered(PinEntered event, Emitter<SetupConfirmPinState> emit) {
     final pinData = event.pinValue;
 
-    if (pinData != null && pinData.length == 4) {
+    if (pinData != null && pinData.length == 6) {
       emit(SetupConfirmPinState(
           pinData: pinData,
           buttonState: ValidationState.valid,
