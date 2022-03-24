@@ -21,70 +21,91 @@
       "already_user" : "Already a customer",
 
 
-      "enter_mobile": "Enter your mobile number",
-      "enter_mobile_adha": "Please enter the mobile number registered with ADHA",
-      "mobile_number": "Mobile Number",
-      "next": "Next",
-      "invalid_mobile_number":
-      "Invalid mobile number, please visit any FAB NHL branch to update your contact details.",
+    "enter_mobile": "Enter your mobile number",
+    "enter_mobile_adha": "Please share your mobile number registered with ADHA. This will allow us to send you the verification codes.",
+    "mobile_number": "Phone Number",
+    "next": "Next",
+    "invalid_mobile_number":
+    "Invalid mobile number, please visit any FAB NHL branch to update your contact details.",
+    "mobile_hint":"5x xxx xxxx",
+    "email_hint":"Enter email id",
 
 
-      "enter_email": "Register your email",
-      "enter_email_valid": "Please enter a valid email address",
-      "email": "Email",
+
+    "enter_email": "Register your email",
+    "enter_email_valid": "Please enter a valid email address",
+    "email": "Email",
 
 
-      "enter_verification": "Enter the verification code",
-      "verification_sent_msg_mobile":
-          "The verification code is sent to your registered mobile number",
-      "verification_sent_msg_email":
-          "The verification code is sent to your registered email",
-      "otp_expire_msg": "Your code will expire in ",
-      "resend_code": "Resend code",
-      "your_otp": "Your OTP",
-      "otp_expired":"Code is invalid or expired",
-
-      "pin_code": "PIN code",
-      "set_pin": "Set PIN",
-      "create_memorable_pin": "Create a memorable PIN",
-      "error_pin_match": "PIN does not match",
+    "enter_verification": "Verification code",
+    "verification_sent_msg_mobile":
+        "Enter the verification code sent to your mobile ",
+    "verification_sent_msg_email":
+        "Enter the verification code sent to your email ",
+    "otp_expire_msg": "Your code will expire in ",
+    "resend_code": "Resend code",
+    "your_otp": "OTP",
+    "otp_expired":"Code is invalid or expired",
 
 
-      "cancel": "Cancel",
+     "pin_code": "PIN code",
+     "set_pin": "Set PIN",
+     "create_memorable_pin": "Create a memorable PIN",
+     "error_pin_match": "PIN does not match",
 
 
-      "welcome_back": "Welcome back!",
-      "login_header": "Login to continue",
-      "not_registered": "Mobile number not registered",
-      "remember_me": "Remember me",
-      "not_yet_registered": "Not yet registered?",
+    "cancel": "Cancel",
 
 
-      "confirm_pin_code": "Confirm PIN code",
-      "confirm_pin": "Confirm PIN",
-      "enter_pin_again": "Re-enter your PIN",
-      "confirm": "Confirm",
-      "enter_pin": "Enter a valid PIN",
-      "successful": "Successful",
-      "error_title": "Error",
-      "success_message": "PIN setup successful",
-      "pin_cancel_title": "PIN not set yet!",
-      "pin_cancel_message":
-              "Do you want to cancel? If you do, you'll have to enter your information again?",
-      "yes_cancel": "Yes, Cancel",
-      "no_stay_here": "No, Stay here",
+    "welcome_back": "Welcome back!",
+    "login_header": "Enter your mobile number to login",
+    "not_registered": "It seems your mobile number isn't registered. Please visit any FAB NHL branch to update your contact details.",
+    "remember_me": "Remember me",
+    "not_yet_registered": "Not yet registered?",
 
 
-      "pin": "PIN",
-      "type_pin_number": "Type your PIN Number",
-      "forgot_your_pin": "Forgot your PIN?",
-      "invalid_pin_number": "Invalid PIN number",
-      "pin_does_not_match": "The PIN does not match. Please enter the same PIN as before.",
-      "enter_correct_pin": "Enter your correct PIN",
+    "confirm_pin_code": "Confirm PIN code",
+    "enter_pin_again": "Enter your PIN again",
+    "confirm_pin": "Confirm PIN",
+    "enter_pin_again": "Re-enter your PIN",
+    "confirm": "Confirm",
+    "enter_pin": "Enter a valid PIN",
+    "successful": "Successful",
+    "error_title": "Error",
+    "success_message": "PIN setup successful",
+    "pin_cancel_title": "PIN not set yet!",
+    "pin_cancel_message":
+        "Do you want to cancel? If you do, you'll have to enter your information again?",
+    "yes_cancel": "Yes, Cancel",
+    "no_stay_here": "No, Stay here",
 
 
-      "error_message": "Error Message",
-      "exceeded_number_retries":"You have exceeded the number of maximum tries, Please reset your PIN",
-      "reset_my_pin": "Reset my PIN"
+    "pin": "PIN",
+    "type_pin_number": "Enter your PIN",
+    "forgot_your_pin": "Forgot PIN?",
+    "invalid_pin_number": "Invalid PIN number",
+    "pin_does_not_match": "The PIN does not match. Please enter the same PIN as before.",
+    "enter_correct_pin": "Enter your correct PIN",
 
+
+    "error_message": "Error Message",
+    "exceeded_number_retries":
+        "You've exceeded the maximum  attempts. Please reset your PIN.",
+    "reset_my_pin": "Reset my PIN",
+
+    "location_title" : "Location access",
+    "location_subtitle" : "Allow FAB NHL to access your location to better help you.",
+    "allow_access_btn" : "Allow access",
+    "location_header_title" : "Location permission" ,
+
+    "faceid_header_title" : "Face ID permission",
+    "faceid_subtitle" : "To make it easier, you can login with your Face ID that is already stored on this mobile.",
+    "faceid_title" : "Activate Face ID",
+    "later" : "Later",
+    "settings" : "Settings",
+    "location_denied_msg" : "Location permissions are denied. Do you want to enable them now?",
+
+    "not_you" : "Not you?",
+
+    "dashboard" : "Dashboard"
 }

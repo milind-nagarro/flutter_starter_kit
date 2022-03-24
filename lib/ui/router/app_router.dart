@@ -68,15 +68,16 @@ class AppRouter {
   }
 
   void showPermissionScreen(PermissionType type) {
-    switch(type){
-      case PermissionType.location :
+    switch (type) {
+      case PermissionType.location:
         _navService.pushNamed(routes.permissionLocation);
         break;
-      case PermissionType.faceid :
+      case PermissionType.faceid:
         _navService.pushNamed(routes.permissionFaceid);
         break;
     }
   }
+
   void showDashboard() {
     _navService.pushNamed(routes.dashboard);
   }

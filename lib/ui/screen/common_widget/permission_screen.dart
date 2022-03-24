@@ -99,23 +99,23 @@ class _PermissionScreenState extends State<PermissionScreen>
     );
   }
 
-  _onAllowAccess(){
-    switch(widget.type){
-      case PermissionType.location :
+  _onAllowAccess() {
+    switch (widget.type) {
+      case PermissionType.location:
         _askForLocationPermission(context);
         break;
-      case PermissionType.faceid :
+      case PermissionType.faceid:
         _nextScreenFaceid();
         break;
     }
   }
 
-  _onLaterClicked(){
-    switch(widget.type){
-      case PermissionType.location :
+  _onLaterClicked() {
+    switch (widget.type) {
+      case PermissionType.location:
         _nextScreenLocation();
         break;
-      case PermissionType.faceid :
+      case PermissionType.faceid:
         locator<AppRouter>().showDashboard();
         break;
     }
@@ -171,31 +171,29 @@ class _PermissionScreenState extends State<PermissionScreen>
 
   _nextScreenLocation() async {
     debugPrint("next screen");
-    if(await BioMetricAuthentication.isBiometricAvailable()){
+    if (await BioMetricAuthentication.isBiometricAvailable()) {
       locator<AppRouter>().showPermissionScreen(PermissionType.faceid);
-    }else{
+    } else {
       locator<AppRouter>().showDashboard();
     }
   }
 
   _nextScreenFaceid() async {
-
-    try{
+    try {
       bool isAuthenticated =
-      await BioMetricAuthentication.authenticateWithBiometrics();
-      if(isAuthenticated){
+          await BioMetricAuthentication.authenticateWithBiometrics();
+      if (isAuthenticated) {
         locator<AppRouter>().showDashboard();
-      }else{
+      } else {
         debugPrint("isAuthenticated failed");
       }
-    }on PlatformException catch (e) {
+    } on PlatformException catch (e) {
       FABWidget.showAlertDialog(
         context,
         e.message.toString(),
         AppLocalizations.of(context).ok,
       );
     }
-
   }
 
   //// app state observer to check if user went to settings and granted location permission
