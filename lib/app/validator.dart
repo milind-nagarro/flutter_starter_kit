@@ -6,6 +6,6 @@ class Validator {
   }
 
   static bool isValidMobile(String mobile) {
-    return (mobile.length == 9 && mobile.startsWith("5"));
+    return (mobile.length == 11 && mobile.startsWith("5"));
   }
 }

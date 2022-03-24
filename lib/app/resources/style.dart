@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../ui/screen/common_widget/pinput/pinput.dart';
 import 'colors.dart';
+import 'package:flutter_multi_formatter/flutter_multi_formatter.dart';
 
 class FABStyles {
   // Style for buttons throughout the app
@@ -224,9 +225,12 @@ class FABWidget {
       Color? borderColor}) {
     return TextField(
       keyboardType: keyboardType,
-      maxLength: (keyboardType == TextInputType.phone) ? 9 : null,
+      maxLength: (keyboardType == TextInputType.phone) ? 11 : null,
       onChanged: onChange,
       style: FABStyles.textFieldTextStyle(Colors.black),
+      inputFormatters: (keyboardType == TextInputType.phone) ?[
+        MaskedInputFormatter('## ### ####')
+      ] : null,
       decoration: InputDecoration(
           focusedBorder: OutlineInputBorder(
               borderSide:

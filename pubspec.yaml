@@ -58,6 +58,9 @@ dependencies:
   # for biometrics check
   local_auth: ^1.1.11
 
+  # for input formating
+  flutter_multi_formatter: ^2.5.1
+
   flutter_localizations:
     sdk: flutter
   intl: ^0.17.0
