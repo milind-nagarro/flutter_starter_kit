@@ -223,44 +223,57 @@ class FABWidget {
       String? errorText,
       Widget? suffixIcon,
       Color? borderColor}) {
-    return TextField(
-      keyboardType: keyboardType,
-      maxLength: (keyboardType == TextInputType.phone) ? 11 : null,
-      onChanged: onChange,
-      style: FABStyles.textFieldTextStyle(Colors.black),
-      inputFormatters: (keyboardType == TextInputType.phone)
-          ? [MaskedInputFormatter('## ### ####')]
-          : null,
-      decoration: InputDecoration(
-          focusedBorder: OutlineInputBorder(
-              borderSide:
-                  BorderSide(color: borderColor ?? textFieldBorderColor)),
-          border: const OutlineInputBorder(),
-          filled: true,
-          counterText: "",
-          fillColor: Colors.white,
-          prefix: (prefixText == null)
-              ? null
-              : Padding(
-                  padding: EdgeInsets.only(right: 10.w),
-                  child: Wrap(
-                    direction: Axis.horizontal,
-                    children: [
-                      Text(prefixText.isEmpty ? "" : prefixText),
-                      10.horizontalSpace,
-                      Text("|"),
-                    ],
-                  ),
-                ),
-          // prefixText: prefixText,
-          labelText: labelText,
-          hintText: hintText,
-          errorText: errorText,
-          suffixIcon: suffixIcon,
-          labelStyle: FABStyles.textFieldTextStyle(textFieldLabelColor),
-          prefixStyle: FABStyles.textFieldTextStyle(textFieldPrefixColor),
-          hintStyle: FABStyles.textFieldTextStyle(textFieldHintText),
-          errorMaxLines: 2),
+    return Column(
+      children: [
+        TextField(
+          keyboardType: keyboardType,
+          maxLength: (keyboardType == TextInputType.phone) ? 11 : null,
+          onChanged: onChange,
+          style: FABStyles.textFieldTextStyle(Colors.black),
+          inputFormatters: (keyboardType == TextInputType.phone)
+              ? [MaskedInputFormatter('## ### ####')]
+              : null,
+          decoration: InputDecoration(
+              focusedBorder: OutlineInputBorder(
+                  borderSide:
+                      BorderSide(color: borderColor ?? textFieldBorderColor)),
+              border: const OutlineInputBorder(),
+              filled: true,
+              counterText: "",
+              fillColor: Colors.white,
+              prefix: (prefixText == null)
+                  ? null
+                  : Padding(
+                      padding: EdgeInsets.only(right: 10.w),
+                      child: Wrap(
+                        direction: Axis.horizontal,
+                        children: [
+                          Text(prefixText.isEmpty ? "" : prefixText),
+                          10.horizontalSpace,
+                          Text("|",style: FABStyles.textFieldTextStyle(Colors.grey)),
+                        ],
+                      ),
+                    ),
+              labelText: labelText,
+              hintText: hintText,
+              suffixIcon: suffixIcon,
+              labelStyle: FABStyles.textFieldTextStyle(textFieldLabelColor),
+              prefixStyle: FABStyles.textFieldTextStyle(textFieldPrefixColor),
+              hintStyle: FABStyles.textFieldTextStyle(textFieldHintText),
+              errorMaxLines: 2),
+        ),
+        // to add custom error message with pink background
+         Visibility(
+           visible: !["", null].contains(errorText),
+           child: Container(
+            decoration: const BoxDecoration(color: textFieldErrorBgColor),
+             child: Padding(
+                padding: const EdgeInsets.all(10),
+                child: Text(errorText??'',
+                style: FABStyles.textFieldTextStyle(Colors.red))
+           )),
+         ),
+      ],
     );
   }
 
