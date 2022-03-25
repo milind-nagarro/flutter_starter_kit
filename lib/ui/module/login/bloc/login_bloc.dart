@@ -34,7 +34,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         phoneNumber: state.phoneNumber,
         validationStatus: state.validationStatus,
         loginStatus: LoginStates.checking));
-    final value = state.phoneNumber;
+    final value = state.phoneNumber.toString().replaceAll(' ', '');
     emit(LoginState(
         phoneNumber: state.phoneNumber,
         validationStatus: state.validationStatus,

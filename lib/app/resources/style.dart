@@ -1,6 +1,7 @@
 import 'package:fab_nhl/app/resources/assets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_multi_formatter/flutter_multi_formatter.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../ui/screen/common_widget/pinput/pinput.dart';
@@ -142,6 +143,7 @@ class FABWidget {
   static AppBar appTopBar(
     String title, {
     bool hasCancel = false,
+    bool hidesBack = false,
     Function()? backAction,
     String? rightBtnTitle,
     Function()? rightBtnAction,
@@ -165,7 +167,8 @@ class FABWidget {
                       fontSize: 15.sp),
                 ),
               )
-            : BackButton(onPressed: backAction),
+            : (hidesBack ? null : BackButton(onPressed: backAction)),
+        automaticallyImplyLeading: !hidesBack,
         title: Text(
           title,
           textAlign: TextAlign.center,
@@ -240,41 +243,57 @@ class FABWidget {
       String? errorText,
       Widget? suffixIcon,
       Color? borderColor}) {
-    return TextField(
-      keyboardType: keyboardType,
-      maxLength: (keyboardType == TextInputType.phone) ? 9 : null,
-      onChanged: onChange,
-      style: FABStyles.textFieldTextStyle(Colors.black),
-      decoration: InputDecoration(
-          focusedBorder: OutlineInputBorder(
-              borderSide:
-                  BorderSide(color: borderColor ?? textFieldBorderColor)),
-          border: const OutlineInputBorder(),
-          filled: true,
-          counterText: "",
-          fillColor: Colors.white,
-          prefix: (prefixText == null)
-              ? null
-              : Padding(
-                  padding: EdgeInsets.only(right: 10.w),
-                  child: Wrap(
-                    direction: Axis.horizontal,
-                    children: [
-                      Text(prefixText.isEmpty ? "" : prefixText),
-                      10.horizontalSpace,
-                      Text("|"),
-                    ],
-                  ),
-                ),
-          // prefixText: prefixText,
-          labelText: labelText,
-          hintText: hintText,
-          errorText: errorText,
-          suffixIcon: suffixIcon,
-          labelStyle: FABStyles.textFieldTextStyle(textFieldLabelColor),
-          prefixStyle: FABStyles.textFieldTextStyle(textFieldPrefixColor),
-          hintStyle: FABStyles.textFieldTextStyle(textFieldHintText),
-          errorMaxLines: 2),
+    return Column(
+      children: [
+        TextField(
+          keyboardType: keyboardType,
+          maxLength: (keyboardType == TextInputType.phone) ? 11 : null,
+          onChanged: onChange,
+          style: FABStyles.textFieldTextStyle(Colors.black),
+          inputFormatters: (keyboardType == TextInputType.phone)
+              ? [MaskedInputFormatter('## ### ####')]
+              : null,
+          decoration: InputDecoration(
+              focusedBorder: OutlineInputBorder(
+                  borderSide:
+                      BorderSide(color: borderColor ?? textFieldBorderColor)),
+              border: const OutlineInputBorder(),
+              filled: true,
+              counterText: "",
+              fillColor: Colors.white,
+              prefix: (prefixText == null)
+                  ? null
+                  : Padding(
+                      padding: EdgeInsets.only(right: 10.w),
+                      child: Wrap(
+                        direction: Axis.horizontal,
+                        children: [
+                          Text(prefixText.isEmpty ? "" : prefixText),
+                          10.horizontalSpace,
+                          Text("|",style: FABStyles.textFieldTextStyle(Colors.grey)),
+                        ],
+                      ),
+                    ),
+              labelText: labelText,
+              hintText: hintText,
+              suffixIcon: suffixIcon,
+              labelStyle: FABStyles.textFieldTextStyle(textFieldLabelColor),
+              prefixStyle: FABStyles.textFieldTextStyle(textFieldPrefixColor),
+              hintStyle: FABStyles.textFieldTextStyle(textFieldHintText),
+              errorMaxLines: 2),
+        ),
+        // to add custom error message with pink background
+         Visibility(
+           visible: !["", null].contains(errorText),
+           child: Container(
+            decoration: const BoxDecoration(color: textFieldErrorBgColor),
+             child: Padding(
+                padding: const EdgeInsets.all(10),
+                child: Text(errorText??'',
+                style: FABStyles.textFieldTextStyle(Colors.red))
+           )),
+         ),
+      ],
     );
   }
 

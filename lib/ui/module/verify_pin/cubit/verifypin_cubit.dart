@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:fab_nhl/app/di/locator.dart';
+import 'package:fab_nhl/data/remote/response/user_response.dart';
 import 'package:fab_nhl/ui/router/app_router.dart';
 import 'package:fab_nhl/ui/screen/common_widget/permission_screen.dart';
 
@@ -9,8 +10,8 @@ import '../../../../app/app_constant.dart';
 part 'verifypin_state.dart';
 
 class VerifypinCubit extends Cubit<VerifypinInitial> {
-  VerifypinCubit() : super(const VerifypinInitial());
-
+  VerifypinCubit(this.loggedUser) : super(const VerifypinInitial());
+  final User loggedUser;
   var maxTries = 3;
 
   pinUpdated(String pin) {
@@ -44,6 +45,7 @@ class VerifypinCubit extends Cubit<VerifypinInitial> {
   }
 
   nextScreen() {
+    // TODO: check if permission is already allowed go directly to dashboard
     locator<AppRouter>().showPermissionScreen(PermissionType.location);
   }
 

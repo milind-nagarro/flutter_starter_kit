@@ -1,4 +1,5 @@
 import 'package:fab_nhl/app/app_constant.dart';
+import 'package:fab_nhl/data/remote/response/user_response.dart';
 import 'package:fab_nhl/domain/entity/article_entity.dart';
 import 'package:fab_nhl/ui/module/welcome/welcome_screen.dart';
 import 'package:fab_nhl/ui/router/navigation_service.dart';
@@ -55,8 +56,9 @@ class AppRouter {
     _navService.pushNamed(routes.confirmPin, args: pinData);
   }
 
-  void showVerifyPin() {
-    _navService.pushNamed(routes.verifyPin);
+// TODO: use DI for logged user instead of passing the object everywhere
+  void showVerifyPin({User? user}) {
+    _navService.pushReplacementNamed(routes.verifyPin, args: user);
   }
 
   void showVerificationScreen(List<dynamic> args) {
@@ -68,16 +70,17 @@ class AppRouter {
   }
 
   void showPermissionScreen(PermissionType type) {
-    switch(type){
-      case PermissionType.location :
-        _navService.pushNamed(routes.permissionLocation);
+    switch (type) {
+      case PermissionType.location:
+        _navService.pushReplacementNamed(routes.permissionLocation);
         break;
-      case PermissionType.faceid :
-        _navService.pushNamed(routes.permissionFaceid);
+      case PermissionType.faceid:
+        _navService.pushReplacementNamed(routes.permissionFaceid);
         break;
     }
   }
+
   void showDashboard() {
-    _navService.pushNamed(routes.dashboard);
+    _navService.pushReplacementNamed(routes.dashboard);
   }
 }

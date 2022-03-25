@@ -1,3 +1,4 @@
+import 'package:fab_nhl/data/remote/response/user_response.dart';
 import 'package:fab_nhl/domain/entity/article_entity.dart';
 import 'package:fab_nhl/ui/module/dashboard/dashboard.dart';
 import 'package:fab_nhl/ui/module/login/login_screen.dart';
@@ -67,7 +68,10 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     case splash:
       return MaterialPageRoute(builder: (context) => const SplashScreen());
     case verifyPin:
-      return MaterialPageRoute(builder: (context) => const VerifyPinScreen());
+      return MaterialPageRoute(
+          builder: (context) => VerifyPinScreen(
+                loggedUser: settings.arguments as User,
+              ));
     case permissionFaceid:
       return MaterialPageRoute(
           builder: (context) =>

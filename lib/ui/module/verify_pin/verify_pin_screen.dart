@@ -1,5 +1,6 @@
 import 'package:fab_nhl/app/resources/colors.dart';
 import 'package:fab_nhl/app/resources/style.dart';
+import 'package:fab_nhl/data/remote/response/user_response.dart';
 import 'package:fab_nhl/ui/module/verify_pin/cubit/verifypin_cubit.dart';
 import 'package:fab_nhl/ui/screen/common_widget/pinput/pinput.dart';
 import 'package:flutter/material.dart';
@@ -11,17 +12,18 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../app/app_constant.dart';
 
 class VerifyPinScreen extends StatelessWidget {
-  const VerifyPinScreen({Key? key}) : super(key: key);
-
+  const VerifyPinScreen({Key? key, required this.loggedUser}) : super(key: key);
+  final User loggedUser;
   @override
   Widget build(BuildContext context) {
     TextEditingController textController = TextEditingController();
     FocusNode focusNode = FocusNode();
 
     return BlocProvider(
-      create: (context) => VerifypinCubit(),
+      create: (context) => VerifypinCubit(loggedUser),
       child: Scaffold(
         appBar: FABWidget.appTopBar(AppLocalizations.of(context).login,
+            hidesBack: true /*(userJson != null)*/,
             rightBtnTitle: AppLocalizations.of(context).not_you,
             rightBtnAction: () => {
                   //TODO: handle action
@@ -35,7 +37,7 @@ class VerifyPinScreen extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(AppLocalizations.of(context).welcome_back,
+                    Text('${AppLocalizations.of(context).welcome_back}',
                         style: FABStyles.appStyleHeaderText(header)),
                     SizedBox(height: 8.h),
                     Text(

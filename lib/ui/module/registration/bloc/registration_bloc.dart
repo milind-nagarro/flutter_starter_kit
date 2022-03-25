@@ -40,7 +40,7 @@ class RegistrationBloc extends Bloc<RegistrationEvent, RegistrationState> {
   void _onNextPressed(NextPressed event, Emitter<RegistrationState> emit) {
     emit(RegistrationState(
         value: state.value, validationStatus: state.validationStatus));
-    final value = state.value;
+    final value = state.value.toString().replaceAll(' ', '');
     emit(RegistrationState(
         value: state.value,
         validationStatus: state.validationStatus,

@@ -138,7 +138,8 @@ class LoginScreen extends StatelessWidget {
   }
 
   void nextScreen(String phNumber) {
-    locator<AppRouter>().showVerificationScreen([true, uaeCode + " " +phNumber, true]);
+    locator<AppRouter>()
+        .showVerificationScreen([true, uaeCode + " " + phNumber, true]);
     // locator<AppRouter>().showVerifyPin();
   }
 }
