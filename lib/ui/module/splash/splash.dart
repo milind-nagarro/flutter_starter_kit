@@ -43,9 +43,8 @@ class _SplashScreenState extends State<SplashScreen> {
 
   _navigateToHome() async {
     await Future.delayed(const Duration(milliseconds: 3000));
-    await LocalStorage.removeUserInfo();
+    // await LocalStorage.removeUserInfo();
     final loggedUserinfo = await LocalStorage.getUserInfo();
-    debugPrint('loggeduserinfo $loggedUserinfo');
     if (loggedUserinfo == null) {
       // default language is english. check if user has changed it and set locale accordingly
       final langPref = await LocalStorage.getLanguagePreference();

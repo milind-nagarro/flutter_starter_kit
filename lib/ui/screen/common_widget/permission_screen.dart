@@ -127,7 +127,6 @@ class _PermissionScreenState extends State<PermissionScreen>
     Location location = Location();
     PermissionStatus permission = await location.hasPermission();
     if (permission == PermissionStatus.granted) {
-      LocalStorage.storeFaceidPreference(true);
       _nextScreenLocation();
     }
   }
@@ -186,6 +185,7 @@ class _PermissionScreenState extends State<PermissionScreen>
       bool isAuthenticated =
           await BioMetricAuthentication.authenticateWithBiometrics();
       if (isAuthenticated) {
+        await LocalStorage.storeFaceidPreference(true);
         locator<AppRouter>().showDashboard();
       } else {
         debugPrint("isAuthenticated failed");
