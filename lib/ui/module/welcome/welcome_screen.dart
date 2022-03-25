@@ -44,6 +44,9 @@ class WelcomeScreen extends StatelessWidget {
           child: FABWidget.appButton(
             AppLocalizations.of(context).already_user,
             onPressed: () => {locator<AppRouter>().showLoginScreen()},
+            isGradient: false,
+            bgColor: btnBgLightWhite,
+            textColor: btnTextBlueColor,
             minSize: const Size(btnWidth, btnHeight),
           ),
         ),

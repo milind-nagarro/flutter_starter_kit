@@ -52,6 +52,7 @@ class LoginScreen extends StatelessWidget {
                     SizedBox(height: 40.h),
                     FABWidget.textField(
                         keyboardType: TextInputType.phone,
+                        autoFocus: true,
                         onChange: (text) {
                           BlocProvider.of<LoginBloc>(context, listen: false)
                               // context.read<LoginBloc>() // context.read should not be used inside build, but in callbacks

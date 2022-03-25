@@ -152,8 +152,7 @@ class SetupConfirmPinPage extends StatelessWidget {
               CupertinoDialogAction(
                   child: Text(AppLocalizations.of(context).yes_cancel),
                   onPressed: () {
-                    int count = 0;
-                    Navigator.of(context).popUntil((route) => count++ >= 2);
+                    locator<AppRouter>().navigateUserBackToRegisterMobile();
                   }),
               CupertinoDialogAction(
                 child: Text(AppLocalizations.of(context).no_stay_here),
@@ -165,8 +164,6 @@ class SetupConfirmPinPage extends StatelessWidget {
           );
         });
   }
-
-  void _moveToDashboard() {}
 }
 
 class SetupConfirmPin extends StatelessWidget {
