@@ -83,4 +83,8 @@ class AppRouter {
   void showDashboard() {
     _navService.pushReplacementNamed(routes.dashboard);
   }
+
+  void navigateUserBackToRegisterMobile() {
+    _navService.pushNamedAndRemoveUntil(routes.registerMobile);
+  }
 }
