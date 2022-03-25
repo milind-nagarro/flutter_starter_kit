@@ -11,9 +11,10 @@ class FABStyles {
   static ButtonStyle appStyleButton(Color primaryColor,
       {Size? minSize, Color? highlightColor}) {
     return ElevatedButton.styleFrom(
-        primary: primaryColor,
-        onPrimary: highlightColor ?? Colors.white,
-        shadowColor: Colors.grey,
+        primary: Colors.transparent,
+        /*primary: primaryColor,
+        onPrimary: highlightColor ?? Colors.white,*/
+        shadowColor: Colors.transparent,
         elevation: 3,
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.only(
@@ -105,17 +106,34 @@ class FABWidget {
   static // Button to be used throughout the app
       Widget appButton(String text,
           {Function()? onPressed,
+          bool isGradient = true,
           Color? bgColor,
           Color? textColor,
           Size? minSize,
           Color? highlightColor}) {
-    return ElevatedButton(
-      style: FABStyles.appStyleButton(bgColor ?? primaryLabelColor,
-          minSize: minSize),
-      onPressed: onPressed,
-      child: Text(
-        text,
-        style: FABStyles.appStyleButtonText(textColor ?? Colors.white),
+    return Container(
+      height: minSize?.height.h ?? 56.h,
+      width: minSize?.width.w ?? 300.w,
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.only(
+              topRight: Radius.circular(4.r.toDouble()),
+              bottomRight: Radius.circular(12.r.toDouble()),
+              topLeft: Radius.circular(12.r.toDouble()),
+              bottomLeft: Radius.circular(4.r.toDouble())),
+          gradient: isGradient && onPressed != null
+              ? const LinearGradient(
+                  colors: [buttonGradientStart, buttonGradientEnd])
+              : null,
+          color:
+              onPressed != null ? bgColor ?? primaryLabelColor : Colors.grey),
+      child: ElevatedButton(
+        style: FABStyles.appStyleButton(bgColor ?? primaryLabelColor,
+            minSize: minSize),
+        onPressed: onPressed,
+        child: Text(
+          text,
+          style: FABStyles.appStyleButtonText(textColor ?? Colors.white),
+        ),
       ),
     );
   }

@@ -16,7 +16,7 @@ class VerifypinCubit extends Cubit<VerifypinInitial> {
   pinUpdated(String pin) {
     final value = pin;
     if (value.length < 6) {
-      emit(VerifypinInitial(pin: pin, isValid: ValidationState.invalid));
+      emit(VerifypinInitial(pin: pin, isValid: ValidationState.notChecked));
     } else {
       emit(VerifypinInitial(pin: pin, isValid: ValidationState.valid));
     }
