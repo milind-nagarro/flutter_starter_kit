@@ -10,10 +10,9 @@ import '../../../../app/app_constant.dart';
 part 'verifypin_state.dart';
 
 class VerifypinCubit extends Cubit<VerifypinInitial> {
-  VerifypinCubit(this.loggedUser) : super(const VerifypinInitial());
-  final User loggedUser;
+  VerifypinCubit(this.fromLogin) : super(const VerifypinInitial());
   var maxTries = 3;
-
+  final bool fromLogin;
   pinUpdated(String pin) {
     final value = pin;
     if (value.length < 6) {
@@ -45,8 +44,11 @@ class VerifypinCubit extends Cubit<VerifypinInitial> {
   }
 
   nextScreen() {
-    // TODO: check if permission is already allowed go directly to dashboard
-    locator<AppRouter>().showPermissionScreen(PermissionType.location);
+    if (fromLogin) {
+      locator<AppRouter>().showPermissionScreen(PermissionType.location);
+    } else {
+      locator<AppRouter>().showDashboard();
+    }
   }
 
   Function()? nextStep() {

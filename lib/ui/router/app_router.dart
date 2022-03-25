@@ -56,9 +56,8 @@ class AppRouter {
     _navService.pushNamed(routes.confirmPin, args: pinData);
   }
 
-// TODO: use DI for logged user instead of passing the object everywhere
-  void showVerifyPin({User? user}) {
-    _navService.pushReplacementNamed(routes.verifyPin, args: user);
+  void showVerifyPin({required bool fromLogin}) {
+    _navService.pushReplacementNamed(routes.verifyPin, args: fromLogin);
   }
 
   void showVerificationScreen(List<dynamic> args) {

@@ -1,5 +1,6 @@
 import 'package:app_settings/app_settings.dart';
 import 'package:fab_nhl/app/di/locator.dart';
+import 'package:fab_nhl/app/prefs/local_storage.dart';
 import 'package:fab_nhl/app/resources/assets.dart';
 import 'package:fab_nhl/app/resources/colors.dart';
 import 'package:fab_nhl/app/resources/style.dart';
@@ -126,6 +127,7 @@ class _PermissionScreenState extends State<PermissionScreen>
     Location location = Location();
     PermissionStatus permission = await location.hasPermission();
     if (permission == PermissionStatus.granted) {
+      LocalStorage.storeFaceidPreference(true);
       _nextScreenLocation();
     }
   }

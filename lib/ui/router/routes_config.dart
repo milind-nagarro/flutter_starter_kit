@@ -70,7 +70,7 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     case verifyPin:
       return MaterialPageRoute(
           builder: (context) => VerifyPinScreen(
-                loggedUser: settings.arguments as User,
+                fromLogin: settings.arguments as bool,
               ));
     case permissionFaceid:
       return MaterialPageRoute(

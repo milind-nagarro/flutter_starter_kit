@@ -43,11 +43,11 @@ class _SplashScreenState extends State<SplashScreen> {
 
   _navigateToHome() async {
     await Future.delayed(const Duration(milliseconds: 3000));
-    // default language is english. check if user has changed it and set locale accordingly
     await LocalStorage.removeUserInfo();
     final loggedUserinfo = await LocalStorage.getUserInfo();
     debugPrint('loggeduserinfo $loggedUserinfo');
     if (loggedUserinfo == null) {
+      // default language is english. check if user has changed it and set locale accordingly
       final langPref = await LocalStorage.getLanguagePreference();
       locator<AppConfigHandler>().setLocale(
           langPref == AppLanguage.arabic.index ? localeAr : localeEn);
@@ -58,7 +58,9 @@ class _SplashScreenState extends State<SplashScreen> {
     } else {
       final loggedUser =
           User.fromJson(json.decode(loggedUserinfo) as Map<String, dynamic>);
-      locator<AppRouter>().showVerifyPin(user: loggedUser);
+      locator.registerLazySingleton(() =>
+          loggedUser); // storing logged user as singleton to be used anywhere
+      locator<AppRouter>().showVerifyPin(fromLogin: false);
     }
   }
 }
