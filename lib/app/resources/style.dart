@@ -125,6 +125,7 @@ class FABWidget {
   static AppBar appTopBar(
     String title, {
     bool hasCancel = false,
+    bool hidesBack = false,
     Function()? backAction,
     String? rightBtnTitle,
     Function()? rightBtnAction,
@@ -148,7 +149,8 @@ class FABWidget {
                       fontSize: 15.sp),
                 ),
               )
-            : BackButton(onPressed: backAction),
+            : (hidesBack ? null : BackButton(onPressed: backAction)),
+        automaticallyImplyLeading: !hidesBack,
         title: Text(
           title,
           textAlign: TextAlign.center,

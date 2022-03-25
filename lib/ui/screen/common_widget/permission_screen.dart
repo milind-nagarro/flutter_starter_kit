@@ -93,6 +93,7 @@ class _PermissionScreenState extends State<PermissionScreen>
     return Scaffold(
       backgroundColor: appBGColor,
       appBar: FABWidget.appTopBar(headerTitle,
+          hidesBack: true,
           rightBtnTitle: AppLocalizations.of(context).later,
           rightBtnAction: _onLaterClicked),
       body: column,

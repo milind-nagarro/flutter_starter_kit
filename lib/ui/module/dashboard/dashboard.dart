@@ -19,7 +19,8 @@ class Dashboard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: FABWidget.appTopBar(AppLocalizations.of(context).dashboard),
+        appBar: FABWidget.appTopBar(AppLocalizations.of(context).dashboard,
+            hidesBack: true),
         backgroundColor: appBGColor,
         body: SafeArea(
           child: Padding(

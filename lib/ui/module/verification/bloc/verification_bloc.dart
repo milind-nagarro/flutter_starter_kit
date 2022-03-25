@@ -1,5 +1,9 @@
+import 'dart:convert';
+
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:fab_nhl/app/prefs/local_storage.dart';
+import 'package:fab_nhl/data/remote/response/user_response.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
@@ -17,10 +21,11 @@ class VerificationBloc extends Bloc<VerificationEvent, VerificationState> {
   final CountdownController countdownController =
       CountdownController(autoStart: true);
   TextEditingController textController = TextEditingController();
-
+  final String? emailOrNumber;
   final bool isMobile;
   final bool isLogin;
-  VerificationBloc(this.isMobile, {this.isLogin = false})
+  late final User? loggedUser;
+  VerificationBloc(this.isMobile, this.emailOrNumber, {this.isLogin = false})
       : super(const VerificationState()) {
     on<ValueUpdated>(_onValueChanged);
     on<NextPressed>(_onNextPressed);
@@ -49,12 +54,24 @@ class VerificationBloc extends Bloc<VerificationEvent, VerificationState> {
         value: state.value, validationStatus: state.validationStatus));
     final value = state.value;
 
+    final verified = (value == '123456');
+    if (isLogin && verified && emailOrNumber != null) {
+      // these values (user model) will be returned from api response
+      var map = <String, String>{};
+      map['id'] = '123123123';
+      map['name'] = 'Husain';
+      map['phNumber'] = '+971$emailOrNumber';
+      map['pin'] = '123456';
+      final jsonStr = jsonEncode(map);
+      loggedUser = User.fromJson(map);
+
+      LocalStorage.storeUserInfo(jsonStr);
+    }
     emit(VerificationState(
         value: state.value,
         validationStatus: state.validationStatus,
-        serverValidationStatus: value == '123456'
-            ? ValidationState.valid
-            : ValidationState.invalid));
+        serverValidationStatus:
+            verified ? ValidationState.valid : ValidationState.invalid));
   }
 
   void _onTimeExpire(TimeExpireEvent event, Emitter<VerificationState> emit) {
@@ -97,7 +114,7 @@ class VerificationBloc extends Bloc<VerificationEvent, VerificationState> {
   navigateToNextScreen() {
     if (isMobile) {
       if (isLogin) {
-        locator<AppRouter>().showVerifyPin();
+        locator<AppRouter>().showVerifyPin(user: loggedUser);
       } else {
         locator<AppRouter>().showRegisterEmailScreen(isReplace: true);
       }
