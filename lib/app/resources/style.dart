@@ -278,20 +278,26 @@ class FABWidget {
               labelText: labelText,
               hintText: hintText,
               suffixIcon: suffixIcon,
-              labelStyle: FABStyles.textFieldTextStyle(textFieldLabelColor),
+              labelStyle: FABStyles.textFieldTextStyle( (errorText?.isEmpty ?? true) ? textFieldLabelColor : errorRed),
               prefixStyle: FABStyles.textFieldTextStyle(textFieldPrefixColor),
               hintStyle: FABStyles.textFieldTextStyle(textFieldHintText),
               errorMaxLines: 2),
         ),
         // to add custom error message with pink background
         Visibility(
-          visible: !["", null].contains(errorText),
+          visible: !(errorText?.isEmpty ?? true),//!["", null].contains(errorText),
           child: Container(
+              margin:  EdgeInsets.only(top : 4.h.toDouble()),
               decoration: const BoxDecoration(color: textFieldErrorBgColor),
               child: Padding(
-                  padding: const EdgeInsets.all(10),
-                  child: Text(errorText ?? '',
-                      style: FABStyles.textFieldTextStyle(Colors.red)))),
+                  padding: EdgeInsets.symmetric(vertical: 8.h.toDouble(),horizontal: 12.w.toDouble()),
+                  child: Text(errorText??'',
+                      style: TextStyle(
+                          fontFamily: themeFont,
+                          color: errorRed,
+                          fontWeight: FontWeight.w400,
+                          fontSize: 13.sp))
+              )),
         ),
       ],
     );
