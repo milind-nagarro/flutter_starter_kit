@@ -30,3 +30,5 @@ const textFieldHintText = Color.fromRGBO(135, 143, 158, 1);
 const textFieldErrorBgColor = Color.fromRGBO(255, 234, 235, 1);
 const textFieldBorderColor = Color.fromRGBO(0, 144, 255, 1);
 const textFieldBorderValidColor = Color.fromRGBO(0, 133, 133, 1);
+const btnBgLightWhite = Color.fromRGBO(231, 235, 255, 1);
+const btnTextBlueColor = Color.fromRGBO(0, 61, 166, 1);

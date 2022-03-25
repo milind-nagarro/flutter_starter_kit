@@ -9,12 +9,9 @@ import 'colors.dart';
 
 class FABStyles {
   // Style for buttons throughout the app
-  static ButtonStyle appStyleButton(Color primaryColor,
-      {Size? minSize, Color? highlightColor}) {
+  static ButtonStyle appStyleButton({Size? minSize}) {
     return ElevatedButton.styleFrom(
         primary: Colors.transparent,
-        /*primary: primaryColor,
-        onPrimary: highlightColor ?? Colors.white,*/
         shadowColor: Colors.transparent,
         elevation: 3,
         shape: RoundedRectangleBorder(
@@ -111,7 +108,8 @@ class FABWidget {
           Color? bgColor,
           Color? textColor,
           Size? minSize,
-          Color? highlightColor}) {
+          Color? highlightColor,
+          String? key}) {
     return Container(
       height: minSize?.height.h ?? 56.h,
       width: minSize?.width.w ?? 300.w,
@@ -128,8 +126,8 @@ class FABWidget {
           color:
               onPressed != null ? bgColor ?? primaryLabelColor : Colors.grey),
       child: ElevatedButton(
-        style: FABStyles.appStyleButton(bgColor ?? primaryLabelColor,
-            minSize: minSize),
+        key: Key(key ?? ""),
+        style: FABStyles.appStyleButton(minSize: minSize),
         onPressed: onPressed,
         child: Text(
           text,
@@ -237,6 +235,7 @@ class FABWidget {
   static Widget textField(
       {TextInputType? keyboardType,
       Function(String text)? onChange,
+      bool autoFocus = false,
       String? prefixText,
       String? labelText,
       String? hintText,
@@ -247,6 +246,7 @@ class FABWidget {
       children: [
         TextField(
           keyboardType: keyboardType,
+          autofocus: autoFocus,
           maxLength: (keyboardType == TextInputType.phone) ? 11 : null,
           onChanged: onChange,
           style: FABStyles.textFieldTextStyle(Colors.black),
@@ -270,29 +270,35 @@ class FABWidget {
                         children: [
                           Text(prefixText.isEmpty ? "" : prefixText),
                           10.horizontalSpace,
-                          Text("|",style: FABStyles.textFieldTextStyle(Colors.grey)),
+                          Text("|",
+                              style: FABStyles.textFieldTextStyle(Colors.grey)),
                         ],
                       ),
                     ),
               labelText: labelText,
               hintText: hintText,
               suffixIcon: suffixIcon,
-              labelStyle: FABStyles.textFieldTextStyle(textFieldLabelColor),
+              labelStyle: FABStyles.textFieldTextStyle( (errorText?.isEmpty ?? true) ? textFieldLabelColor : errorRed),
               prefixStyle: FABStyles.textFieldTextStyle(textFieldPrefixColor),
               hintStyle: FABStyles.textFieldTextStyle(textFieldHintText),
               errorMaxLines: 2),
         ),
         // to add custom error message with pink background
-         Visibility(
-           visible: !["", null].contains(errorText),
-           child: Container(
-            decoration: const BoxDecoration(color: textFieldErrorBgColor),
-             child: Padding(
-                padding: const EdgeInsets.all(10),
-                child: Text(errorText??'',
-                style: FABStyles.textFieldTextStyle(Colors.red))
-           )),
-         ),
+        Visibility(
+          visible: !(errorText?.isEmpty ?? true),//!["", null].contains(errorText),
+          child: Container(
+              margin:  EdgeInsets.only(top : 4.h.toDouble()),
+              decoration: const BoxDecoration(color: textFieldErrorBgColor),
+              child: Padding(
+                  padding: EdgeInsets.symmetric(vertical: 8.h.toDouble(),horizontal: 12.w.toDouble()),
+                  child: Text(errorText??'',
+                      style: TextStyle(
+                          fontFamily: themeFont,
+                          color: errorRed,
+                          fontWeight: FontWeight.w400,
+                          fontSize: 13.sp))
+              )),
+        ),
       ],
     );
   }
