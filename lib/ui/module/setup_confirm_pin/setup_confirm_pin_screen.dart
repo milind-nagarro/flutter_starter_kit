@@ -14,10 +14,15 @@ import '../../router/app_router.dart';
 import '../../screen/common_widget/permission_screen.dart';
 
 class SetupConfirmPinPage extends StatelessWidget {
-  SetupConfirmPinPage({Key? key, required this.isConfirmation, this.pinData})
+  SetupConfirmPinPage(
+      {Key? key,
+      this.isForgotPinFlow = false,
+      required this.isConfirmation,
+      this.pinData})
       : super(key: key);
   final bool isConfirmation;
   final String? pinData;
+  final bool isForgotPinFlow;
 
   final TextEditingController textController = TextEditingController();
   final FocusNode focusNode = FocusNode();
@@ -34,11 +39,16 @@ class SetupConfirmPinPage extends StatelessWidget {
             isConfirmation
                 ? AppLocalizations.of(context).confirm_pin_code
                 : AppLocalizations.of(context).pin_code,
-            hasCancel: isConfirmation ? false : true, backAction: () {
-          if (!isConfirmation) {
-            handleBackPress(context);
-          } else {
+            hasCancel: isConfirmation || isForgotPinFlow ? false : true,
+            backAction: () {
+          if (isForgotPinFlow) {
             Navigator.of(context).pop();
+          } else {
+            if (!isConfirmation) {
+              handleBackPress(context);
+            } else {
+              Navigator.of(context).pop();
+            }
           }
         }),
         body: BlocConsumer<SetupConfirmPinBloc, SetupConfirmPinState>(

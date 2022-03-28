@@ -2,6 +2,7 @@ import 'package:fab_nhl/app/resources/colors.dart';
 import 'package:fab_nhl/app/resources/style.dart';
 import 'package:fab_nhl/data/remote/response/user_response.dart';
 import 'package:fab_nhl/ui/module/verify_pin/cubit/verifypin_cubit.dart';
+import 'package:fab_nhl/ui/router/app_router.dart';
 import 'package:fab_nhl/ui/screen/common_widget/pinput/pinput.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -10,6 +11,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../app/app_constant.dart';
+import '../../../app/di/locator.dart';
 
 class VerifyPinScreen extends StatelessWidget {
   const VerifyPinScreen({Key? key, required this.loggedUser}) : super(key: key);
@@ -91,7 +93,8 @@ class VerifyPinScreen extends StatelessWidget {
                     SizedBox(height: 16.h),
                     Align(
                         child: TextButton(
-                            onPressed: () => {},
+                            onPressed: () =>
+                                {locator<AppRouter>().showForgotPinScreen()},
                             child: Text(
                               AppLocalizations.of(context).forgot_your_pin,
                               style: const TextStyle(color: borderColor),

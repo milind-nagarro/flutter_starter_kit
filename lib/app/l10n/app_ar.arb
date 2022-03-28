@@ -107,5 +107,7 @@
 
     "not_you" : "Not you?",
 
-    "dashboard" : "Dashboard"
+    "dashboard" : "Dashboard",
+
+    "forgot_pin" : "Forgot PIN"
 }

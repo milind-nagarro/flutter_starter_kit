@@ -12,9 +12,10 @@ import 'package:timer_count_down/timer_count_down.dart';
 /// widget to create verification screen
 /// pass constructor 'true' registering for mobile,'false' for email
 class Verification extends StatelessWidget {
-  Verification(this.argument, {Key? key}) : super(key: key);
+  Verification(this.argument, this.isForgotPin, {Key? key}) : super(key: key);
 
   final List<dynamic> argument;
+  final bool isForgotPin;
   final FocusNode focusNode = FocusNode();
 
   @override
@@ -120,7 +121,7 @@ class Verification extends StatelessWidget {
                   },
                   listener: (context, state) {
                     if (state.serverValidationStatus == ValidationState.valid) {
-                      verificationBloc.navigateToNextScreen();
+                      verificationBloc.navigateToNextScreen(isForgotPin);
                     }
                   },
                 ),

@@ -111,15 +111,19 @@ class VerificationBloc extends Bloc<VerificationEvent, VerificationState> {
     }
   }
 
-  navigateToNextScreen() {
-    if (isMobile) {
-      if (isLogin) {
-        locator<AppRouter>().showVerifyPin(user: loggedUser);
+  navigateToNextScreen(bool isForgotPinFlow) {
+    if (!isForgotPinFlow) {
+      if (isMobile) {
+        if (isLogin) {
+          locator<AppRouter>().showVerifyPin(user: loggedUser);
+        } else {
+          locator<AppRouter>().showRegisterEmailScreen(isReplace: true);
+        }
       } else {
-        locator<AppRouter>().showRegisterEmailScreen(isReplace: true);
+        locator<AppRouter>().showSetupPin();
       }
     } else {
-      locator<AppRouter>().showSetupPin();
+      locator<AppRouter>().showSetupPinForgotPin();
     }
   }
 

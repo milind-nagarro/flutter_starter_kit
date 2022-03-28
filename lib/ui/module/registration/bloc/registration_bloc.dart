@@ -65,10 +65,17 @@ class RegistrationBloc extends Bloc<RegistrationEvent, RegistrationState> {
     }
   }
 
-  navigateToNextScreen() {
-    locator<AppRouter>().showVerificationScreen([
-      isMobile,
-      isMobile ? uaeCode + " " + state.value.toString() : state.value
-    ]);
+  navigateToNextScreen(bool isForgotPinFlow) {
+    if (isForgotPinFlow) {
+      locator<AppRouter>().showVerificationForgotPin([
+        isMobile,
+        isMobile ? uaeCode + " " + state.value.toString() : state.value
+      ]);
+    } else {
+      locator<AppRouter>().showVerificationScreen([
+        isMobile,
+        isMobile ? uaeCode + " " + state.value.toString() : state.value
+      ]);
+    }
   }
 }

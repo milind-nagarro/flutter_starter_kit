@@ -12,15 +12,18 @@ import 'bloc/registration_bloc.dart';
 /// widget to create register mobile and email screen
 /// pass constructor 'true' registering for mobile,'false' for email
 class Register extends StatelessWidget {
-  const Register(this.isMobile);
+  const Register(this.isMobile, {this.isForgotPinFlow = false});
   final bool isMobile;
+  final bool isForgotPinFlow;
 
   @override
   Widget build(BuildContext context) {
     RegistrationBloc registrationBloc = RegistrationBloc(isMobile);
 
     return Scaffold(
-        appBar: FABWidget.appTopBar(AppLocalizations.of(context).register),
+        appBar: FABWidget.appTopBar(isForgotPinFlow
+            ? AppLocalizations.of(context).forgot_pin
+            : AppLocalizations.of(context).register),
         backgroundColor: appBGColor,
         body: SafeArea(
           child: Padding(
@@ -90,7 +93,7 @@ class Register extends StatelessWidget {
                 ]);
               }, listener: (context, state) {
                 if (state.registrationStatus == ValidationState.valid) {
-                  registrationBloc.navigateToNextScreen();
+                  registrationBloc.navigateToNextScreen(isForgotPinFlow);
                 }
               }),
             ),

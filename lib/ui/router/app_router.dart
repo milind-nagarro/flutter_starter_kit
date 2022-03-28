@@ -87,4 +87,16 @@ class AppRouter {
   void navigateUserBackToRegisterMobile() {
     _navService.pushNamedAndRemoveUntil(routes.registerMobile);
   }
+
+  void showForgotPinScreen() {
+    _navService.pushNamed(routes.forgotPin);
+  }
+
+  void showVerificationForgotPin(List<dynamic> args) {
+    _navService.pushNamed(routes.verificationForgotPin, args: args);
+  }
+
+  void showSetupPinForgotPin() {
+    _navService.pushNamed(routes.setupPinForgotPin);
+  }
 }

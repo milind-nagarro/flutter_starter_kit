@@ -25,10 +25,13 @@ const String registerEmail = 'register_email';
 const String splash = 'splash';
 const String setupPin = 'setupPin';
 const String confirmPin = 'confirmPin';
+const String setupPinForgotPin = 'verifySetupPin';
 const String verifyPin = 'verifyPin';
 const String verification = 'verification';
 const String permissionLocation = 'permissionLocation';
 const String permissionFaceid = 'permissionFaceid';
+const String forgotPin = "forgotPin";
+const String verificationForgotPin = "verificationForgotPin";
 
 // define initial route
 String get initialRoute => splash;
@@ -55,6 +58,12 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return MaterialPageRoute(
           builder: (context) => SetupConfirmPinPage(
               isConfirmation: true, pinData: settings.arguments as String));
+    case setupPinForgotPin:
+      return MaterialPageRoute(
+          builder: (context) => SetupConfirmPinPage(
+                isForgotPinFlow: true,
+                isConfirmation: false,
+              ));
     case loginScreen:
       return MaterialPageRoute(builder: (context) => const LoginScreen());
     case registerMobile:
@@ -64,7 +73,7 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     case verification:
       return MaterialPageRoute(
           builder: (context) =>
-              Verification(settings.arguments as List<dynamic>));
+              Verification(settings.arguments as List<dynamic>, false));
     case splash:
       return MaterialPageRoute(builder: (context) => const SplashScreen());
     case verifyPin:
@@ -80,6 +89,13 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return MaterialPageRoute(
           builder: (context) =>
               const PermissionScreen(type: PermissionType.location));
+    case forgotPin:
+      return MaterialPageRoute(
+          builder: (context) => const Register(true, isForgotPinFlow: true));
+    case verificationForgotPin:
+      return MaterialPageRoute(
+          builder: (context) =>
+              Verification(settings.arguments as List<dynamic>, true));
     default:
       return MaterialPageRoute(
         builder: (context) => Scaffold(
