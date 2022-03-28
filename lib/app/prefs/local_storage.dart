@@ -35,6 +35,18 @@ class LocalStorage {
     int? lang = await _SharedPreferenceStorage.getInt(key_language_preference);
     return lang ?? 0;
   }
+
+  /// store location preference
+  static storeFaceidPreference(bool permission) async {
+    await _SharedPreferenceStorage.storeBool(key_faceid_preference, permission);
+  }
+
+  /// get location preference
+  static Future<bool> getFaceidPreference() async {
+    bool? permission =
+        await _SharedPreferenceStorage.getBool(key_faceid_preference);
+    return permission ?? false;
+  }
 }
 
 /// Static methods for storing and retreiving values from sharedpreferences/userdefaults

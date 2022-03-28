@@ -1,5 +1,6 @@
 import 'package:app_settings/app_settings.dart';
 import 'package:fab_nhl/app/di/locator.dart';
+import 'package:fab_nhl/app/prefs/local_storage.dart';
 import 'package:fab_nhl/app/resources/assets.dart';
 import 'package:fab_nhl/app/resources/colors.dart';
 import 'package:fab_nhl/app/resources/style.dart';
@@ -184,6 +185,7 @@ class _PermissionScreenState extends State<PermissionScreen>
       bool isAuthenticated =
           await BioMetricAuthentication.authenticateWithBiometrics();
       if (isAuthenticated) {
+        await LocalStorage.storeFaceidPreference(true);
         locator<AppRouter>().showDashboard();
       } else {
         debugPrint("isAuthenticated failed");

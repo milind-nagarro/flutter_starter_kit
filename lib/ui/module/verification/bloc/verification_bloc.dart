@@ -64,7 +64,7 @@ class VerificationBloc extends Bloc<VerificationEvent, VerificationState> {
       map['pin'] = '123456';
       final jsonStr = jsonEncode(map);
       loggedUser = User.fromJson(map);
-
+      locator.registerLazySingleton(() => loggedUser!);
       LocalStorage.storeUserInfo(jsonStr);
     }
     emit(VerificationState(
@@ -115,7 +115,7 @@ class VerificationBloc extends Bloc<VerificationEvent, VerificationState> {
     if (!isForgotPinFlow) {
       if (isMobile) {
         if (isLogin) {
-          locator<AppRouter>().showVerifyPin(user: loggedUser);
+          locator<AppRouter>().showVerifyPin(fromLogin: true);
         } else {
           locator<AppRouter>().showRegisterEmailScreen(isReplace: true);
         }

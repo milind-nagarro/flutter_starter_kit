@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:fab_nhl/app/app_constant.dart';
 import 'package:fab_nhl/app/di/locator.dart';
+import 'package:fab_nhl/app/ids/keys_widget.dart';
 import 'package:fab_nhl/app/resources/assets.dart';
 import 'package:fab_nhl/app/resources/colors.dart';
 import 'package:fab_nhl/app/resources/style.dart';
@@ -38,6 +39,7 @@ class WelcomeScreen extends StatelessWidget {
           onPressed: () => {locator<AppRouter>().showRegisterMobileScreen()},
           bgColor: buttonGradientEnd,
           minSize: const Size(btnWidth, btnHeight),
+          key : registerButton,
         ),
         Padding(
           padding: EdgeInsets.only(top: 15.h),
@@ -48,6 +50,7 @@ class WelcomeScreen extends StatelessWidget {
             bgColor: btnBgLightWhite,
             textColor: btnTextBlueColor,
             minSize: const Size(btnWidth, btnHeight),
+            key : loginButton,
           ),
         ),
       ],
@@ -66,6 +69,7 @@ class WelcomeScreen extends StatelessWidget {
               children: [
                 Image.asset(topLogo),
                 TextButton(
+                    key : const Key(changeLanguageButton),
                     style: ElevatedButton.styleFrom(
                       primary: Colors.transparent,
                       onPrimary: Colors.grey,

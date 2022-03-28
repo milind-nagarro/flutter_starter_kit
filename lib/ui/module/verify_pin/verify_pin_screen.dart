@@ -1,3 +1,4 @@
+import 'package:fab_nhl/app/di/locator.dart';
 import 'package:fab_nhl/app/resources/colors.dart';
 import 'package:fab_nhl/app/resources/style.dart';
 import 'package:fab_nhl/data/remote/response/user_response.dart';
@@ -14,15 +15,15 @@ import '../../../app/app_constant.dart';
 import '../../../app/di/locator.dart';
 
 class VerifyPinScreen extends StatelessWidget {
-  const VerifyPinScreen({Key? key, required this.loggedUser}) : super(key: key);
-  final User loggedUser;
+  const VerifyPinScreen({Key? key, this.fromLogin = false}) : super(key: key);
+  final bool fromLogin;
   @override
   Widget build(BuildContext context) {
     TextEditingController textController = TextEditingController();
     FocusNode focusNode = FocusNode();
 
     return BlocProvider(
-      create: (context) => VerifypinCubit(loggedUser),
+      create: (context) => VerifypinCubit(fromLogin),
       child: Scaffold(
         appBar: FABWidget.appTopBar(AppLocalizations.of(context).login,
             hidesBack: true /*(userJson != null)*/,
@@ -39,7 +40,8 @@ class VerifyPinScreen extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('${AppLocalizations.of(context).welcome_back}',
+                    Text(
+                        '${AppLocalizations.of(context).welcome_back} ${locator<User>().name}!',
                         style: FABStyles.appStyleHeaderText(header)),
                     SizedBox(height: 8.h),
                     Text(

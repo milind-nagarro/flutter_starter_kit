@@ -241,10 +241,12 @@ class FABWidget {
       String? hintText,
       String? errorText,
       Widget? suffixIcon,
-      Color? borderColor}) {
+      Color? borderColor,
+      String? key}) {
     return Column(
       children: [
         TextField(
+          key: Key(key ?? ""),
           keyboardType: keyboardType,
           autofocus: autoFocus,
           maxLength: (keyboardType == TextInputType.phone) ? 11 : null,

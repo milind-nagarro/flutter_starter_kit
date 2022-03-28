@@ -1,18 +1,54 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:fab_nhl/app/biometric_authenticator.dart';
 import 'package:fab_nhl/app/di/locator.dart';
+import 'package:fab_nhl/app/prefs/local_storage.dart';
+import 'package:fab_nhl/app/resources/style.dart';
 import 'package:fab_nhl/data/remote/response/user_response.dart';
 import 'package:fab_nhl/ui/router/app_router.dart';
 import 'package:fab_nhl/ui/screen/common_widget/permission_screen.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
 
 import '../../../../app/app_constant.dart';
 
 part 'verifypin_state.dart';
 
 class VerifypinCubit extends Cubit<VerifypinInitial> {
-  VerifypinCubit(this.loggedUser) : super(const VerifypinInitial());
-  final User loggedUser;
+  VerifypinCubit(this.fromLogin) : super(const VerifypinInitial()) {
+    if (!fromLogin) {
+      _checkFaceIdPreference();
+    }
+  }
+
+  _checkFaceIdPreference() async {
+    final faceIdPref = await LocalStorage.getFaceidPreference();
+    if (faceIdPref) {
+      _faceidAuthentication();
+    }
+  }
+
+  _faceidAuthentication() async {
+    try {
+      bool isAuthenticated =
+          await BioMetricAuthentication.authenticateWithBiometrics();
+      if (isAuthenticated) {
+        locator<AppRouter>().showDashboard();
+      } else {
+        debugPrint("isAuthenticated failed");
+      }
+    } on PlatformException catch (e) {
+      // TODO: show alert on widget
+      // FABWidget.showAlertDialog(
+      //   context,
+      //   e.message.toString(),
+      //   AppLocalizations.of(context).ok,
+      // );
+    }
+  }
+
   var maxTries = 3;
+  final bool fromLogin;
 
   pinUpdated(String pin) {
     final value = pin;
@@ -24,7 +60,7 @@ class VerifypinCubit extends Cubit<VerifypinInitial> {
   }
 
   verifyPin() {
-    if (state.pin == "123456") {
+    if (state.pin == locator<User>().pin) {
       nextScreen();
       emit(VerifypinInitial(
           pin: state.pin, isValid: ValidationState.valid, isVerified: true));
@@ -45,12 +81,14 @@ class VerifypinCubit extends Cubit<VerifypinInitial> {
   }
 
   nextScreen() {
-    // TODO: check if permission is already allowed go directly to dashboard
-    locator<AppRouter>().showPermissionScreen(PermissionType.location);
+    if (fromLogin) {
+      locator<AppRouter>().showPermissionScreen(PermissionType.location);
+    } else {
+      locator<AppRouter>().showDashboard();
+    }
   }
 
   Function()? nextStep() {
-    print("state ${state.isValid}");
     if (state.isValid == ValidationState.valid) {
       if (state.isVerified == false) {
         return null;
