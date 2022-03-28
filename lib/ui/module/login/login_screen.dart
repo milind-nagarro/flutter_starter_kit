@@ -1,3 +1,4 @@
+import 'package:fab_nhl/app/ids/keys_widget.dart';
 import 'package:fab_nhl/app/resources/assets.dart';
 import 'package:fab_nhl/app/resources/colors.dart';
 import 'package:fab_nhl/app/resources/style.dart';
@@ -51,6 +52,7 @@ class LoginScreen extends StatelessWidget {
                     ),
                     SizedBox(height: 40.h),
                     FABWidget.textField(
+                        key : phoneNumberField,
                         keyboardType: TextInputType.phone,
                         autoFocus: true,
                         onChange: (text) {
@@ -102,7 +104,8 @@ class LoginScreen extends StatelessWidget {
                       alignment: FractionalOffset.bottomCenter,
                       child: FABWidget.appButton(
                           AppLocalizations.of(context).next,
-                          onPressed: nextStep(context, state))),
+                          onPressed: nextStep(context, state),
+                          key : nextLoginButton)),
                 ),
               ]),
             ),
